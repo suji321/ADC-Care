@@ -10,3 +10,7 @@ class Doctors(models.Model):
     role = models.CharField(max_length=200, null=True)
     specialisation = models.CharField(max_length=200, null=True)
     address= models.CharField(max_length=200, null=True)
+
+    def __str__(self):
+	    return self.dname
+
