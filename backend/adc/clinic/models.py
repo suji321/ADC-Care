@@ -15,4 +15,11 @@ class MedicalHistory(models.Model):
     def __str__(self):
 	    return self.remarks
 
-        
+class Schedule(models.Model):
+    STATUS = ( ('Confirmed','Confirmed'), ('Cancel','Cancel'), ('Reschedule','Reschedule'), ('Attended','Attended'))
+    scheduleDate = models.DateField()
+    scheduleTime = models.TimeField()
+    status = models.CharField(null=True, max_length=10, choices=STATUS)
+    patient =  models.ForeignKey(Patient, null=True, on_delete= models.CASCADE)
+    doctor = models.ForeignKey(Doctors, null=True, on_delete=models.CASCADE)
+
