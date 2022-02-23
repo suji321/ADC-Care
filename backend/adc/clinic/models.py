@@ -1,3 +1,4 @@
+from telnetlib import STATUS
 from django.db import models
 from doctors.models import Doctors
 
@@ -22,4 +23,13 @@ class Schedule(models.Model):
     status = models.CharField(null=True, max_length=10, choices=STATUS)
     patient =  models.ForeignKey(Patient, null=True, on_delete= models.CASCADE)
     doctor = models.ForeignKey(Doctors, null=True, on_delete=models.CASCADE)
+
+
+class BillInfo(models.Model):
+    STATUS=(('Paid','Paid'),('Not Paid','Not Paid'))
+    patient =  models.ForeignKey(Patient, null=True, on_delete= models.CASCADE)
+    doctor = models.ForeignKey(Doctors, null=True, on_delete=models.CASCADE)
+    bdate=models.DateField()
+    payment=models.CharField(max_length=200,null=True)
+    status=models.CharField(null=True, max_length=10, choices=STATUS)
 
