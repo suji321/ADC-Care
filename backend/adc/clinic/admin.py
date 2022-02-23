@@ -5,3 +5,4 @@ from .models import*
 admin.site.register(MedicalHistory)
 admin.site.register(Schedule)
 admin.site.register(BillInfo)
+admin.site.register(Prescription)

@@ -33,3 +33,11 @@ class BillInfo(models.Model):
     payment=models.CharField(max_length=200,null=True)
     status=models.CharField(null=True, max_length=10, choices=STATUS)
 
+
+class Prescription(models.Model):
+    name = models.CharField(max_length=30)
+    frequency = models.CharField(max_length=60)
+    direction = models.CharField(max_length=150)
+    remarks = models.CharField(max_length=100)
+    patient =  models.ForeignKey(Patient, null=True, on_delete= models.CASCADE)
+    doctor = models.ForeignKey(Doctors, null=True, on_delete=models.CASCADE)
