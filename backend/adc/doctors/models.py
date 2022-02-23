@@ -1,7 +1,6 @@
 from django.db import models
 
 # Create your models here.
-
 class Doctors(models.Model):
     dname = models.CharField(max_length=200, null=True)
     phone = models.CharField(max_length=200, null=True)
@@ -13,4 +12,3 @@ class Doctors(models.Model):
 
     def __str__(self):
 	    return self.dname
-
