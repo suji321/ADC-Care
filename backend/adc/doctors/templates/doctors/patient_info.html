@@ -19,21 +19,20 @@
     <table>
         <tr>
             <th>remarks</th>
-            <th>name</th>
+       
             <th>doctor</th>
             <th>date</th>
-            <th>frequency</th>
+           
             <th>direction</th>
         </tr>
          {% for mh in mh %}
 
         <tr>
             <td>{{mh.remarks}}</td>
-            <td>{{mh.name}}</td>
+          
             <td>{{mh.doctor.dname}}</td>
-            <td>{{mh.patient.pname}}</td>
-           
-            <td>{{mh.frequency}}</td>
+            <td>{{mh.date_created}}</td>
+          
             <td>{{mh.direction}}</td>
 
         </tr> 

@@ -35,9 +35,10 @@ class BillInfo(models.Model):
 
 
 class Prescription(models.Model):
-    name = models.CharField(max_length=30)
-    frequency = models.CharField(max_length=60)
+    # name = models.CharField(max_length=30)
+    # frequency = models.CharField(max_length=60)
     direction = models.CharField(max_length=150)
     remarks = models.CharField(max_length=100)
     patient =  models.ForeignKey(Patient, null=True, on_delete= models.CASCADE)
     doctor = models.ForeignKey(Doctors, null=True, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
