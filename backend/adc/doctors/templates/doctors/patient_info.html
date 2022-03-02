@@ -17,12 +17,14 @@
     <h4> Prescription</h4>
 
     <table>
-        <!-- <tr>
+        <tr>
             <th>remarks</th>
-            <th>report</th>
+            <th>name</th>
             <th>doctor</th>
             <th>date</th>
-        </tr> -->
+            <th>frequency</th>
+            <th>direction</th>
+        </tr>
          {% for mh in mh %}
 
         <tr>
@@ -43,6 +45,15 @@
 
         <h4>Medical History</h4>
 
+        <tr>
+            <th>remarks</th>
+            <th>report</th>
+            <th>date created</th>
+            <th>patient</th>
+            <th>doctor</th>
+           
+        </tr>
+
         {% for mh in medihis %}
 
         <tr>
@@ -59,6 +70,14 @@
     <table>
 
         <h4>Bill Information</h4>
+        <tr>
+            <th>payment</th>
+            <th>status</th>
+            <th>date created</th>
+            <th>patient</th>
+            <th>doctor</th>
+           
+        </tr>
 
         {% for bi in bi %}
 
