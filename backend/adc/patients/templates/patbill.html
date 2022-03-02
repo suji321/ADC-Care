@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Patient Bill</title>
+    </head>
+    <body>
+        {% for bills in bill %}
+        <h2>{{bills.bdate}}</h2>
+        <h2>{{bills.patient}}</h2>
+        <h2>{{bills.doctor}}</h2>
+        <h2>{{bills.payment}}</h2>
+        <h2>{{bills.status}}</h2>
+        {% endfor %}
+    </body>
+</html>

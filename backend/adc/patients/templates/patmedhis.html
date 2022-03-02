@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Patient Medical History</title>
+    </head>
+    <body>
+        {% for infos in info %}
+        <h2>{{infos.patient}}</h2>
+        <h2>{{infos.date_created}}</h2>
+        <h2>{{infos.remarks}}</h2>
+        <h2>{{infos.report}}</h2>
+        <h2>{{infos.doctor}}</h2>
+        {% endfor %}
+    </body>
+</html>
