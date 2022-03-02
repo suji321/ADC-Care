@@ -14,8 +14,9 @@ def patientinfo(request,pk_t):
     mh = p.prescription_set.all()
     medihis = p.medicalhistory_set.all()        
     bi = p.billinfo_set.all()
+    sch = p.schedule_set.all()
 
     
-    context= {'p':p,'mh':mh,'medihis':medihis,'bi':bi}
+    context= {'p':p,'mh':mh,'medihis':medihis,'bi':bi,'sch':sch}
     return render(request, 'doctors/patient_info.html',context)
 
