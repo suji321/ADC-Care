@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Patient Landing Page</title>
+    </head>
+    <body>
+        <h1>Patient Portal</h1>
+        <table>
+            <tr>
+                <th>Name    </th>
+                <th>Your Info  </th>
+                <th>Medical History      </th>
+                <th>Bill</th>
+                 <th>Prescription</th>
+            </tr>
+            {% for p in p %}
+            <tr>
+             <td>{{p.pname}}</td>
+             <td><a href="{% url 'info' p.id %}">View</a></td>
+             <td><a href="{% url 'medhis' p.id %}">View</a></td>
+             <td><a href="{% url 'bill' p.id %}">View</a></td>
+             <td><a href="{% url 'prescrip' p.id %}">View</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

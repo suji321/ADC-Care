@@ -1,4 +1,4 @@
-from telnetlib import STATUS
+
 from django.db import models
 from doctors.models import Doctors
 
@@ -17,7 +17,7 @@ class MedicalHistory(models.Model):
 	    return self.remarks
 
 class Schedule(models.Model):
-    STATUS = ( ('Confirmed','Confirmed'), ('Cancel','Cancel'), ('Reschedule','Reschedule'), ('Attended','Attended'))
+    STATUS = ( ('Confirmed','Confirmed'), ('Cancel','Cancel'), ('Reschedule','Reschedule'), ('Attended','Attended'), ('Pending','Pending'))
     scheduleDate = models.DateField()
     scheduleTime = models.TimeField()
     status = models.CharField(null=True, max_length=10, choices=STATUS)
