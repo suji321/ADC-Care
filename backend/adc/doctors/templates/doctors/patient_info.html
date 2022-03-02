@@ -92,6 +92,31 @@
         {% endfor %}
     </table>
     
+    
+    <table>
+
+        <h4>Schedule</h4>
+        <tr>
+            <th>Schedule Date</th>
+            <th>Schedule Time</th>
+            <th>Status</th>
+            <th>patient</th>
+            <th>doctor</th>
+           
+        </tr>
+
+        {% for bi in sch %}
+
+        <tr>
+            <td>{{bi.scheduleDate}}</td>
+            <td>{{bi.scheduleTime}}</td>
+            <td>{{bi.status}}</td>
+            <td>{{bi.patient.pname}}</td>
+            <td>{{bi.doctor.dname}}</td>
+        </tr> 
+          
+        {% endfor %}
+    </table>
 
 </body>
 </html>
