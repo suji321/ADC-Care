@@ -13,6 +13,63 @@
     <h2>{{p.email}}</h2>
     <h2>{{p.address}}</h2>
     <h2>{{p.phone}}</h2>
+
+    <table>
+        <!-- <tr>
+            <th>remarks</th>
+            <th>report</th>
+            <th>doctor</th>
+            <th>date</th>
+        </tr> -->
+         {% for mh in mh %}
+
+        <tr>
+            <td>{{mh.remarks}}</td>
+            <td>{{mh.name}}</td>
+            <td>{{mh.doctor.dname}}</td>
+            <td>{{mh.patient.pname}}</td>
+           
+            <td>{{mh.frequency}}</td>
+            <td>{{mh.direction}}</td>
+
+        </tr> 
+
+        {% endfor %}
+
+    </table>
+    <table>
+
+        <h4>Medical History</h4>
+
+        {% for mh in medihis %}
+
+        <tr>
+            <td>{{mh.remarks}}</td>
+            <td>{{mh.report}}</td>
+            <td>{{mh.date_created}}</td>
+            <td>{{mh.patient.pname}}</td>
+            <td>{{mh.doctor.dname}}</td>
+        </tr> 
+          
+        {% endfor %}
+    </table>
+
+    <table>
+
+        <h4>Bill Information</h4>
+
+        {% for bi in bi %}
+
+        <tr>
+            <td>{{bi.payment}}</td>
+            <td>{{bi.status}}</td>
+            <td>{{bi.bdate}}</td>
+            <td>{{bi.patient.pname}}</td>
+            <td>{{bi.doctor.dname}}</td>
+        </tr> 
+          
+        {% endfor %}
+    </table>
     
 
 </body>
