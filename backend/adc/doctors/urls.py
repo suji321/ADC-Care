@@ -6,5 +6,8 @@ urlpatterns = [
     
     path('patlist/', views.patientlist),
     path('pat/<str:pk_t>/', views.patientinfo,name="pat"),
+    path('create_prescription/',views.createprescription,name="crtprc"),
+    path('billinfo_form/',views.createbillinfo,name="crtbill")
+
     
 ]
