@@ -15,6 +15,9 @@
     <h2>{{p.phone}}</h2>
 
     <h4> Prescription</h4>
+    <form action="" method="get">
+        {{prescfilter.form}}
+        <button type="Submit">Search</button>    
 
     <table>
         <tr>
@@ -40,9 +43,16 @@
         {% endfor %}
 
     </table>
+    <br><br>
+    <h4>Medical History</h4>
+
+    <form action="" method="get">
+        {{medfilter.form}}
+        <button type="Submit">Search</button>    
+    </form>
     <table>
 
-        <h4>Medical History</h4>
+      
 
         <tr>
             <th>remarks</th>
@@ -65,10 +75,17 @@
           
         {% endfor %}
     </table>
+    <br><br>
+    
+    <h4>Bill Information</h4>
+
+    <form action="" method="get">
+        {{bfilter.form}}
+        <button type="Submit">Search</button>    
+    </form>
 
     <table>
 
-        <h4>Bill Information</h4>
         <tr>
             <th>payment</th>
             <th>status</th>
@@ -90,11 +107,19 @@
           
         {% endfor %}
     </table>
+    <br><br>
+    <h4>Schedule</h4>
     
+
+<form action="" method="get">
+    {{schfilter.form}}
+    <button type="Submit">Search</button>    
+</form>
+
     
     <table>
 
-        <h4>Schedule</h4>
+    
         <tr>
             <th>Schedule Date</th>
             <th>Schedule Time</th>

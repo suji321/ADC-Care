@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'doctors',
     'clinic',
     'patients',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
