@@ -1,0 +1,280 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins';
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.patientTitle {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Doctor's Home section */
+.doctorHomeMain {
+    width: 100vw;
+    min-height: 100vh;
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    /* background-color: rgba(182, 182, 182, 0.459); */
+    /* padding: 20px; */
+    overflow-x: hidden;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.navDoctor {
+    width: 92%;
+    height: 60px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    margin: 20px 0;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    transition: top 0.3s;
+    box-shadow: rgba(17,17,26,0.1)0px 0px 16px;
+}
+
+.navDoctor li{
+    list-style: none;
+    background-color: dodgerblue;
+    padding: 8px 20px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navDoctor li:hover {
+    border: 1px solid dodgerblue;
+    background-color: white;
+    color: dodgerblue;
+    transition: all 0.3s ease-in-out;
+}
+
+.navDoctor li i{
+    margin-right: 0.5rem;
+}
+.navHamburger {
+    display: none;
+    position: fixed;
+    top: 25px;
+    cursor: pointer;
+    right: 25px;
+}
+.phoneNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: height ease-in-out 0.2s;
+    background: rgba( 0, 0, 0, 0.6 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 5px );
+-webkit-backdrop-filter: blur( 5px );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.phoneNav li {
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.phoneNavOpen {
+    height: 200px;
+}
+.phoneNavClose {
+    height: 0;
+}
+.navHamClose {
+    color: white;
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+}
+.homeTitle {
+    display: none;
+}
+
+@media screen and (max-width: 700px) {
+    body{
+        font-size: 15px;
+    }
+    
+    .navDoctor li{
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+    .navDoctor {
+        display: none;
+    }
+    .phoneNav {
+        display: flex;
+    }
+    .navHamburger {
+        display: block;
+    }
+    .homeTitle {
+        display: block;
+        color: #494D50;
+    }
+}
+
+
+.dashboardContainer {
+    flex: 1;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    margin-top: 6rem;
+}
+.dashboardLeft{
+    flex: 0.8;
+    display: flex;
+    align-items: flex-start;
+    padding: 10px 20px;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.dashboardRight {
+    flex:0.2;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px 20px;
+    flex-direction: column;
+}
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+.dash{
+    color: #494D50;
+}
+
+.dashboardCard {
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px 0;
+    box-shadow: rgba(17,17,26,0.1)0px 0px 16px;
+}
+
+.dashCardItem {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.dashCardItem i {
+    color: dodgerblue;
+}
+.dashCardItem img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+}
+
+.reportCardContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.reportCard {
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    min-height: 60px;
+    margin-bottom: 10px ;
+    padding: 10px;
+    box-shadow: rgba(17,17,26,0.1)0px 0px 16px;
+}
+
+.billingDetails {
+    flex: 1;
+    width: 100%;
+}
+
+.report{
+    color: #494D50;
+}
+
+.appoint{
+    color: #494D50;
+}
+
+.bill{
+    color: #494D50;
+}
+
+.billingCardsContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction:column;
+}
+.billingCard {
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    box-shadow: rgba(17,17,26,0.1)0px 0px 16px;
+}
+
+.billingCard a{
+    text-decoration: none;
+    color: dodgerblue;
+}
+
+.billingCard p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.billingCard p i {
+    margin-right: 0.5rem;
+    color: dodgerblue;
+}
+
+/* End of doctor's home section */
+

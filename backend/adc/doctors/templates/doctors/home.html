@@ -1,0 +1,128 @@
+{% extends "doctors/base.html" %}
+
+{% block content %}
+    <div class="doctorHomeMain">
+        <div class="navDoctor">
+            <li><i class="material-icons">person</i>Patients</li>
+            <li><i class="material-icons">attach_money</i>Billing</li>
+            <li><i class="material-icons">today</i>Appointments</li>
+            <li><i class="material-icons">history</i>History</li>
+        </div>
+        <div id="navHamburger" class="navHamburger" onclick="openMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-justify"><line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line></svg>
+        </div>
+        <div id="phoneNav" class="phoneNav">
+            <div class="navHamClose" onclick="closeMenu()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </div>
+            <li><i class="material-icons">person</i>Patients</li>
+            <li><i class="material-icons">attach_money</i>Billing</li>
+            <li><i class="material-icons">today</i>Appointments</li>
+            <li><i class="material-icons">history</i>History</li>
+        </div>
+        <h1 class="homeTitle">ADC</h1>
+        <div class="dashboardContainer">
+            <div class="dashboardLeft">
+                <div class="dashboard">
+                    <h2 class="dash">Dashboard</h2>
+                    <div class="dashboardCard">
+                        <div class="dashCardItem">
+                         <i class="material-icons">medical_services</i>  Total Patients
+                            <small>1200</small>
+                        </div>
+                        <div class="dashCardItem">
+                            <i class="material-icons">groups</i> Total Staff
+                            <small>1500</small>
+                        </div>
+                        <div class="dashCardItem">
+                         <i class="material-icons">hotel</i>   Dental engines
+                            <small>1200</small>
+                        </div>
+                        <div class="dashCardItem">
+                          <i class="material-icons">vaccines</i>  Total Doctors
+                            <small>700</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="billingDetails">
+                    <h2 class="appoint">Appointments</h2>
+                    <div class="billingCardsContainer">
+                        <div class="billingCard">
+                            <span>1.</span>
+                            <p><i class="material-icons">face</i>Aleena</p>
+                            <date>22/12/2021</date>
+                            <a href="/">
+                                <p>See more details</p>
+                            </a>
+                        </div>
+                        <div class="billingCard">
+                            <span>2.</span>
+                            <p><i class="material-icons">face</i>Aleena</p>
+                            <date>22/12/2021</date>
+                            <a href="/">
+                                <p>See more details</p>
+                            </a>
+                        </div>
+                        <div class="billingCard">
+                            <span>3.</span>
+                            <p><i class="material-icons">face</i>Aleena</p>
+                            <date>22/12/2021</date>
+                            <a href="/">
+                                <p>See more details</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="billingDetails">
+                    <h2 class="bill">Billing details</h2>
+                    <div class="billingCardsContainer">
+                        <div class="billingCard">
+                            <span>1.</span>
+                            <p><i class="material-icons">face</i> Aleena</p>
+                            <date>22/12/2021</date>
+                            <a href="/">
+                                <p>See more details</p>
+                            </a>
+                        </div>
+                        <div class="billingCard">
+                            <span>2.</span>
+                            <p><i class="material-icons">face</i>Aleena</p>
+                            <date>22/12/2021</date>
+                            <a href="/">
+                                <p>See more details</p>
+                            </a>
+                        </div>
+                        <div class="billingCard">
+                            <span>3.</span>
+                            <p><i class="material-icons">face</i>Aleena</p>
+                            <date>22/12/2021</date>
+                            <a href="/">
+                                <p>See more details</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboardRight">
+                <h2 class="report">Reports</h2>
+                <div class="reportCardContainer">
+                <div class="reportCard">
+                    Patient Tanya has a severe toothache.
+                </div>
+                <div class="reportCard">
+                    Patient Tanya has a severe toothache.
+                </div>
+                <div class="reportCard">
+                    Patient Tanya has a severe toothache.
+                </div>
+                <div class="reportCard">
+                    Patient Tanya has a severe toothache.
+                </div>
+                <div class="reportCard">
+                    Patient Tanya has a severe toothache.
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -10,7 +10,11 @@ def patientlist(request):
     t_p = p.count()
     
     context={'p':p,'t_p':t_p}
+
     return render(request,'doctors/patient_list.html',context)
+
+def home(request):
+    return render(request,'doctors/home.html')
 
 def patientinfo(request,pk_t):
     p = Patient.objects.get(id=pk_t)
