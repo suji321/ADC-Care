@@ -16,6 +16,12 @@ def patientlist(request):
 def home(request):
     return render(request,'doctors/home.html')
 
+def login(request):
+    return render(request, 'doctors/login.html')
+
+def register(request):
+    return render(request, 'doctors/register.html')
+
 def patientinfo(request,pk_t):
     p = Patient.objects.get(id=pk_t)
     mh = p.prescription_set.all()

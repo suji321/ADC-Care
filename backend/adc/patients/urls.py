@@ -3,6 +3,8 @@ from patients import views
 
 urlpatterns = [
     path('patland/', views.patland),
+    path('login/', views.login),
+    path('register/', views.register),
     path('info/<str:pid>', views.patinfo, name='info'),
     path('medicalhistory/<str:pid>', views.patmedhis, name='medhis'),
     path('bill/<str:pid>', views.patbill, name='bill'),

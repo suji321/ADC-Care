@@ -6,6 +6,13 @@ def patland(request):
   p = Patient.objects.all()
   return render(request, 'patland.html', {'p':p})
 
+def login(request):
+  return render(request, 'login.html')
+
+def register(request):
+  return render(request, 'register.html')
+
+
 def patinfo(request, pid):
   p = Patient.objects.get(id = pid)
   return render(request, 'patinfo.html', {'p':p})
