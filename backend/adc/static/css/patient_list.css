@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  /* width: 100%; */
+  min-height: 100vh;
+  /* overflow: hidden; */
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  padding: 0 20px;
+}
+
+.patientTitle {
+  font-size: 27px;
+  position: relative;
+}
+
+.patientTitle-under {
+  width: 45px;
+  height: 4px;
+  border-radius: 20px;
+  background-color: dodgerblue;
+  position: absolute;
+  bottom: 0;
+}
+
+.patientListMain {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 130px;
+  margin-bottom: 20px;
+}
+
+.header .headerLinks {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .headerLinks a {
+  margin: 0 20px;
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  border-radius: 10px;
+  width: 150px;
+  height: 40px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.4s ease-in;
+  border: 0px solid dodgerblue;
+}
+
+.header .headerLinks a:hover {
+  border: 1px solid dodgerblue;
+}
+
+.adcTable {
+  display: flex;
+  flex-direction: column;
+}
+.adcTable .adcRow {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(180, 180, 180, 0.5);
+  padding: 10px 20px;
+}
+.adcTable .adcRow .adcCell {
+  width: 100%;
+  padding: 10px;
+}
+
+.adcTableContainer {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* margin: 30px 30px; */
+}
+
+.adcTable .adcHead {
+  border-bottom: none;
+  padding: 0 20px;
+}
+.adcHead .adcCell {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgb(150, 150, 150);
+  padding: 0;
+}
+
+.adcCell a {
+  text-decoration: none;
+}
+
+.adcRowBody {
+  /* background-color: white; */
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .adcTable {
+    width: 500px;
+    overflow-x: auto;
+    margin: 0 auto;
+  }
+  .header {
+    flex-direction: column;
+  }
+  .patientTitle {
+    margin-bottom: 10px;
+  }
+  .headerLinks {
+    flex-wrap: wrap;
+  }
+  .headerLinks a {
+    margin: 10px !important;
+  }
+}

@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" sans-serif;
+  text-decoration: none;
+  list-style-type: none;
+  overflow-x: hidden;
+}
+
+.patientTitle {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cards {
+  width: 100%;
+}
+
+/* Doctor's Home section */
+.doctorHomeMain {
+  width: 100vw;
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  /* background-color: rgba(182, 182, 182, 0.459); */
+  /* padding: 20px; */
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 70px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  /* background-color: #fff; */
+  /* background-clip: border-box; */
+  border: 0 solid transparent;
+  border-radius: 0.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+.me-2 {
+  margin-right: 0.5rem !important;
+}

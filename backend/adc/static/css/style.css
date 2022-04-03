@@ -12,6 +12,12 @@ body {
   font-weight: 600;
 }
 
+.logo {
+  width: 100px;
+  height: 50px;
+  margin-top: 20px;
+}
+
 /* Doctor's Home section */
 .doctorHomeMain {
   width: 100vw;
@@ -26,118 +32,24 @@ body {
   flex-direction: column;
 }
 
-.navDoctor {
-  width: 92%;
-  height: 60px;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border-radius: 10px;
-  margin: 20px 0;
-  position: fixed;
-  top: 0;
-  z-index: 10;
-  transition: top 0.3s;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+.dash {
+  font-size: 24px;
+  position: relative;
+  margin-bottom: 20px;
 }
 
-.navDoctor li {
-  list-style: none;
+.dashboard-under {
+  width: 45px;
+  height: 4px;
+  border-radius: 20px;
   background-color: dodgerblue;
-  padding: 8px 20px;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.navDoctor li:hover {
-  border: 1px solid dodgerblue;
-  background-color: white;
-  color: dodgerblue;
-  transition: all 0.3s ease-in-out;
-}
-
-.navDoctor li i {
-  margin-right: 0.5rem;
-}
-.navHamburger {
-  display: none;
-  position: fixed;
-  top: 25px;
-  cursor: pointer;
-  right: 25px;
-}
-.phoneNav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  height: 0;
-  overflow: hidden;
-  transition: height ease-in-out 0.2s;
-  background: rgba(0, 0, 0, 0.6);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-.phoneNav li {
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.phoneNavOpen {
-  height: 200px;
-}
-.phoneNavClose {
-  height: 0;
-}
-.navHamClose {
-  color: white;
   position: absolute;
-  top: 25px;
-  right: 25px;
-  cursor: pointer;
-}
-.homeTitle {
-  display: none;
+  bottom: 0;
 }
 
-@media screen and (max-width: 700px) {
-  body {
-    font-size: 15px;
-  }
-
-  .navDoctor li {
-    padding: 8px 10px;
-    font-size: 13px;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .navDoctor {
-    display: none;
-  }
-  .phoneNav {
-    display: flex;
-  }
-  .navHamburger {
-    display: block;
-  }
-  .homeTitle {
-    display: block;
-    color: #494d50;
-  }
+.appoint,
+.report {
+  font-size: 18px;
 }
 
 .dashboardContainer {
@@ -225,6 +137,7 @@ body {
 .billingDetails {
   flex: 1;
   width: 100%;
+  margin-top: 20px;
 }
 
 .report {
@@ -253,6 +166,7 @@ body {
   align-items: center;
   justify-content: space-around;
   margin-bottom: 10px;
+  min-height: 50px;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 }
 

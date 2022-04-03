@@ -22,6 +22,12 @@ def login(request):
 def register(request):
     return render(request, 'doctors/register.html')
 
+def profile(request):
+    return render(request, 'doctors/profile.html')
+
+def profileEdit(request):
+    return render(request, 'doctors/edit.html')
+
 def patientinfo(request,pk_t):
     p = Patient.objects.get(id=pk_t)
     mh = p.prescription_set.all()
