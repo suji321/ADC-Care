@@ -62,15 +62,15 @@ class DoctorSignUpForm(UserCreationForm):
         doctor.save()
         return user
 
-class BillForm(forms.ModelForm):
-    class Meta:
-     model = BillInfo
-     fields = ('bdate','payment','status','patient','doctor')
+# class BillForm(forms.ModelForm):
+#     class Meta:
+#      model = BillInfo
+#      fields = ('bdate','payment','status','patient','doctor')
 
-     widgets = {
-        'bdate': forms.DateInput(),
-        'doctor': forms.Select(),
-        'patient': forms.Select(),
-        'payment': forms.TextInput(),
-        'status': forms.Select(attrs={'class': 'form-control'})
-     }
+#      widgets = {
+#         'bdate': forms.DateInput(),
+#         'doctor': forms.Select(),
+#         'patient': forms.Select(),
+#         'payment': forms.TextInput(),
+#         'status': forms.Select(attrs={'class': 'form-control'})
+#      }

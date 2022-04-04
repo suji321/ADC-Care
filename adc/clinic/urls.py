@@ -6,7 +6,6 @@ urlpatterns = [
     path('patientregister/', views.patient_register.as_view(), name='patientregister'),
     path('doctorregister/', views.doctor_register.as_view(), name='doctorregister'),
     path('login/', views.login_request, name='login'),
-    path('loggedin/', views.loggedin, name='loggedin'),
-     path('addbill/', views.getinput),
+    path('loggedin/', views.loggedin, name='loggedin'),   
     path('logout/', views.logout_view, name='logout')
 ]
