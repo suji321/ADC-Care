@@ -1,0 +1,42 @@
+/* START: TABS */
+.adcTab {
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+.adcTabTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 0 10px;
+  border-bottom: 1px solid rgba(190, 190, 190, 0.474);
+}
+.adcTabTitle h1 {
+  font-weight: 700;
+  padding: 10px;
+}
+.adcTab-closed .adcTabTitle {
+  border-bottom: none;
+}
+.adcTabClose {
+  transition: all 0.4s ease-in-out;
+  transform: rotate(270deg);
+  font-size: 18px;
+  font-weight: 600;
+}
+.adcTabContents {
+  height: 500px;
+  overflow-x: auto;
+  transition: height ease-in-out 0.2s;
+}
+.adcTab-closed .adcTabContents {
+  height: 0;
+  overflow: hidden;
+}
+
+.adcTab-closed .adcTabClose {
+  transform: rotate(180deg);
+}
+/* END: TABS */

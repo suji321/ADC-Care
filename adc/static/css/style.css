@@ -7,12 +7,29 @@ body {
   list-style-type: none;
 }
 
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  transition: all 0.4s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(172, 172, 172, 0.492);
+  outline: none;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+  backdrop-filter: blur(10px);
+}
+
 .patientTitle {
   font-size: 18px;
   font-weight: 600;
 }
 
-.logo {
+.homeLogo {
   width: 100px;
   height: 50px;
   margin-top: 20px;
