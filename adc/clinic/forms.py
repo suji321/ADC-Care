@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 from patients.models import Patient
-from .models import User
+from .models import User, BillInfo
 from doctors.models import Doctors
 from django import forms
 
@@ -61,3 +61,16 @@ class DoctorSignUpForm(UserCreationForm):
         doctor.address = self.cleaned_data.get('address')
         doctor.save()
         return user
+
+# class BillForm(forms.ModelForm):
+#     class Meta:
+#      model = BillInfo
+#      fields = ('bdate','payment','status','patient','doctor')
+
+#      widgets = {
+#         'bdate': forms.DateInput(),
+#         'doctor': forms.Select(),
+#         'patient': forms.Select(),
+#         'payment': forms.TextInput(),
+#         'status': forms.Select(attrs={'class': 'form-control'})
+#      }

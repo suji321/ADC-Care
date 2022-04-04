@@ -11,8 +11,8 @@ urlpatterns = [
     path('create_prescription/',views.createprescription,name="crtprc"),
     path('billinfo_form/',views.createbillinfo,name="crtbill"),
     path('manage-appt/', Manageapt.as_view() ,name="manage-appt"),
-    path('login/', views.login, name="login"),
-    path('register/', views.register, name="register"),
+    # path('login/', views.login, name="login"),
+    # path('register/', views.register, name="register"),
     path('profile/', views.profile,name="profile"),
     path('profileEdit/', views.profileEdit,name="profileEdit"),
 

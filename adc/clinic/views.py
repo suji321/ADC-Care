@@ -42,7 +42,7 @@ def login_request(request):
                 return redirect('home')
             elif user is not None and user.is_patient :
                 login(request,user)
-                return redirect('loggedin')
+                return redirect('phome')
             else:
                 messages.error(request,"Invalid username or password")
         else:
@@ -58,3 +58,21 @@ def loggedin(request):
     logout(request)
     return render(request, 'logincomplete.html')
 
+#class AddBill(CreateView):
+#    model = BillInfo
+#    form_class = BillForm
+#    template_name = 'addbill.html'
+
+# def getinput(request):
+#     form = BillForm()
+#     submitted=False
+#     if request.method == 'POST':
+#        form = BillForm(request.POST)
+#        if form.is_valid():
+#            form.save()
+#            return HttpResponseRedirect('/addbill?submitted=True')
+#     else:
+#        form = BillForm()
+#        if 'submitted' in request.GET:
+#         submitted = True
+#     return render(request, 'addbill.html',{'form':form, 'submitted':submitted})

@@ -8,9 +8,10 @@ from clinic.models import *
 from .forms import *
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def patientlist(request):
     
     p=User.objects.filter(is_patient=True)
@@ -20,6 +21,7 @@ def patientlist(request):
     context={'p':p,'t_p':t_p}
     return render(request,'doctors/patient_list.html',context)
 
+@login_required
 def patientinfo(request,pk_t):
     p = Patient.objects.get(user_id=pk_t)
     mh = p.prescription_set.all()
@@ -38,6 +40,7 @@ def patientinfo(request,pk_t):
     context= {'p':p,'mh':mh,'medihis':medihis,'bi':bi,'sch':sch,'bfilter':bfilter,'medfilter':medfilter,'schfilter':schfilter,'prescfilter':prescfilter}
     return render(request, 'doctors/patient_info.html',context)
 
+@login_required
 def createprescription(request):
     form = PrescriptionForm()
     if request.method == 'POST':
@@ -47,7 +50,8 @@ def createprescription(request):
             return redirect('/doctors/patlist/')
     context={'form':form}
     return render(request, 'doctors/prescription_form.html',context )
-    
+
+@login_required
 def createbillinfo(request):
     form = BillInfoForm()
     if request.method == 'POST':
@@ -60,10 +64,12 @@ def createbillinfo(request):
     context={'form':form}
     return render(request, 'doctors/billinfo_form.html',context )
 
+
 def home(request):
     s=Schedule.objects.all()
 
     return render(request, 'doctors/home.html',{'s':s})
+
 
 class Manageapt(LoginRequiredMixin,ListView):
     template_name = "doctors/mng.html"
@@ -100,8 +106,10 @@ def login(request):
 def register(request):
     return render(request, 'doctors/register.html')
 
+@login_required
 def profile(request):
     return render(request, 'doctors/profile.html')
 
+@login_required
 def profileEdit(request):
     return render(request, 'doctors/edit.html')
