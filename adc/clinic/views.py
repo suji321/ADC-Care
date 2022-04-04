@@ -3,8 +3,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.views.generic import CreateView
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import PatientSignUpForm, DoctorSignUpForm
-from .models import User
+from .forms import PatientSignUpForm, DoctorSignUpForm, BillForm
+from .models import User, BillInfo 
 
 # Create your views here.
 def register(request):
@@ -58,3 +58,21 @@ def loggedin(request):
     logout(request)
     return render(request, 'logincomplete.html')
 
+#class AddBill(CreateView):
+#    model = BillInfo
+#    form_class = BillForm
+#    template_name = 'addbill.html'
+
+def getinput(request):
+    form = BillForm()
+    submitted=False
+    if request.method == 'POST':
+       form = BillForm(request.POST)
+       if form.is_valid():
+           form.save()
+           return HttpResponseRedirect('/addbill?submitted=True')
+    else:
+       form = BillForm()
+       if 'submitted' in request.GET:
+        submitted = True
+    return render(request, 'addbill.html',{'form':form, 'submitted':submitted})
