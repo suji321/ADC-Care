@@ -1,0 +1,48 @@
+{% extends "doctors/navbar.html" %} {% load static %} {% block head%}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/patient_list.css' %}"
+/>
+<title>Patient list</title>
+{% endblock %} {% block content %}
+
+<div class="patientListMain">
+  <div class="header">
+    <h1 class="patientTitle">
+      <div class="patientTitle-under"></div>
+      Patient List
+    </h1>
+    <div class="headerLinks">
+      <a href="{% url 'crtbill'  %}">Create Bill</a>
+      <a href="{% url 'crtbill'  %}">Create Report</a>
+      <a href="{% url 'crtprc'  %}">Create Prescription</a>
+    </div>
+  </div>
+  <div class="adcTableContainer">
+    <div class="adcTable">
+      <div class="adcRow adcHead">
+        <div class="adcCell">ID</div>
+        <div class="adcCell">NAME</div>
+        <div class="adcCell">GENDER</div>
+        <div class="adcCell">PHONE</div>
+        <div class="adcCell">ACTIONS</div>
+      </div>
+      <div class="adcRowBody">
+        {% for pat in p %}
+        <div class="adcRow">
+          <div class="adcCell">{{pat.pk}}</div>
+          <div class="adcCell">{{pat.patient.pname}}</div>
+          <div class="adcCell">{{pat.patient.gender}}</div>
+          <div class="adcCell">{{pat.patient.phone}}</div>
+          <div class="adcCell">
+            <a href="{% url 'pat' pat.id %}">View </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

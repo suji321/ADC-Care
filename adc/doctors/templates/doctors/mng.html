@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <h3>Manage Appointment</h3>
+    <br><br>
+    
+
+    <table>
+
+    
+        <tr>
+            <th>Schedule Date</th>
+            <th>patient</th>
+            <th>doctor</th>
+            <th>request</th>
+            <th>Schedule Time</th>
+            <th>Action</th>
+            
+            
+
+
+           
+        </tr>
+
+        {% for bi in apt %}
+
+        <tr>
+            {% if bi.accepted == False %}
+            <td>{{bi.scheduleDate}}</td>            
+            <td>{{bi.patient.pname}}</td>
+            <td>{{bi.doctor.dname}}</td>
+            <td>{{bi.request}}</td>
+          
+            <form action="" method="post">
+                {% csrf_token %}
+            <td><input type="time" name="time"></td>
+            <input hidden="true" name="sch-id" value="{{bi.id}}">
+            
+            
+            <td><input type="submit" name="Accept"></td>
+        </form>
+
+       
+          
+        {% endif %}
+        </tr> 
+          
+        {% endfor %}
+    </table>
+    
+    <table>
+
+    
+        <tr>
+            <th>Schedule Date</th>
+            <th>patient</th>
+            <th>doctor</th>
+            <th>request</th>
+            <th>Schedule Time</th>
+            <th>Accepted on</th>
+            
+        </tr>
+
+        {% for bi in apt %}
+
+        <tr>
+            {% if bi.accepted == True %}
+            <td>{{bi.scheduleDate}}</td>            
+            <td>{{bi.patient.pname}}</td>
+            <td>{{bi.doctor.dname}}</td>
+            <td>{{bi.request}}</td>
+            <td>{{bi.scheduleTime}}</td>
+            <td>{{bi.accepted_date}}</td>
+        
+          
+        </form>
+
+       
+          
+        {% endif %}
+        </tr> 
+          
+        {% endfor %}
+    </table>
+</body>
+</html>

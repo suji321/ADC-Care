@@ -1,0 +1,63 @@
+{% extends "doctors/navbar.html" %}{% load static %} {% block content %}
+<div class="doctorHomeMain">
+  
+    <img class="logo" src="{% static 'img/adc-home.png' %}" class="logo" />
+    <div class="dashboardContainer">
+    <div class="dashboardLeft">
+      <div class="dashboard">
+        <h1 class="dash">
+      <div class="dashboard-under"></div>
+          
+          Dashboard</h2>
+        <div class="dashboardCard">
+          <div class="dashCardItem">
+            <i class="material-icons">medical_services</i> Total Patients
+            <small>1200</small>
+          </div>
+          <div class="dashCardItem">
+            <i class="material-icons">groups</i> Total Staff
+            <small>1500</small>
+          </div>
+          <div class="dashCardItem">
+            <i class="material-icons">hotel</i> Dental engines
+            <small>1200</small>
+          </div>
+          <div class="dashCardItem">
+            <i class="material-icons">vaccines</i> Total Doctors
+            <small>700</small>
+          </div>
+        </div>
+      </div>
+      <div class="billingDetails">
+        <h1 class="appoint">Appointments</h2>
+        <div class="billingCardsContainer">
+          {% for sch in s %}
+          <div class="billingCard">
+           
+            <span>{{sch.id}}</span>
+            <p><i class="material-icons">face</i>{{sch.patient.pname}}</p>
+            <span>{{sch.scheduleTime}}</span>
+            <a href="/">
+              <p>See more details</p>
+            </a>
+          </div>
+          {% endfor %}
+          
+        </div>
+      </div>
+     
+    </div>
+      <div class="dashboardRight">
+        <h2 class="report">Reports</h2>
+        <div class="reportCardContainer">
+          <div class="reportCard">Patient Tanya has a severe toothache.</div>
+          <div class="reportCard">Patient Tanya has a severe toothache.</div>
+          <div class="reportCard">Patient Tanya has a severe toothache.</div>
+          <div class="reportCard">Patient Tanya has a severe toothache.</div>
+          <div class="reportCard">Patient Tanya has a severe toothache.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Info</title>
+</head>
+<body>
+    <h1>{{p.pname}}</h1>
+    <h2>{{p.age}}</h2>
+    <h2>{{p.gender}}</h2>
+    <h2>{{p.email}}</h2>
+    <h2>{{p.address}}</h2>
+    <h2>{{p.phone}}</h2>
+
+    <h4> Prescription</h4>
+    <form action="" method="get">
+        {{prescfilter.form}}
+        <button type="Submit">Search</button>    
+
+    <table>
+        <tr>
+            <th>remarks</th>
+       
+            <th>doctor</th>
+            <th>date</th>
+           
+            <th>direction</th>
+        </tr>
+         {% for mh in mh %}
+
+        <tr>
+            <td>{{mh.remarks}}</td>
+          
+            <td>{{mh.doctor.dname}}</td>
+            <td>{{mh.date_created}}</td>
+          
+            <td>{{mh.direction}}</td>
+
+        </tr> 
+
+        {% endfor %}
+
+    </table>
+    <br><br>
+    <h4>Medical History</h4>
+
+    <form action="" method="get">
+        {{medfilter.form}}
+        <button type="Submit">Search</button>    
+    </form>
+    <table>
+
+      
+
+        <tr>
+            <th>remarks</th>
+            <th>report</th>
+            <th>date created</th>
+            <th>patient</th>
+            <th>doctor</th>
+           
+        </tr>
+
+        {% for mh in medihis %}
+
+        <tr>
+            <td>{{mh.remarks}}</td>
+            <td>{{mh.report}}</td>
+            <td>{{mh.date_created}}</td>
+            <td>{{mh.patient.pname}}</td>
+            <td>{{mh.doctor.dname}}</td>
+        </tr> 
+          
+        {% endfor %}
+    </table>
+    <br><br>
+    
+    <h4>Bill Information</h4>
+
+    <form action="" method="get">
+        {{bfilter.form}}
+        <button type="Submit">Search</button>    
+    </form>
+
+    <table>
+
+        <tr>
+            <th>payment</th>
+            <th>status</th>
+            <th>date created</th>
+            <th>patient</th>
+            <th>doctor</th>
+           
+        </tr>
+
+        {% for bi in bi %}
+
+        <tr>
+            <td>{{bi.payment}}</td>
+            <td>{{bi.status}}</td>
+            <td>{{bi.bdate}}</td>
+            <td>{{bi.patient.pname}}</td>
+            <td>{{bi.doctor.dname}}</td>
+        </tr> 
+          
+        {% endfor %}
+    </table>
+    <br><br>
+    <h4>Schedule</h4>
+    
+
+<form action="" method="get">
+    {{schfilter.form}}
+    <button type="Submit">Search</button>    
+</form>
+
+    
+    <table>
+
+    
+        <tr>
+            <th>Schedule Date</th>
+            <th>Schedule Time</th>
+            <th>Status</th>
+            <th>patient</th>
+            <th>doctor</th>
+           
+        </tr>
+
+        {% for bi in sch %}
+
+        <tr>
+            <td>{{bi.scheduleDate}}</td>
+            <td>{{bi.scheduleTime}}</td>
+            <td>{{bi.status}}</td>
+            <td>{{bi.patient.pname}}</td>
+            <td>{{bi.doctor.dname}}</td>
+        </tr> 
+          
+        {% endfor %}
+    </table>
+
+</body>
+</html>

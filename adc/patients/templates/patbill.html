@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Patient Bill</title>
+    </head>
+    <body>
+        <h4>Bill Information</h4>
+
+    
+        <table>
+    
+            <tr>
+                <th>payment</th>
+                <th>status</th>
+                <th>date created</th>
+                <th>patient</th>
+                <th>doctor</th>
+               
+            </tr>
+    
+            {% for bi in bill %}
+    
+            <tr>
+                <td>{{bi.payment}}</td>
+                <td>{{bi.status}}</td>
+                <td>{{bi.bdate}}</td>
+                <td>{{bi.patient.pname}}</td>
+                <td>{{bi.doctor.dname}}</td>
+            </tr> 
+              
+            {% endfor %}
+        </table>
+    </body>
+</html>

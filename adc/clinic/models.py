@@ -21,10 +21,22 @@ class MedicalHistory(models.Model):
 class Schedule(models.Model):
     STATUS = ( ('Confirmed','Confirmed'), ('Cancel','Cancel'), ('Reschedule','Reschedule'), ('Attended','Attended'), ('Pending','Pending'))
     scheduleDate = models.DateField()
-    scheduleTime = models.TimeField()
-    status = models.CharField(null=True, max_length=10, choices=STATUS)
+    scheduleTime = models.TimeField(blank=True,null=True)
+    accepted = models.BooleanField(default=False)
+    accepted_date = models.DateField(auto_now_add=False, null=True, blank=True)
+    request = models.TextField(blank=True)
+    status = models.CharField(null=True, max_length=10, choices=STATUS,blank=True)
     patient =  models.ForeignKey('patients.Patient', null=True, on_delete= models.CASCADE)
     doctor = models.ForeignKey('doctors.Doctors', null=True, on_delete=models.CASCADE)
+    date_created= models.DateTimeField(auto_now_add=True, null=True)
+
+
+    def __str__(self):
+        return self.patient.pname
+    
+    class Meta:
+        ordering = ["-date_created"]
+
 
 
 class BillInfo(models.Model):
@@ -37,9 +49,10 @@ class BillInfo(models.Model):
 
 
 class Prescription(models.Model):
-    name = models.CharField(max_length=30)
-    frequency = models.CharField(max_length=60)
+    #name = models.CharField(max_length=30)
+    #frequency = models.CharField(max_length=60)
     direction = models.CharField(max_length=150)
     remarks = models.CharField(max_length=100)
     patient =  models.ForeignKey('patients.Patient', null=True, on_delete= models.CASCADE)
     doctor = models.ForeignKey('doctors.Doctors', null=True, on_delete=models.CASCADE)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)

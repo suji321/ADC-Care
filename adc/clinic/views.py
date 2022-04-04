@@ -18,7 +18,7 @@ class patient_register(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('loggedin')
+        return redirect('login')
 
 class doctor_register(CreateView):
     model = User
@@ -28,7 +28,7 @@ class doctor_register(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('loggedin')
+        return redirect('login')
 
 def login_request(request):
     if request.method=='POST':
@@ -37,7 +37,10 @@ def login_request(request):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
-            if user is not None :
+            if user is not None and user.is_doctor :
+                login(request,user)
+                return redirect('home')
+            elif user is not None and user.is_patient :
                 login(request,user)
                 return redirect('loggedin')
             else:
