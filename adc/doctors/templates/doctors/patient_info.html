@@ -1,146 +1,243 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Info</title>
-</head>
-<body>
-    <h1>{{p.pname}}</h1>
-    <h2>{{p.age}}</h2>
-    <h2>{{p.gender}}</h2>
-    <h2>{{p.email}}</h2>
-    <h2>{{p.address}}</h2>
-    <h2>{{p.phone}}</h2>
+{% extends 'doctors/navbar.html' %} {% load static %} {% block head%}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/patient_info.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/components.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/patient_list.css' %}"
+/>
+<title>Patient Info</title>
+{% endblock %} {% block content %}
 
-    <h4> Prescription</h4>
-    <form action="" method="get">
-        {{prescfilter.form}}
-        <button type="Submit">Search</button>    
+<div class="patInfoContainer">
+  <!-- START: Patient info card -->
+  <div class="patInfoItem formCard">
+    <h2>
+      Patient Info
+      <div class="patientTitle-under"></div>
+    </h2>
+    <div class="infoPat">
+      <div class="infoItem">
+        <p>Name:</p>
+        <b>{{p.pname}}</b>
+      </div>
+      <div class="infoItem">
+        <p>Age:</p>
+        <b>{{p.age}}</b>
+      </div>
+      <div class="infoItem">
+        <p>Gender:</p>
+        <b>{{p.gender}}</b>
+      </div>
+      <div class="infoItem">
+        <p>Email:</p>
+        <b>{{p.email}}</b>
+      </div>
+      <div class="infoItem">
+        <p>Address:</p>
+        <b>{{p.address}}</b>
+      </div>
+      <div class="infoItem">
+        <p>Phone:</p>
+        <b>{{p.phone}}</b>
+      </div>
+    </div>
+  </div>
+  <!-- END: Patient info card -->
 
-    <table>
-        <tr>
-            <th>remarks</th>
-       
-            <th>doctor</th>
-            <th>date</th>
-           
-            <th>direction</th>
-        </tr>
-         {% for mh in mh %}
+  <!-- START: PRESCRIPTION TAB -->
+  <div class="patInfoItem adcTab adcTab-closed" id="prescription">
+    <div class="adcTabTitle" onclick="toggleTab('prescription')">
+      <h1>Prescription</h1>
+      <div class="adcTabClose">&#x276C;</div>
+    </div>
+    <div class="adcTabContents">
+      <div class="infoCard">
+        <h4>Prescription</h4>
+        <form action="" class="infoFilter" method="get">
+          {% for field in prescfilter.form %}
+          <div class="infoFilterInput">
+            {{ field.label_tag }} {{ field }} {{ field.errors }}
+          </div>
+          {% endfor %}
 
-        <tr>
-            <td>{{mh.remarks}}</td>
-          
-            <td>{{mh.doctor.dname}}</td>
-            <td>{{mh.date_created}}</td>
-          
-            <td>{{mh.direction}}</td>
+          <button type="Submit">Search</button>
 
-        </tr> 
+          <div class="adcTableContainer">
+            <div class="adcTable">
+              <div class="adcRow adcHead">
+                <div class="adcCell">REMARKS</div>
+                <div class="adcCell">DOCTOR</div>
+                <div class="adcCell">DATE</div>
+                <div class="adcCell">DIRECTION</div>
+              </div>
+              <div class="adcRowBody">
+                {% for mh in mh %}
+                <div class="adcRow">
+                  <div class="adcCell">{{mh.remarks}}</div>
+                  <div class="adcCell">{{mh.doctor.dname}}</div>
+                  <div class="adcCell">{{mh.date_created}}</div>
+                  <div class="adcCell">{{mh.direction}}</div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <br /><br />
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- END: PRESCRIPTION TAB -->
 
-        {% endfor %}
+  <!-- START: HISTORY TAB -->
+  <div class="patInfoItem adcTab adcTab-closed" id="history">
+    <div class="adcTabTitle" onclick="toggleTab('history')">
+      <h1>History</h1>
+      <div class="adcTabClose">&#x276C;</div>
+    </div>
+    <div class="adcTabContents">
+      <div class="infoCard">
+        <h4>Medical History</h4>
+        <form class="infoFilter" action="" method="get">
+          {% for field in medfilter.form %}
+          <div class="infoFilterInput">
+            {{ field.label_tag }} {{ field }} {{ field.errors }}
+          </div>
+          {% endfor %}
 
-    </table>
-    <br><br>
-    <h4>Medical History</h4>
+          <button type="Submit">Search</button>
+        </form>
 
-    <form action="" method="get">
-        {{medfilter.form}}
-        <button type="Submit">Search</button>    
-    </form>
-    <table>
+        <div class="adcTableContainer">
+          <div class="adcTable">
+            <div class="adcRow adcHead">
+              <div class="adcCell">REMARKS</div>
+              <div class="adcCell">REPORT</div>
+              <div class="adcCell">DATE CREATED</div>
+              <div class="adcCell">PATIENT</div>
+              <div class="adcCell">DOCTOR</div>
+            </div>
+            <div class="adcRowBody">
+              {% for mh in medihis %}
+              <div class="adcRow">
+                <div class="adcCell">{{mh.remarks}}</div>
+                <div class="adcCell">{{mh.report}}</div>
+                <div class="adcCell">{{mh.date_created}}</div>
+                <div class="adcCell">{{mh.patient.pname}}</div>
+                <div class="adcCell">{{mh.doctor.dname}}</div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <br /><br />
+      </div>
+    </div>
+  </div>
+  <!-- END: HISTORY TAB -->
 
-      
+  <!-- START: BILLINFO TAB -->
+  <div class="patInfoItem adcTab adcTab-closed" id="billinfo">
+    <div class="adcTabTitle" onclick="toggleTab('billinfo')">
+      <h1>Bill Information</h1>
+      <div class="adcTabClose">&#x276C;</div>
+    </div>
+    <div class="adcTabContents">
+      <div class="infoCard">
+        <h4>Medical History</h4>
+        <form class="infoFilter" action="" method="get">
+          {% for field in bfilter.form %}
+          <div class="infoFilterInput">
+            {{ field.label_tag }} {{ field }} {{ field.errors }}
+          </div>
+          {% endfor %}
 
-        <tr>
-            <th>remarks</th>
-            <th>report</th>
-            <th>date created</th>
-            <th>patient</th>
-            <th>doctor</th>
-           
-        </tr>
+          <button type="Submit">Search</button>
+        </form>
 
-        {% for mh in medihis %}
+        <div class="adcTableContainer">
+          <div class="adcTable">
+            <div class="adcRow adcHead">
+              <div class="adcCell">PAYMENT</div>
+              <div class="adcCell">STATUS</div>
+              <div class="adcCell">DATE CREATED</div>
+              <div class="adcCell">PATIENT</div>
+              <div class="adcCell">DOCTOR</div>
+            </div>
+            <div class="adcRowBody">
+              {% for bi in bi %}
+              <div class="adcRow">
+                <div class="adcCell">{{bi.payments}}</div>
+                <div class="adcCell">{{bi.status}}</div>
+                <div class="adcCell">{{bi.bdate}}</div>
+                <div class="adcCell">{{bi.patient.pname}}</div>
+                <div class="adcCell">{{bi.doctor.dname}}</div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <br /><br />
+      </div>
+    </div>
+  </div>
+  <!-- END: BILLINFO TAB -->
 
-        <tr>
-            <td>{{mh.remarks}}</td>
-            <td>{{mh.report}}</td>
-            <td>{{mh.date_created}}</td>
-            <td>{{mh.patient.pname}}</td>
-            <td>{{mh.doctor.dname}}</td>
-        </tr> 
-          
-        {% endfor %}
-    </table>
-    <br><br>
-    
-    <h4>Bill Information</h4>
+  <!-- START: SCHEDULE TAB -->
+  <div class="patInfoItem adcTab adcTab-closed" id="schedule">
+    <div class="adcTabTitle" onclick="toggleTab('schedule')">
+      <h1>Schedule</h1>
+      <div class="adcTabClose">&#x276C;</div>
+    </div>
+    <div class="adcTabContents">
+      <div class="infoCard">
+        <h4>Medical History</h4>
+        <form class="infoFilter" action="" method="get">
+          {% for field in schfilter.form %}
+          <div class="infoFilterInput">
+            {{ field.label_tag }} {{ field }} {{ field.errors }}
+          </div>
+          {% endfor %}
 
-    <form action="" method="get">
-        {{bfilter.form}}
-        <button type="Submit">Search</button>    
-    </form>
+          <button type="Submit">Search</button>
+        </form>
 
-    <table>
+        <div class="adcTableContainer">
+          <div class="adcTable">
+            <div class="adcRow adcHead">
+              <div class="adcCell">DATE</div>
+              <div class="adcCell">TIME</div>
+              <div class="adcCell">STATUS</div>
+              <div class="adcCell">PATIENT</div>
+              <div class="adcCell">DOCTOR</div>
+            </div>
+            <div class="adcRowBody">
+              {% for bi in sch %}
+              <div class="adcRow">
+                <div class="adcCell">{{bi.scheduleDate}}</div>
+                <div class="adcCell">{{bi.scheduleTime}}</div>
+                <div class="adcCell">{{bi.status}}</div>
+                <div class="adcCell">{{bi.patient.pname}}</div>
+                <div class="adcCell">{{bi.doctor.dname}}</div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <br /><br />
+      </div>
+    </div>
+  </div>
+  <!-- END: SCHEDULE TAB -->
+</div>
 
-        <tr>
-            <th>payment</th>
-            <th>status</th>
-            <th>date created</th>
-            <th>patient</th>
-            <th>doctor</th>
-           
-        </tr>
-
-        {% for bi in bi %}
-
-        <tr>
-            <td>{{bi.payment}}</td>
-            <td>{{bi.status}}</td>
-            <td>{{bi.bdate}}</td>
-            <td>{{bi.patient.pname}}</td>
-            <td>{{bi.doctor.dname}}</td>
-        </tr> 
-          
-        {% endfor %}
-    </table>
-    <br><br>
-    <h4>Schedule</h4>
-    
-
-<form action="" method="get">
-    {{schfilter.form}}
-    <button type="Submit">Search</button>    
-</form>
-
-    
-    <table>
-
-    
-        <tr>
-            <th>Schedule Date</th>
-            <th>Schedule Time</th>
-            <th>Status</th>
-            <th>patient</th>
-            <th>doctor</th>
-           
-        </tr>
-
-        {% for bi in sch %}
-
-        <tr>
-            <td>{{bi.scheduleDate}}</td>
-            <td>{{bi.scheduleTime}}</td>
-            <td>{{bi.status}}</td>
-            <td>{{bi.patient.pname}}</td>
-            <td>{{bi.doctor.dname}}</td>
-        </tr> 
-          
-        {% endfor %}
-    </table>
-
-</body>
-</html>
+{% endblock %}

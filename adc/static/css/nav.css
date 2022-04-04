@@ -1,4 +1,6 @@
-a.unvisited, a.unvisited:visited, a.unvisited:active{
+a.unvisited,
+a.unvisited:visited,
+a.unvisited:active {
   text-decoration: none;
   color: transparent;
 }
@@ -30,6 +32,10 @@ a.unvisited, a.unvisited:visited, a.unvisited:active{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.navDoctor a {
+  text-decoration: none;
 }
 
 .navDoctor li:hover {
