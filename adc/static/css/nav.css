@@ -91,7 +91,7 @@ a.unvisited:active {
   justify-content: space-around;
 }
 .phoneNavOpen {
-  height: 200px;
+  height: 300px;
 }
 .phoneNavClose {
   height: 0;
@@ -112,7 +112,7 @@ a.unvisited:active {
     font-size: 15px;
   }
 
-  .navDoctor li {
+  .navDoctor a {
     padding: 8px 10px;
     font-size: 13px;
   }

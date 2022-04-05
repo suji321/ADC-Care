@@ -97,10 +97,27 @@
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </div>
-      <li><i class="material-icons">person</i>Patients</li>
-      <li><i class="material-icons">attach_money</i>Billing</li>
-      <li><i class="material-icons">today</i>Appointments</li>
-      <li><i class="material-icons">history</i>History</li>
+      <a href="{% url 'home' %}">
+        <li><i class="material-icons">home</i>Home</li>
+      </a>
+      <a href="{% url 'profile' %}">
+        <li><i class="material-icons">badge</i>Profile</li>
+      </a>
+      <a href="{% url 'patient' %}">
+        <li><i class="material-icons">person</i>Patients</li>
+      </a>
+      <a href="{% url 'crtbill' %}">
+        <li><i class="material-icons">attach_money</i>Billing</li>
+      </a>
+      <a href="{% url 'manage-appt' %}">
+        <li><i class="material-icons">today</i>Appointments</li>
+      </a>
+      <a href="{% url 'crtprc' %}">
+        <li><i class="material-icons">local_pharmacy</i>Prescription</li>
+      </a>
+      <a href="{% url 'logout' %}">
+        <li><i class="material-icons">logout</i>Logout</li>
+      </a>
     </div>
     {% block content %} {% endblock %}
     <script src="{% static 'js/polls/app.js' %}"></script>

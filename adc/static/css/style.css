@@ -50,7 +50,8 @@ body {
 }
 
 .dash {
-  font-size: 24px;
+  font-size: 24px !important;
+  font-weight: 500 !important;
   position: relative;
   margin-bottom: 20px;
 }
