@@ -9,6 +9,7 @@ urlpatterns = [
     path('patlist/', views.patientlist,name='patient'),
     path('pat/<str:pk_t>/', views.patientinfo,name="pat"),
     path('create_prescription/',views.createprescription,name="crtprc"),
+    path('create_report/', views.createreport, name='crtreport'),
     path('billinfo_form/',views.createbillinfo,name="crtbill"),
     path('manage-appt/', Manageapt.as_view() ,name="manage-appt"),
     # path('login/', views.login, name="login"),

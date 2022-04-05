@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from doctors.filters import *
 from patients.models import *
 from clinic.models import *
+from doctors.models import *
 from .forms import *
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -65,10 +66,24 @@ def createbillinfo(request):
     return render(request, 'doctors/billinfo_form.html',context )
 
 
+@login_required
+def createreport(request):
+    form = MedicalHistory()
+    if request.method == 'POST':
+        form=BillInfoForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect('/doctors/patlist/')
+    
+    context={'form':form}
+    return render(request, 'doctors/report_form.html',context )
+
+
 def home(request):
     s=Schedule.objects.all()
-
-    return render(request, 'doctors/home.html',{'s':s})
+    doc = Doctors.objects.all()
+    return render(request, 'doctors/home.html',{'s':s, 'doc': doc})
 
 
 class Manageapt(LoginRequiredMixin,ListView):
