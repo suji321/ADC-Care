@@ -12,7 +12,7 @@ class MedhisFilter(django_filters.FilterSet):
     class Meta:
         model=MedicalHistory
         fields='__all__'
-        exclude=['patient']
+        exclude=['patient', 'report']
 
 class SchFilter(django_filters.FilterSet):
     class Meta:
