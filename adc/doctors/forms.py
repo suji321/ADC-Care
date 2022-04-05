@@ -32,7 +32,23 @@ class BillInfoForm(ModelForm):
         'bdate': forms.DateInput(),
         'doctor': forms.Select(),
         'patient': forms.Select(),
-        'payment': forms.TextInput(),
+        'payment': forms.NumberInput(),
         'status': forms.Select(attrs={'class': 'form-control'})
      }
-        
+     
+        labels = {
+           'bdate': 'Billing Date'
+       }
+
+class ReportForm(ModelForm):
+    class Meta:
+        model = MedicalHistory
+        fields = ('patient','doctor','remarks','report')
+
+        widgets = {
+        #'report': forms,
+        'doctor': forms.Select(),
+        'patient': forms.Select(),
+        'remarks': forms.TextInput(),
+        'status': forms.Select(attrs={'class': 'form-control'})
+     }
