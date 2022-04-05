@@ -1,41 +1,27 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bill Info</title>
-</head>
-<body>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{form}}
-        <input type="submit" name="Submit">
-    </form>
-</body>
-</html> -->
+{% extends 'doctors/navbar.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/billing.css' %}" />
+<title>Add Bill</title>
+{% endblock %} {% block content %}
+<div class="createBillingMain">
+  <div class="createBillingCard">
+    <h1>
+      Add Bill
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Bill</title>
-</head>
-<body>
-    <center>
-        <h1>Add Bill</h1>
-        <br>
-        <!-- {% if submitted %}
-           Success!!
-        {% else %} -->
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" name="Submit">
-        </form>
-       <!-- {% endif %} -->
-        </center>
-</body>
-</html>
+      <div class="dashboard-under"></div>
+    </h1>
+
+    <br />
+
+    <form class="billingForm" action="" method="POST">
+      <div class="infoFilter">
+        {% csrf_token %} {% for field in form %}
+        <div class="infoFilterInput">
+          {{ field.label_tag }} {{ field }} {{ field.errors }}
+        </div>
+        {% endfor %}
+      </div>
+      <button type="Submit">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

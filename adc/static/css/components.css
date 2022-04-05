@@ -40,3 +40,82 @@
   transform: rotate(180deg);
 }
 /* END: TABS */
+
+/* START: TABLE */
+.doctorsTable {
+  flex: 0.4;
+}
+
+/* END: TABLE */
+
+/* Table container */
+.adcTable {
+  display: flex;
+  flex-direction: column;
+}
+.adcTable h1 {
+  font-size: 21px;
+  font-weight: 500;
+}
+.adcTable .adcRow {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(180, 180, 180, 0.5);
+  padding: 10px 20px;
+}
+.adcTable .adcRow .adcCell {
+  width: 100%;
+  padding: 10px;
+}
+
+.adcTableContainer {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  /* margin: 30px 30px; */
+}
+
+.adcTable .adcHead {
+  border-bottom: none;
+  padding: 0 20px;
+}
+.adcHead .adcCell {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgb(150, 150, 150);
+  padding: 0;
+}
+
+.adcCell a {
+  text-decoration: none;
+}
+
+.adcRowBody {
+  /* background-color: white; */
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .adcTable {
+    width: 500px;
+    overflow-x: auto;
+    margin: 0 auto;
+  }
+  .header {
+    flex-direction: column;
+  }
+  .patientTitle {
+    margin-bottom: 10px;
+  }
+  .headerLinks {
+    flex-wrap: wrap;
+  }
+  .headerLinks a {
+    margin: 10px !important;
+  }
+}
+
+/* End of table container */

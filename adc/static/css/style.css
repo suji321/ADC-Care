@@ -101,6 +101,10 @@ body {
   width: 100%;
 }
 
+.dashboard h1 {
+  font-weight: 600;
+}
+
 .dash {
   color: #494d50;
 }
@@ -163,6 +167,7 @@ body {
 
 .appoint {
   color: #494d50;
+  font-weight: 600;
 }
 
 .bill {
@@ -203,4 +208,9 @@ body {
   color: dodgerblue;
 }
 
+@media screen and (max-width: 1110px) {
+  .dashboardContainer {
+    flex-direction: column;
+  }
+}
 /* End of doctor's home section */

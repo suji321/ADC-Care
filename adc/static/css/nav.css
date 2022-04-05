@@ -21,10 +21,10 @@ a.unvisited:active {
   transition: top 0.3s;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 }
-
 .navDoctor li {
   list-style: none;
   background-color: dodgerblue;
+  border: 1px solid white;
   padding: 8px 20px;
   color: white;
   border-radius: 10px;
@@ -32,6 +32,9 @@ a.unvisited:active {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.logout {
+  background-color: tomato !important;
 }
 
 .navDoctor a {
@@ -43,6 +46,13 @@ a.unvisited:active {
   background-color: white;
   color: dodgerblue;
   transition: all 0.3s ease-in-out;
+}
+
+.logout:hover {
+  /* background-color: tomato !important; */
+  border: 1px solid tomato !important;
+  background-color: white !important;
+  color: tomato !important;
 }
 
 .navDoctor li i {

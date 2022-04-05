@@ -1,0 +1,84 @@
+.prescriptionMain {
+  margin-top: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prescriptionCard {
+  width: 60%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.prescriptionCard h1 {
+  font-size: 24px;
+  font-weight: 600;
+  position: relative;
+}
+
+/* START: FORM  */
+.infoFilter {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  /* flex-direction: column; */
+}
+
+.infoFilterInput {
+  width: 50%;
+  padding-right: 20px;
+}
+
+.infoFilter input,
+.infoFilter select,
+.infoFilterInput input,
+.infoFilterInput select {
+  margin-bottom: 20px;
+  height: 35px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.311);
+  transition: all ease-in-out 0.2s;
+  padding: 0 10px;
+  width: 100%;
+}
+.infoFilter input:focus,
+.infoFilter select:focus {
+  border: 1px solid rgba(0, 0, 0);
+}
+.infoFilterInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 10px 0;
+}
+.infoFilter button {
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  border: none;
+  padding: 0 80px;
+  border-radius: 10px;
+  margin: 10px auto;
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+  height: 45px;
+}
+
+.infoFilter button:hover {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* END: FORM */
+
+.dashboard-under {
+  width: 45px;
+  height: 4px;
+  border-radius: 20px;
+  background-color: dodgerblue;
+  position: absolute;
+  bottom: 0;
+}

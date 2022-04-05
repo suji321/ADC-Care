@@ -46,6 +46,11 @@ body {
   transition: height 0.2s ease;
 }
 
+.container .longForms {
+  height: 600px;
+  overflow-x: auto;
+  padding-top: 200px;
+}
 .container .form {
   width: 50%;
   padding: 30px;

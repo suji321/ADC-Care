@@ -1,0 +1,71 @@
+.clinicLogin {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.clinicPortal {
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 10;
+}
+.clinicPortalItem {
+  background-color: white;
+  color: dodgerblue;
+  padding: 25px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+  border: 1px solid white;
+}
+.clinicPortalItem:hover {
+  background-color: dodgerblue;
+  border: 1px solid dodgerblue;
+  color: white;
+  /* font-weight: 700; */
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+
+.bubble {
+  background-color: rgba(30, 143, 255, 0.5);
+  border-radius: 1000px;
+  position: absolute;
+  z-index: 1;
+}
+.bubbleBig {
+  height: 100px;
+  width: 100px;
+}
+.bubbleMedium {
+  height: 60px;
+  width: 60px;
+}
+.bubbleSmall {
+  height: 30px;
+  width: 30px;
+}
+.bubble:nth-child(1) {
+  top: 10px;
+  left: 10px;
+}
+.bubble:nth-child(2) {
+  top: 10px;
+  left: 10px;
+}
+.bubble:nth-child(3) {
+  top: 10px;
+  left: 10px;
+}
+.bubble:nth-child(4) {
+  top: 200px;
+  left: 600px;
+}
+.bubble:nth-child(5) {
+  top: 300px;
+  right: 350px;
+}
+.bubble:nth-child(6) {
+  bottom: 100px;
+  left: 10px;
+}

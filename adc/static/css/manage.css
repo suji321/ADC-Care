@@ -1,0 +1,10 @@
+.manageMain {
+  margin: 100px auto 20px auto;
+  width: 80%;
+}
+
+.manageMain h3 {
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}

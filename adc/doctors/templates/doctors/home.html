@@ -1,14 +1,20 @@
-{% extends "doctors/navbar.html" %}{% load static %} {% block content %}
+{% extends "doctors/navbar.html" %}{% load static %} {% block head%}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/components.css' %}"
+/>
+<title>Patient list</title>
+{% endblock %} {% block content %}
 <div class="doctorHomeMain">
-  
-    <img class="homeLogo" src="{% static 'img/adc-home.png' %}" class="logo" />
+  <img class="homeLogo" src="{% static 'img/adc-home.png' %}" class="logo" />
     <div class="dashboardContainer">
-    <div class="dashboardLeft">
-      <div class="dashboard">
-        <h1 class="dash">
-      <div class="dashboard-under"></div>
+      <div class="dashboardLeft">
+        <div class="dashboard">
+          <h1 class="dash">
+          <div class="dashboard-under"></div>
           
-          Dashboard</h2>
+          Dashboard</h1>
         <div class="dashboardCard">
           <div class="dashCardItem">
             <i class="material-icons">medical_services</i> Total Patients
@@ -47,16 +53,29 @@
       </div>
      
     </div>
-      <div class="dashboardRight">
-        <h2 class="report">Doctors</h2>
-        <div class="reportCardContainer">
+
+
+
+    <div class="adcTableContainer doctorsTable">
+      <div class="adcTable">
+        <h1>Doctors</h1>
+        <div class="adcRow adcHead">
+          <div class="adcCell">NAME</div>
+          <div class="adcCell">EMAIL</div>
+          <div class="adcCell">PHONE</div>
+        </div>
+        <div class="adcRowBody">
           {% for doctor in doc %}
-          <div class="reportCard">{{doctor.dname}}</div>
-          <div class="reportCard">{{doctor.email}}</div>
-          <div class="reportCard">{{doctor.phone}}</div>
+          <div class="adcRow">
+            <div class="adcCell">{{doctor.dname}}</div>
+            <div class="adcCell">{{doctor.email}}</div>
+            <div class="adcCell">{{doctor.phone}}</div>
+          </div>
           {% endfor %}
         </div>
       </div>
+    </div>
+    </div>
     </div>
   </div>
 </div>

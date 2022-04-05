@@ -1,42 +1,29 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prescription</title>
-</head>
-<body>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{form}}
-        <input type="submit" name="Submit">
+{% extends 'doctors/navbar.html' %} {% load static %} {% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/prescriptionForm.css' %}"
+/>
+<title>Create Prescription</title>
+{% endblock %} {% block content %}
+<div class="prescriptionMain">
+  <div class="prescriptionCard">
+    <h1>
+      Prescription
+
+      <div class="dashboard-under"></div>
+    </h1>
+
+    <br />
+
+    <form class="infoFilter" action="" method="POST">
+      {% csrf_token %} {% for field in form %}
+      <div class="infoFilterInput">
+        {{ field.label_tag }} {{ field }} {{ field.errors }}
+      </div>
+      {% endfor %}
+      <button type="Submit">Submit</button>
     </form>
-</body>
-</html> -->
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prescription</title>
-</head>
-<body>
-    <center>
-        <h1>Prescription</h1>
-        <br>
-        <!-- {% if submitted %}
-           Success!!
-        {% else %} -->
-        <form action="" method="POST">
-            {% csrf_token %}
-            {{form.as_p}}
-            <input type="submit" name="Submit">
-        </form>
-       <!-- {% endif %} -->
-        </center>
-</body>
-</html>
+  </div>
+</div>
+{% endblock %}
