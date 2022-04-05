@@ -9,12 +9,11 @@ class User(AbstractUser):
     is_doctor = models.BooleanField(default=False)
 
 class MedicalHistory(models.Model):
-    remarks = models.CharField(max_length=200, null=True)
-    report = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     patient = models.ForeignKey('patients.Patient', null=True, on_delete= models.CASCADE)
     doctor = models.ForeignKey('doctors.Doctors', null=True, on_delete=models.CASCADE)
-
+    remarks = models.CharField(max_length=200, null=True)
+    report = models.ImageField(upload_to="img/",null=True)
     def __str__(self):
 	    return self.remarks
 

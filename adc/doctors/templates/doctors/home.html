@@ -50,11 +50,11 @@
       <div class="dashboardRight">
         <h2 class="report">Doctors</h2>
         <div class="reportCardContainer">
-          <div class="reportCard">Patient Tanya has a severe toothache.</div>
-          <div class="reportCard">Patient Tanya has a severe toothache.</div>
-          <div class="reportCard">Patient Tanya has a severe toothache.</div>
-          <div class="reportCard">Patient Tanya has a severe toothache.</div>
-          <div class="reportCard">Patient Tanya has a severe toothache.</div>
+          {% for doctor in doc %}
+          <div class="reportCard">{{doctor.dname}}</div>
+          <div class="reportCard">{{doctor.email}}</div>
+          <div class="reportCard">{{doctor.phone}}</div>
+          {% endfor %}
         </div>
       </div>
     </div>
