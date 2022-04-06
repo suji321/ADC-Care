@@ -9,10 +9,13 @@ from .models import *
 # Create your views here.
 def patland(request):
   p =User.objects.filter(is_patient=True)
-  return render(request, 'patland.html', {'p':p})
+  pat = Patient.objects.get(pk=request.user)
+  prescriptions = pat.prescription_set.all()
+  print(prescriptions)
+  return render(request, 'patland.html', {'p':p, 'prescriptions': prescriptions})
 
-def patinfo(request, pid):
-  p = Patient.objects.get(user_id=pid)
+def patinfo(request):
+  p = Patient.objects.get(user_id=request.user)
   return render(request, 'patinfo.html', {'p':p})
 
 def patmedhis(request, pid):

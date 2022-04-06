@@ -46,7 +46,7 @@
             <span>{{sch.id}}</span>
             <p><i class="material-icons">face</i>{{sch.patient.pname}}</p>
             <span>{{sch.scheduleTime}}</span>
-            <a href="/">
+            <a href="{% url 'manage-appt' %}">
               <p>See more details</p>
             </a>
           </div>

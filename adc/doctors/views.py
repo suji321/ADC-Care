@@ -122,8 +122,17 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'doctors/profile.html')
+    doc = Doctors.objects.get(user_id=request.user)
+    return render(request, 'doctors/profile.html', {'doc': doc})
 
 @login_required
 def profileEdit(request):
-    return render(request, 'doctors/edit.html')
+    if request.method == "GET":
+        doc = Doctors.objects.get(user_id=request.user)
+        return render(request, 'doctors/edit.html', {'doc': doc})
+    elif request.method == "POST":
+        form=ReportForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/doctors/profile/')
+

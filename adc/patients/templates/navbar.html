@@ -4,9 +4,6 @@
   <head>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/register.css' %}" />
-    <!-- <link rel="icon" href="{% static 'img/adc.png' %}" /> -->
-
-    <!-- <link rel="stylesheet" href="{% static 'css/index.js' %}" > -->
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -38,23 +35,14 @@
 
   <body>
     <div class="navDoctor">
-      <a href="{% url 'home' %}">
-        <li><i class="material-icons">home</i>Home</li>
-      </a>
-      <a href="{% url 'profile' %}">
+      <a href="/patients/pat">
         <li><i class="material-icons">badge</i>Profile</li>
-      </a>
-      <a href="{% url 'patient' %}">
-        <li><i class="material-icons">person</i>Patients</li>
       </a>
       <a href="{% url 'crtbill' %}">
         <li><i class="material-icons">attach_money</i>Billing</li>
       </a>
       <a href="{% url 'manage-appt' %}">
-        <li><i class="material-icons">today</i>Appointments</li>
-      </a>
-      <a href="{% url 'crtprc' %}">
-        <li><i class="material-icons">local_pharmacy</i>Prescription</li>
+        <li><i class="material-icons">today</i>Make Appointments</li>
       </a>
       <a href="{% url 'logout' %}">
         <li class="logout"><i class="material-icons">logout</i></li>

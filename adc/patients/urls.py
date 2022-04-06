@@ -4,7 +4,7 @@ from patients import views
 
 urlpatterns = [
     path('patland/', views.patland,name='phome'),
-    path('info/<str:pid>', views.patinfo, name='info'),
+    path('info/', views.patinfo, name='info'),
     path('medicalhistory/<str:pid>', views.patmedhis, name='medhis'),
     path('bill/<str:pid>', views.patbill, name='bill'),
     path('prescription/<str:pid>', views.prescription, name='prescrip'),
