@@ -46,9 +46,8 @@ class ReportForm(ModelForm):
         fields = ('patient','doctor','remarks','report')
 
         widgets = {
-        #'report': forms,
+        'report': forms.FileInput(),
         'doctor': forms.Select(),
         'patient': forms.Select(),
         'remarks': forms.TextInput(),
-        'status': forms.Select(attrs={'class': 'form-control'})
      }

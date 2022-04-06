@@ -68,9 +68,9 @@ def createbillinfo(request):
 
 @login_required
 def createreport(request):
-    form = MedicalHistory()
+    form = ReportForm()
     if request.method == 'POST':
-        form=BillInfoForm(request.POST)
+        form=ReportForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('/doctors/patlist/')
