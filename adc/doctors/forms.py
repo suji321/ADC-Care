@@ -9,12 +9,12 @@ from clinic.models import *
 class PrescriptionForm(ModelForm):
     class Meta:
         model = Prescription
-        fields = '__all__'
+        fields = ('patient','remarks','direction')
 
         widgets = {
-        'doctor': forms.Select(),
+        'doctor': forms.HiddenInput(),
         'patient': forms.Select(),
-        'remark':forms.TextInput(),
+        'remarks':forms.TextInput(),
         'direction': forms.TextInput(),
         
         
@@ -27,11 +27,11 @@ class PrescriptionForm(ModelForm):
 class BillInfoForm(ModelForm):
     class Meta:
         model = BillInfo
-        fields = ('bdate','payment','status','patient','doctor')
+        fields = ('bdate','payment','status','patient')
 
         widgets = {
         'bdate': forms.DateInput(),
-        'doctor': forms.Select(),
+        'doctor': forms.HiddenInput(),
         'patient': forms.Select(),
         'payment': forms.NumberInput(),
         'status': forms.Select(attrs={'class': 'form-control'})
