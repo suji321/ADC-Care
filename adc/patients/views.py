@@ -10,9 +10,8 @@ from .models import *
 def patland(request):
   p =User.objects.filter(is_patient=True)
   pat = Patient.objects.get(pk=request.user)
-  prescriptions = pat.prescription_set.all()
-  print(prescriptions)
-  return render(request, 'patland.html', {'p':p, 'prescriptions': prescriptions})
+  press = pat.prescription_set.all()
+  return render(request, 'patland.html', {'p':p, 'press': press})
 
 def patinfo(request):
   p = Patient.objects.get(user_id=request.user)
@@ -23,8 +22,8 @@ def patmedhis(request, pid):
   info = p.medicalhistory_set.all()
   return render(request, 'patmedhis.html', {'info': info}) 
 
-def patbill(request, pid):
-  p = Patient.objects.get(pk=pid)
+def patbill(request):
+  p = Patient.objects.get(pk=request.user)
   bill = p.billinfo_set.all()
   return render(request, 'patbill.html', {'bill':bill})
 
@@ -36,33 +35,17 @@ def prescription(request, pid):
 
 def createappt(request):
   form=ScheduleForm()
+
   if request.method == 'POST':
     form=ScheduleForm(request.POST)
     if form.is_valid():
       form.save()
       return redirect('patland/')
-    
   context={'form':form}
-  return render(request, 'mkapt.html',context )
+  return render(request, 'mkapt.html', context)
 
 
-# @login_required
 def profileEdit(request):
     if request.method == "GET":
         p = Patient.objects.get(user_id=request.user)
         return render(request, 'edit.html', {'p': p})
-    elif request.method == "POST":
-        pname = request.POST.get("pname")
-        email = request.POST.get("email")
-        phone = request.POST.get("phone")
-        address = request.POST.get("address")
-        if not pname == "" and not email == "" and not phone == "" and not address == "":
-            p = Patient.objects.get(user_id=request.user)
-            p.pname = pname
-            p.email = email
-            p.phone = phone
-            p.address = address
-            p.save()
-            return redirect('/patients/info/')
-        p = Patient.objects.get(user_id=request.user)
-        return render(request, 'edit.html', {'error': "Some fields are empty", 'p': p})

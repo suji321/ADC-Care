@@ -35,13 +35,16 @@
 
   <body>
     <div class="navDoctor">
-      <a href="/patients/pat">
+      <a href="{% url 'phome' %}">
+        <li><i class="material-icons">home</i>Home</li>
+      </a>
+      <a href="{% url 'pat_info' %}">
         <li><i class="material-icons">badge</i>Profile</li>
       </a>
-      <a href="{% url 'crtbill' %}">
+      <a href="{% url 'pat_bill' %}">
         <li><i class="material-icons">attach_money</i>Billing</li>
       </a>
-      <a href="{% url 'manage-appt' %}">
+      <a href="{% url 'pat_appointment' %}">
         <li><i class="material-icons">today</i>Make Appointments</li>
       </a>
       <a href="{% url 'logout' %}">
@@ -88,23 +91,17 @@
       <a href="{% url 'home' %}">
         <li><i class="material-icons">home</i>Home</li>
       </a>
-      <a href="{% url 'profile' %}">
+      <a href="{% url 'pat_info' %}">
         <li><i class="material-icons">badge</i>Profile</li>
       </a>
-      <a href="{% url 'patient' %}">
-        <li><i class="material-icons">person</i>Patients</li>
-      </a>
-      <a href="{% url 'crtbill' %}">
+      <a href="{% url 'pat_bill' %}">
         <li><i class="material-icons">attach_money</i>Billing</li>
       </a>
-      <a href="{% url 'manage-appt' %}">
-        <li><i class="material-icons">today</i>Appointments</li>
-      </a>
-      <a href="{% url 'crtprc' %}">
-        <li><i class="material-icons">local_pharmacy</i>Prescription</li>
+      <a href="{% url 'pat_appointment' %}">
+        <li><i class="material-icons">today</i>Make Appointments</li>
       </a>
       <a href="{% url 'logout' %}">
-        <li><i class="material-icons">logout</i>Logout</li>
+        <li class="logout"><i class="material-icons">logout</i></li>
       </a>
     </div>
     {% block content %} {% endblock %}

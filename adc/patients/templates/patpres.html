@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Patient Prescription</title>
-    </head>
-    <body>
-        {% for press in press %}
-        <h2>{{press.name}}</h2>
-        <h2>{{press.frequency}}</h2>
-        <h2>{{press.direction}}</h2>
-        <h2>{{press.remarks}}</h2>
-        <h2>{{press.patient}}</h2>
-        <h2>{{press.doctor}}</h2>
-        {% endfor %}
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient Prescription</title>
+  </head>
+  <body>
+    {% for press in press %}
+    <h2>{{press.name}}</h2>
+    <h2>{{press.frequency}}</h2>
+    <h2>{{press.direction}}</h2>
+    <h2>{{press.remarks}}</h2>
+    <h2>{{press.patient}}</h2>
+    <h2>{{press.doctor}}</h2>
+    {% endfor %}
+  </body>
 </html>
