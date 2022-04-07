@@ -38,7 +38,9 @@ def createappt(request):
 
   if request.method == 'POST':
     form=ScheduleForm(request.POST)
+    p = Patient.objects.get(pk=request.user.pk)
     if form.is_valid():
+      form.instance.patient=p
       form.save()
       return redirect('patland/')
   context={'form':form}

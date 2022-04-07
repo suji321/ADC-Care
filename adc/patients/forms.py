@@ -6,4 +6,4 @@ from clinic.models import *
 class ScheduleForm(ModelForm):
     class Meta:
         model=Schedule
-        fields=['request','scheduleDate','patient','doctor']
+        fields=['request','scheduleDate','doctor']
