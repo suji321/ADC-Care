@@ -201,3 +201,23 @@
   color: white;
 }
 /* END: Form */
+
+/* Button */
+.adcBtn {
+  height: 40px;
+  width: fit-content;
+  padding: 0 20px;
+  margin: 6px;
+  outline: none;
+  border: 2px solid dodgerblue;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.adcBtn-solid {
+  background-color: dodgerblue;
+  color: white;
+}
+.adcBtn-gas {
+  background-color: white;
+  color: dodgerblue;
+}

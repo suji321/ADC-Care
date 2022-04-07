@@ -1,0 +1,134 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ADC</title>
+    <link rel="stylesheet" href="{% static 'css/components.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/landing.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header class="lHeader px-10">
+      <img src="{% static 'img/adc.png' %}" alt="logo" />
+      <menu class="lMenu">
+        <a href="" class="menuItem">
+          <p>About Us</p>
+        </a>
+        <a href="" class="menuItem">
+          <p>Services</p>
+        </a>
+        <a href="" class="menuItem">
+          <p>Doctors</p>
+        </a>
+        <a href="" class="menuItem">
+          <p>Testimonials</p>
+        </a>
+        <a href="" class="menuItem lastItem">
+          <p>Contact Us</p>
+        </a>
+        <a href="{% url 'login' %}">
+          <button class="adcBtn adcBtn-solid shadow-lg">Login</button>
+        </a>
+        <a href="{% url 'register' %}">
+          <button class="adcBtn adcBtn-gas shadow-lg">Signup</button>
+        </a>
+      </menu>
+    </header>
+
+    <div class="lLayout">
+      <section class="lSection mx-24">
+        <div class="lSection-content">
+          <!-- <span class="text-[#2edfcd]">About Us</span> -->
+          <h1 class="text-4xl font-semibold mt-4">
+            High quality and painless
+            <span class="text-[#1e90ff]">dentistry</span>
+          </h1>
+          <h1></h1>
+          <p class="mt-4 mb-3"></p>
+
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga,
+            maxime. Voluptatibus sunt non animi nobis cupiditate quisquam
+            ratione iusto earum odit asperiores amet officiis quia accusamus,
+            necessitatibus ab magnam aliquid? Quibusdam labore doloribus
+            reprehenderit ad. Autem, atque! Modi, repellat laborum perspiciatis
+            exercitationem magni optio aliquam accusantium tempore expedita
+            debitis quam, a vel reiciendis dicta ex, vitae distinctio sunt
+            nesciunt voluptatem?
+          </p>
+          <a href="{% url 'login' %}">
+            <button class="adcBtn adcBtn-solid shadow-lg">
+              Make Appointment
+            </button>
+          </a>
+        </div>
+        <div class="lSection-img">
+          <img src="{% static 'img/avatar.png' %}" alt="" />
+        </div>
+      </section>
+
+      <section
+        class="lSection bg-white max-w-[1200px] p-10 py-20 rounded-tr-3xl rounded-br-3xl"
+      >
+        <div class="lSection-img">
+          <img src="{% static 'img/avatar.png' %}" alt="" />
+        </div>
+        <div class="lSection-content">
+          <span class="text-[#2edfcd]">About Us</span>
+          <h1 class="text-4xl font-semibold mt-4">
+            Patient health is the highest value in our work
+          </h1>
+          <p class="mt-4 mb-3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga,
+            maxime. Voluptatibus sunt non animi nobis cupiditate quisquam
+            ratione iusto earum odit asperiores amet officiis quia accusamus,
+            necessitatibus ab magnam aliquid? Quibusdam labore doloribus
+            reprehenderit ad. Autem, atque! Modi, repellat laborum perspiciatis
+            exercitationem magni optio aliquam accusantium tempore expedita
+            debitis quam, a vel reiciendis dicta ex, vitae distinctio sunt
+            nesciunt voluptatem?
+          </p>
+          <a href="{% url 'login' %}">
+            <button class="adcBtn adcBtn-solid shadow-lg">Learn More</button>
+          </a>
+        </div>
+      </section>
+
+      <div class="grid grid-col-3">
+        <div class="flex flex-col max-w-[300px]">
+          <i class="material-icons">sports</i>
+          <h1>Prosthodontics</h1>
+          <p>
+            Replace teeth that have been lost, for whatever reason. Missing
+            teeth pose more than an aesthetic issue; surrounding teeth may shift
+            out of position toward gaps, bacteria is more likely to grow in food
+            trapped in these gaps, and the ability to chew and speak can be
+            severely compromised.
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(window).on("load scroll", function () {
+          $(".fa-bars").removeClass("fa-times");
+          $(".nav").removeClass("nav-toggle");
+          console.log($(window).scrollTop());
+          if ($(window).scrollTop() > 10) {
+            $(".lHeader").addClass("header-active");
+          } else {
+            $(".lHeader").removeClass("header-active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

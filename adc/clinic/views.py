@@ -7,6 +7,11 @@ from .forms import PatientSignUpForm, DoctorSignUpForm
 from .models import User
 
 # Create your views here.
+
+def landing(request):
+    return render(request, 'landing.html')
+
+
 def register(request):
     return render(request, 'register.html')
 
