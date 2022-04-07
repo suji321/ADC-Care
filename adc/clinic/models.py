@@ -7,6 +7,7 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     is_patient = models.BooleanField(default=False)
     is_doctor = models.BooleanField(default=False)
+    email = models.EmailField(max_length=100)
 
 class MedicalHistory(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, null=True)
