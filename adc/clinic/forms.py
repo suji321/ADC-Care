@@ -15,11 +15,24 @@ class PatientSignUpForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = User
+
+    def clean_phone(self):
+        phone = self.cleaned_data.get('phone')
+        if len(phone) is not 10:
+            raise forms.ValidationError('Phone number must have 10 digits')
+        return phone
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if not validate_email(email, verify=True):
+            raise forms.ValidationError('Invalid email')
+        return email
     
     @transaction.atomic
     def save(self):
         user = super().save(commit=False)
         user.is_patient = True
+        user.email = self.cleaned_data.get('email')
         user.save()
         patient = Patient.objects.create(user=user)
         patient.pname = self.cleaned_data.get('full_name')
@@ -46,11 +59,24 @@ class DoctorSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
 
+    def clean_phone(self):
+        phone = self.cleaned_data.get('phone')
+        if len(phone) is not 10:
+            raise forms.ValidationError('Phone number must have 10 digits')
+        return phone
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if not validate_email(email, verify=True):
+            raise forms.ValidationError('Invalid email')
+        return email
+
     @transaction.atomic
     def save(self):
         user = super().save(commit=False)
         user.is_doctor = True
         user.is_staff - True
+        user.email = self.cleaned_data.get('email')
         user.save()
         doctor = Doctors.objects.create(user=user)
         doctor.dname = self.cleaned_data.get('full_name')
