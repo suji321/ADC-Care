@@ -131,8 +131,18 @@ def profileEdit(request):
         doc = Doctors.objects.get(user_id=request.user)
         return render(request, 'doctors/edit.html', {'doc': doc})
     elif request.method == "POST":
-        form=ReportForm(request.POST)
-        if form.is_valid():
-            form.save()
+        dname = request.POST.get("dname")
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
+        address = request.POST.get("address")
+        if not dname == "" and not email == "" and not phone == "" and not address == "":
+            doc = Doctors.objects.get(user_id=request.user)
+            doc.dname = dname
+            doc.email = email
+            doc.phone = phone
+            doc.address = address
+            doc.save()
             return redirect('/doctors/profile/')
+        doc = Doctors.objects.get(user_id=request.user)
+        return render(request, 'doctors/edit.html', {'error': "Some fields are empty", 'doc': doc})
 

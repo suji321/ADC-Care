@@ -44,3 +44,25 @@ def createappt(request):
     
   context={'form':form}
   return render(request, 'mkapt.html',context )
+
+
+# @login_required
+def profileEdit(request):
+    if request.method == "GET":
+        p = Patient.objects.get(user_id=request.user)
+        return render(request, 'edit.html', {'p': p})
+    elif request.method == "POST":
+        pname = request.POST.get("pname")
+        email = request.POST.get("email")
+        phone = request.POST.get("phone")
+        address = request.POST.get("address")
+        if not pname == "" and not email == "" and not phone == "" and not address == "":
+            p = Patient.objects.get(user_id=request.user)
+            p.pname = pname
+            p.email = email
+            p.phone = phone
+            p.address = address
+            p.save()
+            return redirect('/patients/info/')
+        p = Patient.objects.get(user_id=request.user)
+        return render(request, 'edit.html', {'error': "Some fields are empty", 'p': p})

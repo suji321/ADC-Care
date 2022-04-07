@@ -26,9 +26,9 @@ href="https://fonts.googleapis.com/icon?family=Material+Icons"
                           <div class="d-flex flex-column align-items-center text-center">
                             <img src="{% static 'img/avatar.png' %}" alt="Admin" class="rounded-circle" width="150">
                             <div class="mt-3">
-                              <h4>{{doc.dname}}</h4>
-                              <p class="text-secondary mb-1">{{doc.specialisation}}</p>
-                              <p class="text-muted font-size-sm">{{doc.address}}</p>
+                              <h4>{{p.pname}}</h4>
+                              <p class="text-secondary mb-1">{{p.age}}</p>
+                              <p class="text-muted font-size-sm">{{p.gender}}</p>
                             </div>
                           </div>
                         </div>
@@ -44,7 +44,7 @@ href="https://fonts.googleapis.com/icon?family=Material+Icons"
                               <h6 class="mb-0">Full Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              <input name="dname" type="text" class="form-control" value="{{doc.dname}}" />
+                              <input name="dname" type="text" class="form-control" value="{{p.pname}}" />
                             </div>
                           </div>
                           <div class="row mb-3">
@@ -56,7 +56,7 @@ href="https://fonts.googleapis.com/icon?family=Material+Icons"
                               name="email"
                                 type="text"
                                 class="form-control"
-                                value="{{doc.email}}"
+                                value="{{p.email}}"
                               />
                             </div>
                           </div>
@@ -69,7 +69,7 @@ href="https://fonts.googleapis.com/icon?family=Material+Icons"
                               name="phone"
                                 type="text"
                                 class="form-control"
-                                value="{{doc.phone}}"
+                                value="{{p.phone}}"
                               />
                             </div>
                           </div>
@@ -82,7 +82,7 @@ href="https://fonts.googleapis.com/icon?family=Material+Icons"
                               name="address"
                                 type="text"
                                 class="form-control"
-                                value="{{doc.address}}"
+                                value="{{p.address}}"
                               />
                             </div>
                           </div>

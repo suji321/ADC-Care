@@ -1,4 +1,5 @@
 from cProfile import label
+from pyexpat import model
 from django import forms
 from django .forms import ModelForm
 from .models import*
@@ -39,6 +40,12 @@ class BillInfoForm(ModelForm):
         labels = {
            'bdate': 'Billing Date'
        }
+
+
+class DoctorUpdateForm(ModelForm):
+    class Meta:
+        model = Doctors
+        fields = ('dname', 'email', 'phone', 'address')
 
 class ReportForm(ModelForm):
     class Meta:
