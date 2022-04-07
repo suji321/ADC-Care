@@ -43,10 +43,12 @@ def patientinfo(request,pk_t):
 
 @login_required
 def createprescription(request):
+    d =Doctors.objects.get(pk=request.user.pk)
     form = PrescriptionForm()
     if request.method == 'POST':
         form=PrescriptionForm(request.POST)
         if form.is_valid():
+            form.instance.doctor=d
             form.save()
             return redirect('/doctors/patlist/')
     context={'form':form}
@@ -54,10 +56,12 @@ def createprescription(request):
 
 @login_required
 def createbillinfo(request):
+    d =Doctors.objects.get(pk=request.user.pk)
     form = BillInfoForm()
     if request.method == 'POST':
         form=BillInfoForm(request.POST)
         if form.is_valid():
+            form.instance.doctor=d
             form.save()
 
             return redirect('/doctors/patlist/')
@@ -69,9 +73,11 @@ def createbillinfo(request):
 @login_required
 def createreport(request):
     form = ReportForm()
+    d =Doctors.objects.get(pk=request.user.pk)
     if request.method == 'POST':
         form=ReportForm(request.POST)
         if form.is_valid():
+            form.instance.doctor=d
             form.save()
             return redirect('/doctors/patlist/')
     
@@ -82,7 +88,8 @@ def createreport(request):
 def home(request):
     s=Schedule.objects.all()
     doc = Doctors.objects.all()
-    return render(request, 'doctors/home.html',{'s':s, 'doc': doc})
+    d = Doctors.objects.get(pk=request.user)
+    return render(request, 'doctors/home.html',{'s':s, 'doc': doc,'d':d})
 
 
 class Manageapt(LoginRequiredMixin,ListView):
@@ -122,8 +129,11 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'doctors/profile.html')
+    doc = Doctors.objects.get(user_id=request.user)
+    return render(request, 'doctors/profile.html', {'doc': doc})
 
 @login_required
 def profileEdit(request):
-    return render(request, 'doctors/edit.html')
+    if request.method == "GET":
+        doc = Doctors.objects.get(user_id=request.user)
+        return render(request, 'doctors/edit.html', {'doc': doc})

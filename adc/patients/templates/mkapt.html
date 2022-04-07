@@ -1,16 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{form}}
-        <input type="submit" name="Submit">
+{% extends 'navbar.html' %} {% load static %} {% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/patients/common.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/patients/patland.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/components.css' %}"
+/>
+<title>Patient Landing Page</title>
+{% endblock %} {% block content %}
+<div class="patientLayout">
+  <div class="adcCard">
+    <h1 class="adcCardTitle">Request Appointment</h1>
+    <div class="adcCardTitle-under"></div>
+    <form class="infoFilter" action="" method="post">
+      {% csrf_token %} {% for field in form %}
+      <div class="infoFilterInput">
+        {{ field.label_tag }} {{ field }} {{ field.errors }}
+      </div>
+      {% endfor %}
+      <button type="submit">Request Appointment</button>
     </form>
-</body>
-</html>
+  </div>
+</div>
+{% endblock %}

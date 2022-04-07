@@ -119,3 +119,105 @@
 }
 
 /* End of table container */
+
+/* START: CARD */
+.adcCard {
+  background-color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+}
+.adcCardTitle {
+  font-size: 18px;
+  font-weight: 600;
+  /* color: dodgerblue; */
+}
+.adcCardTitle-under {
+  width: 45px;
+  height: 4px;
+  border-radius: 20px;
+  background-color: dodgerblue;
+  /* position: absolute;
+  bottom: 0; */
+}
+/* END: CARD */
+
+/* START: Form */
+.infoFilter {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  /* flex-direction: column; */
+}
+
+.infoFilterInput {
+  width: 50%;
+  padding-right: 20px;
+}
+
+.infoFilter textarea,
+.infofilter textarea {
+  outline: none;
+  resize: none;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.311);
+}
+.infoFilter input,
+.infoFilter select,
+.infoFilterInput input,
+.infoFilterInput select {
+  margin-bottom: 20px;
+  height: 35px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.311);
+  transition: all ease-in-out 0.2s;
+  padding: 0 10px;
+  width: 100%;
+}
+.infoFilter input:focus,
+.infoFilter select:focus {
+  border: 1px solid rgba(0, 0, 0);
+}
+.infoFilterInput {
+  display: flex;
+  flex-direction: column;
+}
+.infoFilter button {
+  background-color: white;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  border: none;
+  padding: 0 80px;
+  border-radius: 10px;
+  margin: 10px auto;
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+  height: 45px;
+}
+
+.infoFilter button:hover {
+  background-color: dodgerblue;
+  color: white;
+}
+/* END: Form */
+
+/* Button */
+.adcBtn {
+  height: 40px;
+  width: fit-content;
+  padding: 0 20px;
+  margin: 6px;
+  outline: none;
+  border: 2px solid dodgerblue;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.adcBtn-solid {
+  background-color: dodgerblue;
+  color: white;
+}
+.adcBtn-gas {
+  background-color: white;
+  color: dodgerblue;
+}

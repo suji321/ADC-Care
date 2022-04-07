@@ -1,30 +1,69 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Patient Landing Page</title>
-    </head>
-    <body>
-        <h1>Patient Portal</h1>
-        <table>
-            <tr>
-                <th>Name    </th>
-                <th>Your Info  </th>
-                <th>Medical History      </th>
-                <th>Bill</th>
-                 <th>Prescription</th>
-            </tr>
-            {% for p in p %}
-            <tr>
-             <td>{{p.patient.pname}}</td>
-             <td><a href="{% url 'info' p.id %}">View</a></td>
-             <td><a href="{% url 'medhis' p.id %}">View</a></td>
-             <td><a href="{% url 'bill' p.id %}">View</a></td>
-             <td><a href="{% url 'prescrip' p.id %}">View</a></td>
-            </tr>
-            {% endfor %}
-        </table>
-    </body>
-</html>
+{% extends 'navbar.html' %} {% load static %} {% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/patients/common.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/patients/patland.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/components.css' %}"
+/>
+<title>Patient Landing Page</title>
+{% endblock %} {% block content %}
+<div class="patientLayout">
+  <h1>Appointment Status</h1>
+  <div class="appStatus">
+    <div>
+      <h1>Dr. Aleena</h1>
+      <time>13:00, 13 April 2022</time>
+    </div>
+    <span class="accepted">Accepted</span>
+  </div>
+  <div class="appStatus">
+    <div>
+      <h1>Dr. Tanya</h1>
+      <time>13:00, 13 April 2022</time>
+    </div>
+    <span class="pending">Pending</span>
+  </div>
+  <div class="appStatus">
+    <div>
+      <h1>Dr. Aleena</h1>
+      <time>13:00, 13 April 2022</time>
+    </div>
+    <span class="rejected">Rejected</span>
+  </div>
+
+  <div class="adcTableContainer">
+    <div class="adcTable">
+      <div class="adcRow adcHead">
+        <!-- <div class="adcCell">NAME</div> -->
+        <div class="adcCell">PATIENT</div>
+        <div class="adcCell">DOCTOR</div>
+        <div class="adcCell">DATE CREATED</div>
+        <div class="adcCell">DIRECTION</div>
+        <div class="adcCell">REMARKS</div>
+      </div>
+      <div class="adcRowBody">
+        {% for press in prescriptions %}
+        <div class="adcRow">
+          <!-- <div class="adcCell">{{press.name}}</div> -->
+          <div class="adcCell">{{press.patient.pname}}</div>
+          <div class="adcCell">{{press.doctor.dname}}</div>
+          <div class="adcCell">{{press.date_created}}</div>
+          <div class="adcCell">{{press.direction}}</div>
+          <div class="adcCell">{{press.remarks}}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <!-- <h1>Patient Portal</h1> -->
+</div>
+{% endblock %}

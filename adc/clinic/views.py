@@ -15,6 +15,11 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 
 # Create your views here.
+
+def landing(request):
+    return render(request, 'landing.html')
+
+
 def register(request):
     return render(request, 'register.html')
 
