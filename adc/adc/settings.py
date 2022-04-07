@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'doctors',
     'clinic',
     'widget_tweaks',
+    'crispy_forms',
 ]
 
 AUTH_USER_MODEL = 'clinic.User'
@@ -86,16 +87,22 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'OPTIONS': {
+            'user_attributes':('username'),
+            'max_similarity': 0.5
+        }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'OPTIONS':{
+            'min_length': 8,
+        },
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -130,3 +137,13 @@ LOGIN_URL='login'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+
+#Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = smtp.gmail.com
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
