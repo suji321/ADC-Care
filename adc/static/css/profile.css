@@ -10,7 +10,9 @@ body {
   overflow-x: hidden;
 }
 
-a.unvisited, a.unvisited:visited, a.unvisited:active{
+a.unvisited,
+a.unvisited:visited,
+a.unvisited:active {
   text-decoration: none;
   color: transparent;
 }
@@ -34,44 +36,6 @@ a.unvisited, a.unvisited:visited, a.unvisited:active{
   flex-direction: column;
 }
 
-.navDoctor {
-  width: 92%;
-  height: 60px;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border-radius: 10px;
-  margin: 20px 0;
-  position: fixed;
-  top: 0;
-  z-index: 10;
-  transition: top 0.3s;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-}
-
-.navDoctor li {
-  list-style: none;
-  background-color: dodgerblue;
-  padding: 8px 20px;
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.navDoctor li:hover {
-  border: 1px solid dodgerblue;
-  background-color: white;
-  color: dodgerblue;
-  transition: all 0.3s ease-in-out;
-}
-
-.navDoctor li i {
-  margin-right: 0.5rem;
-}
 .navHamburger {
   display: none;
   position: fixed;

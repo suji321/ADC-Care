@@ -8,82 +8,79 @@
 {% endblock %} {% block content %}
 <div class="doctorHomeMain">
   <img class="homeLogo" src="{% static 'img/adc-home.png' %}" class="logo" />
-    <div class="dashboardContainer">
-      <div class="dashboardLeft">
-        <div class="dashboard">
-          <h1 class="dash">
+  <div class="dashboardContainer">
+    <div class="dashboardLeft">
+      <div class="dashboard">
+        <h1 class="dash dashFrist">
           <div class="dashboard-under"></div>
-          Dashboard</h1>
+          Dashboard
+        </h1>
         <div class="dashboardCard">
           <div class="dashCardItem">
-            <i class="material-icons">medical_services</i> Total Patients
+            <i class="material-icons">medical_services</i>
+            <h3>Total Patients</h3>
             <small>1200</small>
           </div>
           <div class="dashCardItem">
-            <i class="material-icons">groups</i> Total Staff
+            <i class="material-icons">groups</i>
+            <h3>Total Staff</h3>
             <small>1500</small>
           </div>
           <div class="dashCardItem">
-            <i class="material-icons">hotel</i> Dental engines
+            <i class="material-icons">hotel</i>
+            <h3>Dental engines</h3>
             <small>1200</small>
           </div>
           <div class="dashCardItem">
-            <i class="material-icons">vaccines</i> Total Doctors
+            <i class="material-icons">vaccines</i>
+            <h3>Total Doctors</h3>
             <small>700</small>
           </div>
         </div>
       </div>
-      <div class="billingDetails">
-          
-          <h1 class="dash">
-            <!-- <div class="dashboard-under"></div> -->
-            
-            Appointments</h1>
-        <div class="billingCardsContainer">
-          {% for sch in s %}
-          {% if d.dname == sch.doctor.dname %}
-          <div class="billingCard">
-           
-            <span>{{sch.id}}</span>
-            <p><i class="material-icons">face</i>{{sch.patient.pname}}</p>
-            <span>{{sch.scheduleTime}}</span>
-            <a href="{% url 'manage-appt' %}">
-              <p>See more details</p>
-            </a>
+
+      <div class="adcTableContainer">
+        <div class="adcTable">
+          <h1 class="dash">Appointments</h1>
+          <div class="adcRow adcHead">
+            <div class="adcCell">ID</div>
+            <div class="adcCell">Patient</div>
+            <div class="adcCell">schedule Time</div>
           </div>
-          {% endif %}
-          {% endfor %}
-          
+          <div class="adcRowBody">
+            {% for sch in s %} {% if d.dname == sch.doctor.dname %}
+            <div class="adcRow">
+              <div class="adcCell">{{sch.id}}</div>
+              <div class="adcCell">
+                <i class="material-icons dodgerblue">face</i
+                >{{sch.patient.pname}}
+              </div>
+              <div class="adcCell">{{sch.scheduleTime}}</div>
+            </div>
+            {% endif %} {% endfor %}
+          </div>
         </div>
       </div>
-     
-    </div>
 
-
-
-    <div class="adcTableContainer doctorsTable">
-      <div class="adcTable">
-        <h1 class="dash">
-          <!-- <div class="dashboard-under"></div> -->
-          
-          Doctors</h1>
-        <div class="adcRow adcHead">
-          <div class="adcCell">NAME</div>
-          <div class="adcCell">EMAIL</div>
-          <div class="adcCell">PHONE</div>
-        </div>
-        <div class="adcRowBody">
-          {% for doctor in doc %}
-          <div class="adcRow">
-            <div class="adcCell">{{doctor.dname}}</div>
-            <div class="adcCell">{{doctor.email}}</div>
-            <div class="adcCell">{{doctor.phone}}</div>
+      <div class="adcTableContainer">
+        <div class="adcTable">
+          <h1 class="dash">Doctors</h1>
+          <div class="adcRow adcHead">
+            <div class="adcCell">NAME</div>
+            <div class="adcCell">EMAIL</div>
+            <div class="adcCell">PHONE</div>
           </div>
-          {% endfor %}
+          <div class="adcRowBody">
+            {% for doctor in doc %}
+            <div class="adcRow">
+              <div class="adcCell">{{doctor.dname}}</div>
+              <div class="adcCell">{{doctor.email}}</div>
+              <div class="adcCell">{{doctor.phone}}</div>
+            </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
-    </div>
-    </div>
     </div>
   </div>
 </div>

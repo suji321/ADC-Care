@@ -69,16 +69,19 @@ body {
 .report {
   font-size: 18px;
 }
-
+.dodgerblue {
+  color: dodgerblue;
+  margin-right: 10px;
+}
 .dashboardContainer {
   flex: 1;
   width: 90%;
   height: 100%;
   display: flex;
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
 .dashboardLeft {
-  flex: 0.8;
+  flex: 1;
   display: flex;
   align-items: flex-start;
   padding: 10px 20px;
@@ -86,7 +89,7 @@ body {
   flex-direction: column;
 }
 .dashboardRight {
-  flex: 0.2;
+  flex: 0;
   width: 100%;
   display: flex;
   align-items: flex-start;
@@ -103,30 +106,47 @@ body {
 }
 
 .dashboard h1 {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .dash {
   color: #494d50;
+  margin: 0;
+}
+.dashFrist {
+  font-size: 32px !important;
 }
 
 .dashboardCard {
   width: 100%;
-  background-color: white;
-  border-radius: 10px;
+  /* background-color: white; */
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 20px 0;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  margin-top: 15px;
 }
 
 .dashCardItem {
+  border-radius: 10px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
   display: flex;
+  padding: 20px;
+  background-color: white;
   align-items: center;
   text-align: center;
   justify-content: center;
   flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin: 0 20px;
+  /* text-transform: uppercase; */
+}
+.dashCardItem h3 {
+  font-size: 18px;
+  font-weight: 600;
+}
+.dashCardItem small {
+  color: rgb(183, 183, 183);
 }
 .dashCardItem i {
   color: dodgerblue;
