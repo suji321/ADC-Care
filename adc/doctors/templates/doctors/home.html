@@ -41,6 +41,7 @@
             Appointments</h1>
         <div class="billingCardsContainer">
           {% for sch in s %}
+          {% if d.dname == sch.doctor.dname %}
           <div class="billingCard">
            
             <span>{{sch.id}}</span>
@@ -50,6 +51,7 @@
               <p>See more details</p>
             </a>
           </div>
+          {% endif %}
           {% endfor %}
           
         </div>
