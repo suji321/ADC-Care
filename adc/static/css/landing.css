@@ -4,6 +4,25 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  transition: all 0.4s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(172, 172, 172, 0.492);
+  outline: none;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff;
+  backdrop-filter: blur(10px);
+}
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: #f3f4f9;
 }
@@ -18,6 +37,7 @@ body {
   top: 0;
   min-width: 100vw;
   height: 80px;
+  z-index: 10;
 }
 .lHeader img {
   max-width: 80px;
@@ -37,12 +57,19 @@ body {
 .lMenu a {
   text-decoration: none;
   color: black;
-  transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.1s;
+  cursor: pointer !important;
 }
 .lMenu a:hover,
 .lMenu a:active,
 .lMenu a:focus {
-  color: #1e90ff;
+  color: #3864dc;
+}
+.activeNavItem {
+  background-color: #3864dc33 !important;
+  color: #3864dc !important;
+  /* font-weight: 600; */
+  border-radius: 6px;
 }
 .lastItem {
   margin-right: 20px;
@@ -54,6 +81,7 @@ body {
 
 .lSection {
   display: flex;
+  /* align-items: center; */
   flex-direction: row;
   justify-content: space-around;
   margin: 100px 0;
@@ -66,7 +94,7 @@ body {
 }
 .lSection-content {
   flex: 2;
-  padding: 0 25px;
+  padding: 0 50px;
 }
 .lSection-content p {
   text-align: justify;
@@ -74,11 +102,7 @@ body {
   line-height: 25px;
 }
 .lSection img {
-  max-width: 200px;
   height: auto;
-}
-
-.treats {
 }
 
 @media screen and (max-width: 1024px) {

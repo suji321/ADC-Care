@@ -18,23 +18,23 @@
     <header class="lHeader px-10">
       <img src="{% static 'img/adc.png' %}" alt="logo" />
       <menu class="lMenu">
-        <a href="" class="menuItem">
-          <p>About Us</p>
+        <a id="nav-aboutus" href="#aboutus" class="menuItem cursor-pointer">
+          <p class="cursor-pointer">About Us</p>
         </a>
-        <a href="" class="menuItem">
+        <a id="nav-services" href="#services" class="menuItem">
           <p>Services</p>
         </a>
-        <a href="" class="menuItem">
+        <a id="nav-doctors" href="#doctors" class="menuItem">
           <p>Doctors</p>
         </a>
-        <a href="" class="menuItem">
+        <a id="nav-testimonials" href="#testimonials" class="menuItem">
           <p>Testimonials</p>
         </a>
-        <a href="" class="menuItem lastItem">
+        <a id="nav-contactus" href="#contactus" class="menuItem lastItem">
           <p>Contact Us</p>
         </a>
         <a href="{% url 'login' %}">
-          <button class="adcBtn adcBtn-solid shadow-lg">Login</button>
+          <button class="adcBtn adcBtn-fog shadow-lg">Login</button>
         </a>
         <a href="{% url 'register' %}">
           <button class="adcBtn adcBtn-gas shadow-lg">Signup</button>
@@ -42,18 +42,15 @@
       </menu>
     </header>
 
-    <div class="lLayout mt-48">
-      <section class="lSection mx-24">
+    <div class="lLayout mt-32 lg:mt-48">
+      <section class="lSection mx-2 md:mx-12 lg:mx-24">
         <div class="lSection-content">
           <!-- <span class="text-[#2edfcd]">About Us</span> -->
           <h1 class="text-4xl font-semibold mt-4">
             High quality and painless
-            <span class="text-[#1e90ff]">dentistry</span>
+            <span class="text-[#3864dc]">dentistry</span>
           </h1>
-          <h1></h1>
-          <p class="mt-4 mb-3"></p>
-
-          <p>
+          <p class="mt-3 mb-4">
             Alleppey Dental Clinic is a multispecialty dental clinic situated in
             the heart of Alappuzha city. Equipped with latest technology we
             provide all types of treatment modalities complying with
@@ -71,16 +68,23 @@
             </button>
           </a>
         </div>
-        <div class="lSection-img">
-          <img src="{% static 'img/avatar.png' %}" alt="" />
+        <div
+          class="lSection-img mt-8 lg:mt-0 max-w-[250px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[550px]"
+        >
+          <img src="{% static 'img/Group 1.png' %}" alt="" />
         </div>
       </section>
+      <!-- end  -->
 
+      <!-- start aboutus -->
       <section
-        class="lSection bg-white max-w-[1200px] p-10 py-20 rounded-tr-3xl rounded-br-3xl"
+        id="aboutus"
+        class="lSection bg-white max-w-[1200px] p-5 md:p-8 lg:p-10 py-20 rounded-tr-3xl rounded-br-3xl"
       >
-        <div class="lSection-img">
-          <img src="{% static 'img/avatar.png' %}" alt="" />
+        <div
+          class="lSection-img mb-8 lg:mb-0 max-w-[250px] sm:max-w-[300px] md:max-w-[400px] lg:max-w-[550px]"
+        >
+          <img src="{% static 'img/pic.png' %}" alt="" />
         </div>
         <div class="lSection-content">
           <span class="text-[#2edfcd] uppercase">About Us</span>
@@ -102,128 +106,424 @@
           </a>
         </div>
       </section>
+      <!-- end aboutus -->
 
-      <p class="text-base text-[#2edfcd] uppercase text-center mb-4">
-        Services
-      </p>
-      <h1 class="text-2xl font-semibold text-center mb-8">
-        High quality services for you
-      </h1>
-      <div class="grid grid-cols-3 w-9/12 gap-6 m-auto mb-8">
-        <div class="flex flex-col w-full bg-white p-8 rounded-lg">
-          <i
-            class="material-icons h-10 w-10 bg-[#2edfcd33] text-[#2edfcd] flex items-center justify-center rounded-full"
-            >sports</i
-          >
-          <h1 class="text-2xl mt-4 font-semibold">Prosthodontics</h1>
-          <p class="text-justify text-sm mt-4">
-            Replace teeth that have been lost, for whatever reason. Missing
-            teeth pose more than an aesthetic issue; surrounding teeth may shift
-            out of position toward gaps, bacteria is more likely to grow in food
-            trapped in these gaps, and the ability to chew and speak can be
-            severely compromised.
-          </p>
-          <a href="#" class="text-[#1e90ff] mt-4">Read More</a>
+      <!-- start services -->
+      <div id="services" data-aos="zoom-in">
+        <p class="text-base text-[#2edfcd] uppercase text-center mb-4">
+          Services
+        </p>
+        <h1 class="text-2xl font-semibold text-center mb-8">
+          High quality services for you
+        </h1>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-9/12 gap-6 m-auto mb-8"
+        >
+          <div class="flex flex-col w-full bg-white p-8 rounded-lg">
+            <i
+              class="material-icons h-10 w-10 bg-[#2edfcd33] text-[#2edfcd] flex items-center justify-center rounded-full"
+              >sports</i
+            >
+            <h1 class="text-2xl mt-4 font-semibold">Prosthodontics</h1>
+            <p class="text-justify text-sm mt-4">
+              Replace teeth that have been lost, for whatever reason. Missing
+              teeth pose more than an aesthetic issue; surrounding teeth may
+              shift out of position toward gaps, bacteria is more likely to grow
+              in food trapped in these gaps, and the ability to chew and speak
+              can be severely compromised.
+            </p>
+            <a href="#" class="text-[#3864dc] mt-4">Read More</a>
+          </div>
+
+          <div class="flex flex-col w-full bg-white p-8 rounded-lg">
+            <i
+              class="material-icons h-10 w-10 bg-[#2edfcd33] text-[#2edfcd] flex items-center justify-center rounded-full"
+              >sports</i
+            >
+            <h1 class="text-2xl mt-4 font-semibold">Endodontics</h1>
+            <p class="text-justify text-sm mt-4">
+              Root Canal Treatment - (Single & Multiple Sittings)
+              <br />
+              Apexification -(Multiple Sittings)
+              <br />
+              Apexogenesis - (Multiple Sittings)
+            </p>
+            <a href="#" class="text-[#3864dc] mt-4">Read More</a>
+          </div>
+
+          <div class="flex flex-col w-full bg-white p-8 rounded-lg">
+            <i
+              class="material-icons h-10 w-10 bg-[#2edfcd33] text-[#2edfcd] flex items-center justify-center rounded-full"
+              >sports</i
+            >
+            <h1 class="text-2xl mt-4 font-semibold">Orthodontics</h1>
+            <p class="text-justify text-sm mt-4">
+              Many people with misaligned teeth have avoided orthodontic
+              treatment because of the inconvenience and conspicuous appearance
+              of traditional metal braces. Fortunately, these people can now
+              straighten their teeth with ceramic braces or lingual braces or
+              Invisalign, the clear alternative to metal braces.
+            </p>
+            <a href="#" class="text-[#3864dc] mt-4">Read More</a>
+          </div>
+          <div class="flex flex-col w-full bg-white p-8 rounded-lg">
+            <i
+              class="material-icons h-10 w-10 bg-[#2edfcd33] text-[#2edfcd] flex items-center justify-center rounded-full"
+              >sports</i
+            >
+            <h1 class="text-2xl mt-4 font-semibold">Exodontics</h1>
+            <p class="text-justify text-sm mt-4">
+              Exodontics is the practice of tooth extraction. Endodontic
+              treatment is recommended for teeth affected by crown fracture
+              exposing pulp, and pulpitis. However, it is not unusual to perform
+              exodontic treatment when there is minimal crown available for
+              restorative techniques. Exodontic treatment may also be used as a
+              component of treatment for malocclusion.
+            </p>
+            <a href="#" class="text-[#3864dc] mt-4">Read More</a>
+          </div>
+
+          <div class="flex flex-col w-full bg-white p-8 rounded-lg">
+            <i
+              class="material-icons h-10 w-10 bg-[#2edfcd33] text-[#2edfcd] flex items-center justify-center rounded-full"
+              >sports</i
+            >
+            <h1 class="text-2xl mt-4 font-semibold">Conservative Dentistry</h1>
+            <p class="text-justify text-sm mt-4">
+              The field of Conservative Dentistry is one of the oldest branches
+              of clinical dentistry which is concerned with conservation of
+              teeth in the mouth. The primary goal is to encompasses the
+              prevention, diagnosis and treatment of sequelae of dental caries
+              and the other defects of natural teeth; techniques and procedures
+              to restore the teeth to full function and appearance in an
+              aesthetically pleasing manner with as little loss of the healthy
+              tooth structure as possible.
+            </p>
+            <a href="#" class="text-[#3864dc] mt-4">Read More</a>
+          </div>
+
+          <div class="flex flex-col w-full bg-white p-8 rounded-lg">
+            <i
+              class="material-icons h-10 w-10 bg-[#2edfcd33] text-[#2edfcd] flex items-center justify-center rounded-full"
+              >sports</i
+            >
+            <h1 class="text-2xl mt-4 font-semibold">Implantology</h1>
+            <p class="text-justify text-sm mt-4">
+              We have an Oral & Maxillo - Facial surgeon, a Periodontist as well
+              as a prosthodontist well trained and experienced in the field of
+              Implantology. Good care and effort is given in planning, selecting
+              implants for each patient at our clinic. Proper care is taken
+              during Surgical, Prosthodontic and Maintenance phases of the
+              treatment.
+            </p>
+            <a href="#" class="text-[#3864dc] mt-4">Read More</a>
+          </div>
         </div>
 
-        <div class="flex flex-col w-full bg-white p-8 rounded-lg">
-          <i
-            class="material-icons h-10 w-10 bg-[#2edfcd33] text-[#2edfcd] flex items-center justify-center rounded-full"
-            >sports</i
-          >
-          <h1 class="text-2xl mt-4 font-semibold">Endodontics</h1>
-          <p class="text-justify text-sm mt-4">
-            Root Canal Treatment - (Single & Multiple Sittings)
-            <br />
-            Apexification -(Multiple Sittings)
-            <br />
-            Apexogenesis - (Multiple Sittings)
-          </p>
-          <a href="#" class="text-[#1e90ff] mt-4">Read More</a>
-        </div>
-
-        <div class="flex flex-col w-full bg-white p-8 rounded-lg">
-          <i
-            class="material-icons h-10 w-10 bg-[#2edfcd33] text-[#2edfcd] flex items-center justify-center rounded-full"
-            >sports</i
-          >
-          <h1 class="text-2xl mt-4 font-semibold">Orthodontics</h1>
-          <p class="text-justify text-sm mt-4">
-            Many people with misaligned teeth have avoided orthodontic treatment
-            because of the inconvenience and conspicuous appearance of
-            traditional metal braces. Fortunately, these people can now
-            straighten their teeth with ceramic braces or lingual braces or
-            Invisalign, the clear alternative to metal braces.
-          </p>
-          <a href="#" class="text-[#1e90ff] mt-4">Read More</a>
-        </div>
-        <div class="flex flex-col w-full bg-white p-8 rounded-lg">
-          <i
-            class="material-icons h-10 w-10 bg-[#2edfcd33] text-[#2edfcd] flex items-center justify-center rounded-full"
-            >sports</i
-          >
-          <h1 class="text-2xl mt-4 font-semibold">Exodontics</h1>
-          <p class="text-justify text-sm mt-4">
-            Exodontics is the practice of tooth extraction. Endodontic treatment
-            is recommended for teeth affected by crown fracture exposing pulp,
-            and pulpitis. However, it is not unusual to perform exodontic
-            treatment when there is minimal crown available for restorative
-            techniques. Exodontic treatment may also be used as a component of
-            treatment for malocclusion.
-          </p>
-          <a href="#" class="text-[#1e90ff] mt-4">Read More</a>
-        </div>
-
-        <div class="flex flex-col w-full bg-white p-8 rounded-lg">
-          <i
-            class="material-icons h-10 w-10 bg-[#2edfcd33] text-[#2edfcd] flex items-center justify-center rounded-full"
-            >sports</i
-          >
-          <h1 class="text-2xl mt-4 font-semibold">Conservative Dentistry</h1>
-          <p class="text-justify text-sm mt-4">
-            The field of Conservative Dentistry is one of the oldest branches of
-            clinical dentistry which is concerned with conservation of teeth in
-            the mouth. The primary goal is to encompasses the prevention,
-            diagnosis and treatment of sequelae of dental caries and the other
-            defects of natural teeth; techniques and procedures to restore the
-            teeth to full function and appearance in an aesthetically pleasing
-            manner with as little loss of the healthy tooth structure as
-            possible.
-          </p>
-          <a href="#" class="text-[#1e90ff] mt-4">Read More</a>
-        </div>
-
-        <div class="flex flex-col w-full bg-white p-8 rounded-lg">
-          <i
-            class="material-icons h-10 w-10 bg-[#2edfcd33] text-[#2edfcd] flex items-center justify-center rounded-full"
-            >sports</i
-          >
-          <h1 class="text-2xl mt-4 font-semibold">Implantology</h1>
-          <p class="text-justify text-sm mt-4">
-            We have an Oral & Maxillo - Facial surgeon, a Periodontist as well
-            as a prosthodontist well trained and experienced in the field of
-            Implantology. Good care and effort is given in planning, selecting
-            implants for each patient at our clinic. Proper care is taken during
-            Surgical, Prosthodontic and Maintenance phases of the treatment.
-          </p>
-          <a href="#" class="text-[#1e90ff] mt-4">Read More</a>
+        <div
+          class="bg-[#3864dc] rounded-lg py-8 md:py-12 lg:py-16 px-5 md:px-8 lg:px-12 text-white flex flex-col lg:flex-row mx-6 sm:mx-12 md:mx-32 lg:mx-48"
+        >
+          <div class="flex-2 flex flex-col justify-between pr-0 lg:pr-16">
+            <div>
+              <h1 class="text-2xl font-semibold">Make an Appointment</h1>
+              <p class="mt-4 text-sm font-light leading-6">
+                If u you want to make an appointment with a dentist fill out
+                form and we will call you back within 5 minutes!
+              </p>
+            </div>
+            <button class="adcBtn adcBtn-gas mt-4 shadow-lg">
+              Make Appointment
+            </button>
+          </div>
+          <div class="flex-1">
+            <img
+              class="max-w-[200px] md:max-w-[250px] lg:max-w-[300px] mt-8 lg:mt-0"
+              src="{% static 'img/Group 3.png' %}"
+              alt=""
+            />
+          </div>
         </div>
       </div>
+      <!-- end services -->
+
+      <!-- DOCtors -->
+      <div
+        id="doctors"
+        class="bg-white max-w-[1200px] p-10 py-20 rounded-tl-3xl rounded-bl-3xl my-20 ml-auto"
+      >
+        <p class="text-base text-[#2edfcd] uppercase mb-4">Doctors</p>
+        <h1 class="text-2xl font-semibold mb-8">Meet our qualified dentists</h1>
+        <div class="flex overflow-auto items-center">
+          <!-- Start doctor card -->
+          <div
+            class="bg-[#f3f4f9] rounded-lg p-4 min-w-[180px] min-h-[250px] mx-4"
+          >
+            <img
+              class="rounded-lg max-h-[150px]"
+              src="{% static 'img/avatar.png' %}"
+              alt=""
+            />
+            <h1 class="text-lg font-semibold mt-6">Dr Joe Bijoy MDS</h1>
+            <p class="text-sm mt-1 text-gray-500">Orthodontist</p>
+          </div>
+          <!-- end doctor card -->
+          <!-- Start doctor card -->
+          <div
+            class="bg-[#f3f4f9] rounded-lg p-4 min-w-[180px] min-h-[250px] mx-4"
+          >
+            <img
+              class="rounded-lg max-h-[150px]"
+              src="{% static 'img/avatar.png' %}"
+              alt=""
+            />
+            <h1 class="text-lg font-semibold mt-6">Dr A Devadathan MDS</h1>
+            <p class="text-sm mt-1 text-gray-500">Endodontist</p>
+          </div>
+          <!-- end doctor card -->
+          <!-- Start doctor card -->
+          <div
+            class="bg-[#f3f4f9] rounded-lg p-4 min-w-[180px] min-h-[250px] mx-4"
+          >
+            <img
+              class="rounded-lg max-h-[150px]"
+              src="{% static 'img/avatar.png' %}"
+              alt=""
+            />
+            <h1 class="text-lg font-semibold mt-6">Dr Arun Babu MDS</h1>
+            <p class="text-sm mt-1 text-gray-500">
+              Oral & Maxillo-Facial Surgeon
+            </p>
+          </div>
+          <!-- end doctor card -->
+          <!-- Start doctor card -->
+          <div
+            class="bg-[#f3f4f9] rounded-lg p-4 min-w-[180px] min-h-[250px] mx-4"
+          >
+            <img
+              class="rounded-lg max-h-[150px]"
+              src="{% static 'img/avatar.png' %}"
+              alt=""
+            />
+            <h1 class="text-lg font-semibold mt-6">Dr Binoy Mathew MDS</h1>
+            <p class="text-sm mt-1 text-gray-500">Prosthodontist</p>
+          </div>
+          <!-- end doctor card -->
+          <!-- Start doctor card -->
+          <div
+            class="bg-[#f3f4f9] rounded-lg p-4 min-w-[180px] min-h-[250px] mx-4"
+          >
+            <img
+              class="rounded-lg max-h-[150px]"
+              src="{% static 'img/avatar.png' %}"
+              alt=""
+            />
+            <h1 class="text-lg font-semibold mt-6">Dr Nebu George MDS</h1>
+            <p class="text-sm mt-1 text-gray-500">Periodontist</p>
+          </div>
+          <!-- end doctor card -->
+        </div>
+      </div>
+      <!-- end doctors -->
+
+      <!-- start testimonials -->
+      <div
+        class="flex flex-col lg:flex-row items-center mx-16 md:mx-32 lg:mx-48"
+        id="testimonials"
+      >
+        <div class="flex-1">
+          <img
+            class="max-w-[300px] lg:max-w-[500px]"
+            src="{% static 'img/pic2.png' %}"
+            alt=""
+          />
+        </div>
+        <div class="flex-1 mb-12 mt-12">
+          <p class="text-base text-[#2edfcd] uppercase">Testimonials</p>
+          <h1 class="text-2xl font-semibold mb-8">
+            Check what our patients say about us
+          </h1>
+          <div class="bg-[#2edfcd33] p-8 rounded-2xl w-fit">
+            <i class="material-icons text-[#2edfcd]">format_quote</i>
+            <p class="text-gray-500">
+              The doctors are real good. very patient and soft spoken. the way
+              they deal with each and every patient is really admirable. they
+              even follow up regularly on the pbone regarding the condition of
+              the patient after the treatment. really set a standard.
+            </p>
+            <div class="flex items-center mt-6">
+              <img
+                class="max-w-[50px]"
+                src="{% static 'img/avatar.png' %}"
+                alt=""
+              />
+              <div class="ml-4">
+                <h4 class="font-semibold text-md leading-1">Test Patient</h4>
+                <div class="flex items-center">
+                  <i class="material-icons text-[#fcad3b] text-base mr-[0.5px]">
+                    star
+                  </i>
+                  <i class="material-icons text-[#fcad3b] text-base mr-[0.5px]">
+                    star
+                  </i>
+                  <i class="material-icons text-[#fcad3b] text-base mr-[0.5px]">
+                    star
+                  </i>
+                  <i class="material-icons text-[#fcad3b] text-base mr-[0.5px]">
+                    star
+                  </i>
+                  <i class="material-icons text-[#fcad3b] text-base mr-[0.5px]">
+                    star
+                  </i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end testimonials -->
+
+      <!-- start gallery -->
+      <div class="my-24" id="gallery">
+        <p class="text-base text-[#2edfcd] uppercase text-center">Gallery</p>
+        <h1 class="text-2xl font-semibold mb-8 text-center">
+          Some tagline on gallery
+        </h1>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 w-fit m-auto mt-8 bg-white p-8 rounded-lg shadow-lg"
+        >
+          <img
+            class="rounded-lg bg-gray-800 max-w-[250px]"
+            src="{% static 'img/adc026.jpg' %}"
+            alt=""
+          />
+          <img
+            class="rounded-lg bg-gray-800 max-w-[250px]"
+            src="{% static 'img/adc027.jpg' %}"
+            alt=""
+          />
+          <img
+            class="rounded-lg bg-gray-800 max-w-[250px]"
+            src="{% static 'img/adc028.jpg' %}"
+            alt=""
+          />
+          <img
+            class="rounded-lg bg-gray-800 max-w-[250px]"
+            src="{% static 'img/adc029.jpg' %}"
+            alt=""
+          />
+          <img
+            class="rounded-lg bg-gray-800 max-w-[250px]"
+            src="{% static 'img/adc030.jpg' %}"
+            alt=""
+          />
+          <img
+            class="rounded-lg bg-gray-800 max-w-[250px]"
+            src="{% static 'img/adc031.jpg' %}"
+            alt=""
+          />
+        </div>
+      </div>
+      <!-- end gallery -->
+
+      <!-- start contactus -->
+      <div class="relative" id="contactus">
+        <div
+          class="bg-[#3864dc] absolute right-[30px] top-[30px] p-6 md:p-8 lg:p-10 rounded-2xl min-w-[200px] md:min-w-[250px] lg:min-w-[300px]"
+        >
+          <h1 class="text-xl font-semibold text-white mb-6">Contact</h1>
+          <a href="#contact">
+            <div class="text-[#ffffff99] flex items-center text-sm my-6">
+              <i
+                class="material-icons text-base bg-[#ffffff33] h-8 w-8 flex items-center justify-center rounded-full mr-2"
+              >
+                location_on
+              </i>
+              XYZ, GKk, LJhhldwlj
+            </div>
+          </a>
+          <a href="tel:9999999999">
+            <div class="text-[#ffffff99] flex items-center text-sm my-6">
+              <i
+                class="material-icons text-base bg-[#ffffff33] h-8 w-8 flex items-center justify-center rounded-full mr-2"
+              >
+                phone
+              </i>
+              +91 999 9999 999
+            </div>
+          </a>
+          <a href="mailto:emailid@gmail.com">
+            <div class="text-[#ffffff99] flex items-center text-sm my-6">
+              <i
+                class="material-icons text-base bg-[#ffffff33] h-8 w-8 flex items-center justify-center rounded-full mr-2"
+              >
+                email
+              </i>
+              emailid@gmail.com
+            </div>
+          </a>
+          <a href="#contact">
+            <div class="text-[#ffffff99] flex text-sm my-6">
+              <i
+                class="material-icons text-base bg-[#ffffff33] h-8 w-8 flex items-center justify-center rounded-full mr-2"
+              >
+                schedule
+              </i>
+              Mon - Fri: 08:00 to 20:00 <br />
+              Sat: 09:00 to 18:00 <br />
+              Sun: 09:00 to 18:00
+            </div>
+          </a>
+        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.1331299962117!2d76.33768022352612!3d9.497148500000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b08845f8c2f16e3%3A0xc3f789469ab94655!2sAlleppey%20Dental%20Clinic!5e0!3m2!1sen!2sin!4v1649421868736!5m2!1sen!2sin"
+          width="100%"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <!-- end contactus -->
+
+      <!-- start foooter -->
+      <footer class="flex flex-col py-8">
+        <div
+          class="flex flex-col lg:flex-row w-full items-center justify-between px-12 my-8 md:my-0"
+        >
+          <img
+            class="max-w-[150px]"
+            src="{% static 'img/adc-home.png' %}"
+            alt=""
+          />
+          <div
+            class="flex flex-col md:flex-row text-gray-500 text-center my-8 md:my-0"
+          >
+            <a class="mx-6" href="#aboutus">
+              <p>About Us</p>
+            </a>
+            <a class="mx-6" href="#services">
+              <p>Services</p>
+            </a>
+            <a class="mx-6" href="#doctors">
+              <p>Doctors</p>
+            </a>
+            <a class="mx-6" href="#testimonials">
+              <p>Testimonials</p>
+            </a>
+            <a class="mx-6" href="#contactus">
+              <p>Contact Us</p>
+            </a>
+          </div>
+          <button class="adcBtn adcBtn-gas">Make Appointment</button>
+        </div>
+        <div class="text-center w-full">
+          &copy; 2022 Dental Services. All Rights Reserved
+        </div>
+      </footer>
+      <!-- end footer -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        $(window).on("load scroll", function () {
-          $(".fa-bars").removeClass("fa-times");
-          $(".nav").removeClass("nav-toggle");
-          console.log($(window).scrollTop());
-          if ($(window).scrollTop() > 10) {
-            $(".lHeader").addClass("header-active");
-          } else {
-            $(".lHeader").removeClass("header-active");
-          }
-        });
-      });
-    </script>
+    <script src="{% static 'js/navbar.js' %}"></script>
   </body>
 </html>

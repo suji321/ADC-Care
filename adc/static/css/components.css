@@ -221,6 +221,11 @@
   background-color: dodgerblue;
   color: white;
 }
+.adcBtn-fog {
+  background-color: #1e90ff33;
+  color: #1e90ff;
+  border: 2px solid transparent;
+}
 .adcBtn-gas {
   background-color: white;
   color: dodgerblue;

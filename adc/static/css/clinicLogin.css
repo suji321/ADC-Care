@@ -3,11 +3,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
+/* .clinicLogin ::-webkit-scrollbar {
+  display: none !important;
+} */
 .clinicPortal {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   z-index: 10;
+  width: 100%;
+}
+.clinicWaves {
+  position: absolute;
+  /* background-color: rebeccapurple; */
+  bottom: -10px;
+  right: 0;
+  width: 100%;
 }
 .clinicPortalItem {
   background-color: white;
