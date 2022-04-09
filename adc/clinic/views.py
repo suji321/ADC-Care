@@ -94,7 +94,7 @@ def password_reset_request(request):
                     try:
                         send_mail(subject, email, 'aleena.jms1099@gmail.com', [user.email], fail_silently=False)
                     except BadHeaderError:
-                        return HttpResponce('Invalid header found.')
+                        return HttpResponse('Invalid header found.')
                     messages.success(request, 'A message with reset password instructions has been sent to your inbox.')
                     return redirect('password_reset_done')
     password_reset_form = PasswordResetForm()
