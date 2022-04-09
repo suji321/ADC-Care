@@ -4,6 +4,8 @@ from patients.models import Patient
 from .models import User, BillInfo
 from doctors.models import Doctors
 from django import forms
+from django.core.validators import validate_email
+import phonenumbers
 
 class PatientSignUpForm(UserCreationForm):
     full_name = forms.CharField(required=True)
@@ -18,13 +20,13 @@ class PatientSignUpForm(UserCreationForm):
 
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
-        if len(phone) is not 10:
+        if len(str(phone)) != 10:
             raise forms.ValidationError('Phone number must have 10 digits')
         return phone
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
-        if not validate_email(email, verify=True):
+        if not validate_email(email):
             raise forms.ValidationError('Invalid email')
         return email
     
@@ -61,13 +63,13 @@ class DoctorSignUpForm(UserCreationForm):
 
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
-        if len(phone) is not 10:
+        if len(str(phone)) != 10:
             raise forms.ValidationError('Phone number must have 10 digits')
         return phone
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
-        if not validate_email(email, verify=True):
+        if not validate_email(email):
             raise forms.ValidationError('Invalid email')
         return email
 
