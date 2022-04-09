@@ -54,7 +54,7 @@
   <!-- END: Patient info card -->
 
   <!-- START: PRESCRIPTION TAB -->
-  <div class="patInfoItem adcTab" id="prescription">
+  <div class="patInfoItem adcTab adcTab-closed" id="prescription">
     <div class="adcTabTitle" onclick="toggleTab('prescription')">
       <h1>Prescription</h1>
       <div class="adcTabClose">&#x276C;</div>
@@ -99,7 +99,7 @@
   <!-- END: PRESCRIPTION TAB -->
 
   <!-- START: HISTORY TAB -->
-  <div class="patInfoItem adcTab" id="history">
+  <div class="patInfoItem adcTab adcTab-closed" id="history">
     <div class="adcTabTitle" onclick="toggleTab('history')">
       <h1>Report</h1>
       <div class="adcTabClose">&#x276C;</div>
@@ -130,14 +130,7 @@
               {% for mh in medihis %}
               <div class="adcRow">
                 <div class="adcCell">{{mh.remarks}}</div>
-                <div class="adcCell">
-                  <img
-                    src="{{ mh.report.url }}"
-                    class="img-responsive"
-                    style="width: 100%; float: left; margin-right: 10px"
-                  />
-                </div>
-                <!-- <img src="{{ mh.report.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" /> -->
+                <div class="adcCell"><img src="{{ mh.report.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" /></div>       <!-- <img src="{{ mh.report.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" /> -->
                 <div class="adcCell">{{mh.date_created}}</div>
                 <div class="adcCell">{{mh.patient.pname}}</div>
                 <div class="adcCell">{{mh.doctor.dname}}</div>
@@ -153,7 +146,7 @@
   <!-- END: HISTORY TAB -->
 
   <!-- START: BILLINFO TAB -->
-  <div class="patInfoItem adcTab" id="billinfo">
+  <div class="patInfoItem adcTab adcTab-closed" id="billinfo">
     <div class="adcTabTitle" onclick="toggleTab('billinfo')">
       <h1>Bill Information</h1>
       <div class="adcTabClose">&#x276C;</div>
@@ -200,7 +193,7 @@
   <!-- END: BILLINFO TAB -->
 
   <!-- START: SCHEDULE TAB -->
-  <div class="patInfoItem adcTab" id="schedule">
+  <div class="patInfoItem adcTab adcTab-closed" id="schedule">
     <div class="adcTabTitle" onclick="toggleTab('schedule')">
       <h1>Schedule</h1>
       <div class="adcTabClose">&#x276C;</div>

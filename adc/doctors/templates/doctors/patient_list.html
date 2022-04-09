@@ -5,32 +5,9 @@
   href="{% static 'css/patient_list.css' %}"
 />
 <title>Patient list</title>
-{% endblock %} {% block content %} {% for message in messages %}
-<div
-  style="
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    z-index: 100;
-    top: 20px;
-  "
->
-  <div
-    style="
-      color: white;
-      text-align: center;
-      padding: 10px;
-      background-color: dodgerblue;
-      width: fit-content;
-      margin: auto;
-      border-radius: 10px;
-    "
-  >
-    {{ message }}
-  </div>
-</div>
+{% endblock %} {% block content %}
+{% for message in messages %}
+<span style="color:red">{{ message }}</span>
 {% endfor %}
 <div class="patientListMain">
   <div class="header">
