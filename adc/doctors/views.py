@@ -1,5 +1,6 @@
 import datetime
 from pipes import Template
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from doctors.filters import *
@@ -50,6 +51,7 @@ def createprescription(request):
         if form.is_valid():
             form.instance.doctor=d
             form.save()
+            messages.success(request, 'Successfully created prescrption')
             return redirect('/doctors/patlist/')
     context={'form':form}
     return render(request, 'doctors/prescription_form.html',context )
@@ -63,7 +65,7 @@ def createbillinfo(request):
         if form.is_valid():
             form.instance.doctor=d
             form.save()
-
+            messages.success(request, 'Successfully created bill')
             return redirect('/doctors/patlist/')
     
     context={'form':form}
@@ -75,13 +77,14 @@ def createreport(request):
     form = ReportForm()
     d =Doctors.objects.get(pk=request.user.pk)
     if request.method == 'POST':
-        form=ReportForm(request.POST)
+        form=ReportForm(request.POST, request.FILES)
         if form.is_valid():
             form.instance.doctor=d
             form.save()
+            messages.success(request, 'Successfully created report')
             return redirect('/doctors/patlist/')
     
-    context={'form':form}
+    context={'form':form }
     return render(request, 'doctors/report_form.html',context )
 
 
