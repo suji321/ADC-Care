@@ -231,9 +231,11 @@
                 form and we will call you back within 5 minutes!
               </p>
             </div>
+            <a href="{% url 'login' %}">
             <button class="adcBtn adcBtn-gas mt-4 shadow-lg">
               Make Appointment
             </button>
+            <a/>
           </div>
           <div class="flex-1">
             <img
@@ -523,7 +525,7 @@
               <p>Contact Us</p>
             </a>
           </div>
-          <button class="adcBtn adcBtn-gas">Make Appointment</button>
+          <a href="{% url 'login' %}"><button class="adcBtn adcBtn-gas">Make Appointment</button><a/>
         </div>
         <div class="text-center w-full">
           &copy; 2022 Dental Services. All Rights Reserved
