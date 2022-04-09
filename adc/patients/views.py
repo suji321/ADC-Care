@@ -47,7 +47,17 @@ def createappt(request):
   return render(request, 'mkapt.html', context)
 
 
+
 def profileEdit(request):
     if request.method == "GET":
         p = Patient.objects.get(user_id=request.user)
         return render(request, 'edit.html', {'p': p})
+    elif request.method == "POST":
+        p = Patient.objects.get(user_id=request.user)
+        p.pname = request.POST.get("dname")
+        p.email = request.POST.get("email")
+        p.phone = request.POST.get("phone")
+        p.address = request.POST.get("address")
+        p.save()
+        return redirect('/patients/info/')
+        

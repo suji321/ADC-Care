@@ -140,3 +140,13 @@ def profileEdit(request):
     if request.method == "GET":
         doc = Doctors.objects.get(user_id=request.user)
         return render(request, 'doctors/edit.html', {'doc': doc})
+
+    elif request.method == "POST":
+        doc = Doctors.objects.get(user_id = request.user)
+        doc.dname = request.POST.get("dname")
+        doc.email = request.POST.get("email")
+        doc.phone = request.POST.get("phone")
+        doc.address = request.POST.get("address")
+        doc.save()
+        return redirect('/doctors/profile/')
+
