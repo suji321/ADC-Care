@@ -101,7 +101,7 @@
   <!-- START: HISTORY TAB -->
   <div class="patInfoItem adcTab adcTab-closed" id="history">
     <div class="adcTabTitle" onclick="toggleTab('history')">
-      <h1>History</h1>
+      <h1>Report</h1>
       <div class="adcTabClose">&#x276C;</div>
     </div>
     <div class="adcTabContents">
@@ -130,7 +130,7 @@
               {% for mh in medihis %}
               <div class="adcRow">
                 <div class="adcCell">{{mh.remarks}}</div>
-                <div class="adcCell">{{mh.report}}</div>
+                <div class="adcCell"><img src="{{ mh.report.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" /></div>       <!-- <img src="{{ mh.report.url }}" class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" /> -->
                 <div class="adcCell">{{mh.date_created}}</div>
                 <div class="adcCell">{{mh.patient.pname}}</div>
                 <div class="adcCell">{{mh.doctor.dname}}</div>

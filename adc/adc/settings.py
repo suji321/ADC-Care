@@ -135,8 +135,8 @@ LOGIN_URL='login'
 
 
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 #Email settings
