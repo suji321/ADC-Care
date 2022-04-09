@@ -231,9 +231,11 @@
                 form and we will call you back within 5 minutes!
               </p>
             </div>
+            <a href="{% url 'login' %}">
             <button class="adcBtn adcBtn-gas mt-4 shadow-lg">
               Make Appointment
             </button>
+            <a/>
           </div>
           <div class="flex-1">
             <img
@@ -260,7 +262,7 @@
           >
             <img
               class="rounded-lg max-h-[150px]"
-              src="{% static 'img/avatar.png' %}"
+              src="{% static 'img/doctor.png' %}"
               alt=""
             />
             <h1 class="text-lg font-semibold mt-6">Dr Joe Bijoy MDS</h1>
@@ -273,7 +275,7 @@
           >
             <img
               class="rounded-lg max-h-[150px]"
-              src="{% static 'img/avatar.png' %}"
+              src="{% static 'img/doctor.png' %}"
               alt=""
             />
             <h1 class="text-lg font-semibold mt-6">Dr A Devadathan MDS</h1>
@@ -286,7 +288,7 @@
           >
             <img
               class="rounded-lg max-h-[150px]"
-              src="{% static 'img/avatar.png' %}"
+              src="{% static 'img/doctor.png' %}"
               alt=""
             />
             <h1 class="text-lg font-semibold mt-6">Dr Arun Babu MDS</h1>
@@ -301,7 +303,7 @@
           >
             <img
               class="rounded-lg max-h-[150px]"
-              src="{% static 'img/avatar.png' %}"
+              src="{% static 'img/doctor.png' %}"
               alt=""
             />
             <h1 class="text-lg font-semibold mt-6">Dr Binoy Mathew MDS</h1>
@@ -314,7 +316,7 @@
           >
             <img
               class="rounded-lg max-h-[150px]"
-              src="{% static 'img/avatar.png' %}"
+              src="{% static 'img/doctor.png' %}"
               alt=""
             />
             <h1 class="text-lg font-semibold mt-6">Dr Nebu George MDS</h1>
@@ -352,12 +354,12 @@
             </p>
             <div class="flex items-center mt-6">
               <img
-                class="max-w-[50px]"
-                src="{% static 'img/avatar.png' %}"
+                class="max-w-[50px] rounded-full"
+                src="{% static 'img/patient.jpg' %}"
                 alt=""
               />
               <div class="ml-4">
-                <h4 class="font-semibold text-md leading-1">Test Patient</h4>
+                <h4 class="font-semibold text-md leading-1">A Google user</h4>
                 <div class="flex items-center">
                   <i class="material-icons text-[#fcad3b] text-base mr-[0.5px]">
                     star
@@ -389,36 +391,36 @@
           Some tagline on gallery
         </h1>
         <div
-          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 w-fit m-auto mt-8 bg-white p-8 rounded-lg shadow-lg"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 w-fit m-auto mt-8 bg-white p-8 rounded-lg"
         >
           <img
-            class="rounded-lg bg-gray-800 max-w-[250px]"
-            src="{% static 'img/adc026.jpg' %}"
+            class="rounded-lg bg-gray-800 max-w-[250px] shadow-lg"
+            src="{% static 'img/adc1.jpg' %}"
             alt=""
           />
           <img
-            class="rounded-lg bg-gray-800 max-w-[250px]"
-            src="{% static 'img/adc027.jpg' %}"
+            class="rounded-lg bg-gray-800 max-w-[250px] shadow-lg"
+            src="{% static 'img/adc2.jpg' %}"
             alt=""
           />
           <img
-            class="rounded-lg bg-gray-800 max-w-[250px]"
-            src="{% static 'img/adc028.jpg' %}"
+            class="rounded-lg bg-gray-800 max-w-[250px] shadow-lg"
+            src="{% static 'img/adc3.jpg' %}"
             alt=""
           />
           <img
-            class="rounded-lg bg-gray-800 max-w-[250px]"
-            src="{% static 'img/adc029.jpg' %}"
+            class="rounded-lg bg-gray-800 max-w-[250px] shadow-lg"
+            src="{% static 'img/adc4.jpg' %}"
             alt=""
           />
           <img
-            class="rounded-lg bg-gray-800 max-w-[250px]"
-            src="{% static 'img/adc030.jpg' %}"
+            class="rounded-lg bg-gray-800 max-w-[250px] shadow-lg"
+            src="{% static 'img/adc5.jpg' %}"
             alt=""
           />
           <img
-            class="rounded-lg bg-gray-800 max-w-[250px]"
-            src="{% static 'img/adc031.jpg' %}"
+            class="rounded-lg bg-gray-800 max-w-[250px] shadow-lg"
+            src="{% static 'img/adc6.jpg' %}"
             alt=""
           />
         </div>
@@ -438,17 +440,25 @@
               >
                 location_on
               </i>
-              XYZ, GKk, LJhhldwlj
+              KCK Tower,(Alleppey Opticals Building)
+              <br />
+              North of Iron Bridge,
+              <br />
+              Alleppey - 688
+              <br />
+              001 Kerala, India
             </div>
           </a>
-          <a href="tel:9999999999">
+          <a href="tel:+91 477 22060555">
             <div class="text-[#ffffff99] flex items-center text-sm my-6">
               <i
                 class="material-icons text-base bg-[#ffffff33] h-8 w-8 flex items-center justify-center rounded-full mr-2"
               >
                 phone
               </i>
-              +91 999 9999 999
+              Tel: +91 477 22060555,
+              <br />
+              Mob: 9497675595
             </div>
           </a>
           <a href="mailto:emailid@gmail.com">
@@ -458,7 +468,7 @@
               >
                 email
               </i>
-              emailid@gmail.com
+              alleppeydental@gmail.com
             </div>
           </a>
           <a href="#contact">
@@ -515,7 +525,7 @@
               <p>Contact Us</p>
             </a>
           </div>
-          <button class="adcBtn adcBtn-gas">Make Appointment</button>
+          <a href="{% url 'login' %}"><button class="adcBtn adcBtn-gas">Make Appointment</button><a/>
         </div>
         <div class="text-center w-full">
           &copy; 2022 Dental Services. All Rights Reserved

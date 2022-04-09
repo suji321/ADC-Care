@@ -5,7 +5,6 @@ from .models import User, BillInfo
 from doctors.models import Doctors
 from django import forms
 from django.core.validators import validate_email
-import phonenumbers
 
 class PatientSignUpForm(UserCreationForm):
     full_name = forms.CharField(required=True)
@@ -18,6 +17,7 @@ class PatientSignUpForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = User
 
+
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
         if len(str(phone)) != 10:
@@ -29,7 +29,7 @@ class PatientSignUpForm(UserCreationForm):
         if not validate_email(email):
             raise forms.ValidationError('Invalid email')
         return email
-    
+
     @transaction.atomic
     def save(self):
         user = super().save(commit=False)

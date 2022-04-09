@@ -50,11 +50,11 @@ class DoctorUpdateForm(ModelForm):
 class ReportForm(ModelForm):
     class Meta:
         model = MedicalHistory
-        fields = ('patient','doctor','remarks','report')
+        fields = ('patient','remarks','report')
 
         widgets = {
         'report': forms.FileInput(),
-        'doctor': forms.Select(),
+        
         'patient': forms.Select(),
         'remarks': forms.TextInput(),
      }
