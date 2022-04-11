@@ -24,11 +24,11 @@ class PatientSignUpForm(UserCreationForm):
             raise forms.ValidationError('Phone number must have 10 digits')
         return phone
 
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if not validate_email(email):
-            raise forms.ValidationError('Invalid email')
-        return email
+    # def clean_email(self):
+    #     email = self.cleaned_data.get('email')
+    #     if not validate_email(email):
+    #         raise forms.ValidationError('Invalid email')
+    #     return email
 
     @transaction.atomic
     def save(self):
@@ -67,11 +67,11 @@ class DoctorSignUpForm(UserCreationForm):
             raise forms.ValidationError('Phone number must have 10 digits')
         return phone
 
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        if not validate_email(email):
-            raise forms.ValidationError('Invalid email')
-        return email
+    # def clean_email(self):
+    #     email = self.cleaned_data.get('email')
+    #     if not validate_email(email):
+    #         raise forms.ValidationError('Invalid email')
+    #     return email
 
     @transaction.atomic
     def save(self):
