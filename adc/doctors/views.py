@@ -1,7 +1,7 @@
 import datetime
 from pipes import Template
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from doctors.filters import *
 from patients.models import *
@@ -11,6 +11,9 @@ from .forms import *
 from django.views.generic import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.core.mail import BadHeaderError, send_mail
+from django.conf import settings
+from django.template.loader import render_to_string
 
 # Create your views here.
 @login_required
@@ -104,11 +107,25 @@ class Manageapt(LoginRequiredMixin,ListView):
         time = request.POST.get("time")
         sch_id = request.POST.get("sch-id")
         apt = Schedule.objects.get(id=sch_id)
+        d = apt.scheduleDate
+        e = apt.patient.email
         apt.scheduleTime=time
         apt.accepted = True
         apt.accepted_date = datetime.datetime.now()
         apt.save()
-
+        subject = "Scheduled your Appointment"
+        email_template = "doctors/apt_email.txt"
+        c = {
+            "date":d,
+            "time": time,
+        }
+        email = render_to_string(email_template, c)
+        try:
+            send_mail(subject, email, settings.EMAIL_HOST_USER , [e], fail_silently=False)
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+        messages.success(request, 'A mail has been sent successfully.')
+        # return redirect('password_reset_done')
         return HttpResponseRedirect(request.path)
 
     
