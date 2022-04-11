@@ -90,7 +90,7 @@ def createreport(request):
     context={'form':form }
     return render(request, 'doctors/report_form.html',context )
 
-
+@login_required
 def home(request):
     s=Schedule.objects.all()
     doc = Doctors.objects.all()
