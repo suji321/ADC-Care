@@ -113,7 +113,7 @@ class Manageapt(LoginRequiredMixin,ListView):
         apt.accepted = True
         apt.accepted_date = datetime.datetime.now()
         apt.save()
-        subject = "Scheduled your Appointment"
+        subject = "Appointment Confirmed"
         email_template = "doctors/apt_email.txt"
         c = {
             "date":d,
