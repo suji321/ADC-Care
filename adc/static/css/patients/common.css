@@ -2,3 +2,10 @@
   margin: 0 100px;
   margin-top: 100px;
 }
+
+@media screen and (max-width: 700px) {
+  .patientLayout {
+    margin: 0 70px;
+    margin-top: 100px;
+  }
+}
