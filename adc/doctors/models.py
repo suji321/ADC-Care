@@ -12,6 +12,7 @@ class Doctors(models.Model):
     phone = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
+    gender= models.CharField(max_length=200, null=True)
     role = models.CharField(max_length=200, null=True,choices=ROLE)
     specialisation = models.CharField(max_length=200, null=True)
     address= models.CharField(max_length=200, null=True)
