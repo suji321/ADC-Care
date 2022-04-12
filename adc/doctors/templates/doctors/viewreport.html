@@ -50,9 +50,16 @@
       </div>
     </div>
     <div class="reportInfoBtns">
-      <button class="adcBtn adcBtn-plasma">Button 1</button>
-      <button class="adcBtn adcBtn-plasma">Button 2</button>
+      <div id="emailInput">
+        <input type="text" placeholder="Enter your email" />
+        <button class="adcBtn adcBtn-plasma">Send Mail</button>
+      </div>
+      <div>
+        <button id="emailInputBtn" class="adcBtn adcBtn-plasma">Mail</button>
+        <button class="adcBtn adcBtn-plasma">Button 2</button>
+      </div>
     </div>
   </div>
+  <script src="{% static 'js/report.js' %}"></script>
 </body>
 {% endblock %}

@@ -36,6 +36,23 @@
   width: 200px;
   padding: 10px;
 }
+#emailInput {
+  overflow: hidden;
+  height: 0;
+  transition: height ease-in-out 0.3s;
+}
+.reportInfoBtns input {
+  height: 45px;
+  width: 300px;
+  outline: none;
+  border: 1px solid rgba(169, 169, 169, 0.462);
+  padding: 0 10px;
+  border-radius: 5px;
+}
 .reportInfoBtns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-top: 30px;
 }
