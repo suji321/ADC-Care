@@ -44,21 +44,50 @@
     <div class="adcTable">
       <div class="adcRow adcHead">
         <!-- <div class="adcCell">NAME</div> -->
-        <div class="adcCell">PATIENT</div>
+        <!-- <div class="adcCell">PATIENT</div> -->
         <div class="adcCell">DOCTOR</div>
         <div class="adcCell">DATE CREATED</div>
         <div class="adcCell">DIRECTION</div>
         <div class="adcCell">REMARKS</div>
       </div>
       <div class="adcRowBody">
-        {% for press in prescriptions %}
+        {% for press in press %}
         <div class="adcRow">
           <!-- <div class="adcCell">{{press.name}}</div> -->
-          <div class="adcCell">{{press.patient.pname}}</div>
+          <!-- <div class="adcCell">{{press.patient.pname}}</div> -->
           <div class="adcCell">{{press.doctor.dname}}</div>
           <div class="adcCell">{{press.date_created}}</div>
           <div class="adcCell">{{press.direction}}</div>
           <div class="adcCell">{{press.remarks}}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="adcTableContainer">
+   
+    <div class="adcTable">
+      <div class="adcRow adcHead">
+       
+        <div class="adcCell">DOCTOR</div>
+        <div class="adcCell">DATE CREATED</div>
+        <div class="adcCell">REMARKS</div>
+        <div class="adcCell">REPORT</div>
+      </div>
+      <div class="adcRowBody">
+        {% for rp in rep %}
+        <div class="adcRow">
+         
+          <div class="adcCell">{{rp.doctor.dname}}</div>
+          <div class="adcCell">{{rp.date_created}}</div>
+          <div class="adcCell">{{rp.remarks}}</div>
+          <div class="adcCell"> <img
+            src="{{ rp.report.url }}"
+            class="img-responsive"
+            style="width: 100%; float: left; margin-right: 10px"
+          /></div>
         </div>
         {% endfor %}
       </div>

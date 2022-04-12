@@ -11,7 +11,8 @@ def patland(request):
   p =User.objects.filter(is_patient=True)
   pat = Patient.objects.get(pk=request.user)
   press = pat.prescription_set.all()
-  return render(request, 'patland.html', {'p':p, 'press': press})
+  rep = pat.medicalhistory_set.all()
+  return render(request, 'patland.html', {'p':p, 'press': press, 'rep':rep})
 
 def patinfo(request):
   p = Patient.objects.get(user_id=request.user)
