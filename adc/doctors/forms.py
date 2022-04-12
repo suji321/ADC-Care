@@ -32,7 +32,7 @@ class BillInfoForm(ModelForm):
         widgets = {
         'doctor': forms.HiddenInput(),
         'patient': forms.Select(),
-        'bdate': forms.SelectDateWidget(),
+        'bdate': forms.DateInput(attrs={'type': 'date'}),
         'amount': forms.NumberInput(),
         'paid': forms.NumberInput(),
         'status': forms.Select(attrs={'class': 'form-control'})

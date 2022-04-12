@@ -10,7 +10,7 @@ class ScheduleForm(ModelForm):
         fields=['request','scheduleDate','doctor']
 
         widgets = {
-        'scheduleDate': forms.SelectDateWidget(),
+        'scheduleDate': forms.DateInput(attrs={'type': 'date'}),
        
         'doctor': forms.Select(),
        
