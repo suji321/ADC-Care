@@ -55,7 +55,12 @@ class DoctorSignUpForm(UserCreationForm):
 			('Staff', 'Staff'),
 			
 			)
+
+    GENDER = (('Male','Male'),
+    ('Female','Female'),
+    ('Other','Other'))
     full_name = forms.CharField(required=True)
+    gender = forms.ChoiceField(choices=GENDER)
     phone = forms.IntegerField(required=True)
     email = forms.EmailField(required=True)
     role = forms.ChoiceField(choices=ROLE)
@@ -85,6 +90,7 @@ class DoctorSignUpForm(UserCreationForm):
         user.save()
         doctor = Doctors.objects.create(user=user)
         doctor.dname = self.cleaned_data.get('full_name')
+        doctor.gender = self.cleaned_data.get('gender')
         doctor.phone = self.cleaned_data.get('phone')
         doctor.email = self.cleaned_data.get('email')
         doctor.role = self.cleaned_data.get('role')
