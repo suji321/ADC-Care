@@ -30,7 +30,7 @@ class BillInfoForm(ModelForm):
         fields = ('bdate','payment','status','patient')
 
         widgets = {
-        'bdate': forms.DateInput(),
+        'bdate': forms.SelectDateWidget(),
         'doctor': forms.HiddenInput(),
         'patient': forms.Select(),
         'payment': forms.NumberInput(),
