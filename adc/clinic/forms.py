@@ -7,9 +7,12 @@ from django import forms
 from django.core.validators import validate_email
 
 class PatientSignUpForm(UserCreationForm):
+    GENDER = (('Male','Male'),
+    ('Female','Female'),
+    ('Other','Other'))
     full_name = forms.CharField(required=True)
     age = forms.IntegerField(required=True)
-    gender = forms.CharField(required=True)
+    gender = forms.ChoiceField(choices=GENDER)
     email= forms.EmailField(required=True)
     address= forms.CharField()
     phone = forms.IntegerField(required=True)
