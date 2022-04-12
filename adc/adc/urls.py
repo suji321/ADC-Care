@@ -22,9 +22,6 @@ from django.conf.urls.static import static
 from clinic.views import landing
 
 
-
-
-
 urlpatterns = [
     path('', landing, name="landing"),
     path('admin/', admin.site.urls),
@@ -32,3 +29,5 @@ urlpatterns = [
     path('doctors/',include('doctors.urls')),
     path('patients/', include('patients.urls')), 
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
+
+handler404 = "helpers.views.error"

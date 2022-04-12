@@ -31,11 +31,6 @@ crossorigin="anonymous">
                   {% endif %}
             {% endfor %}
            <div class="checkbox-text">
-            <div class="checkbox-content">
-              <input type="checkbox" id="logCheck" />
-              <label for="logCheck" class="text">Remember me</label>
-            </div>
-  
             <a href="{% url 'password_reset' %}" class="text">Forgot password?</a>
           </div>
           <br />
@@ -43,15 +38,18 @@ crossorigin="anonymous">
              </div>
       </form>
 
+      
+
       <div class="login-signup">
         <span class="text"
           >Not a member?
-          <a href="/clinic/register" class="text signup-link">Signup now</a>
+          <a href="/clinic/patientregister" class="text signup-link">Signup now</a>
         </span>
       </div>
     </div>
   </div>
 </div>
+
 {% endblock %}
 
   <!-- 

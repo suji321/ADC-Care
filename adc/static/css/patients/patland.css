@@ -1,3 +1,7 @@
+.appStatuses {
+  display: flex;
+  flex-wrap: wrap;
+}
 .appStatus {
   background-color: white;
   padding: 20px;
@@ -9,6 +13,9 @@
   justify-content: space-between;
   margin: 10px;
 }
+/* .layoutTitle {
+  font-size: 20px;
+} */
 .appStatus h1 {
   font-size: 18px;
   font-weight: 700;

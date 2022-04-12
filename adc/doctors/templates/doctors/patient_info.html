@@ -78,6 +78,7 @@
                 <div class="adcCell">DOCTOR</div>
                 <div class="adcCell">DATE</div>
                 <div class="adcCell">DIRECTION</div>
+                <div class="adcCell">ACTIONS</div>
               </div>
               <div class="adcRowBody">
                 {% for mh in mh %}
@@ -86,6 +87,7 @@
                   <div class="adcCell">{{mh.doctor.dname}}</div>
                   <div class="adcCell">{{mh.date_created}}</div>
                   <div class="adcCell">{{mh.direction}}</div>
+                  <div class="adcCell"><a href="">Print Info</a></div>
                 </div>
                 {% endfor %}
               </div>
@@ -125,6 +127,7 @@
               <div class="adcCell">DATE CREATED</div>
               <div class="adcCell">PATIENT</div>
               <div class="adcCell">DOCTOR</div>
+              <div class="adcCell">ACTIONS</div>
             </div>
             <div class="adcRowBody">
               {% for mh in medihis %}
@@ -141,6 +144,9 @@
                 <div class="adcCell">{{mh.date_created}}</div>
                 <div class="adcCell">{{mh.patient.pname}}</div>
                 <div class="adcCell">{{mh.doctor.dname}}</div>
+                <div class="adcCell">
+                  <a href="{% url 'reports' mh.pk %}">View</a>
+                </div>
               </div>
               {% endfor %}
             </div>
@@ -179,15 +185,17 @@
               <div class="adcCell">DATE CREATED</div>
               <div class="adcCell">PATIENT</div>
               <div class="adcCell">DOCTOR</div>
+              <div class="adcCell">ACTION</div>
             </div>
             <div class="adcRowBody">
               {% for bi in bi %}
               <div class="adcRow">
-                <div class="adcCell">{{bi.payments}}</div>
+                <div class="adcCell">{{bi.payment}}</div>
                 <div class="adcCell">{{bi.status}}</div>
                 <div class="adcCell">{{bi.bdate}}</div>
                 <div class="adcCell">{{bi.patient.pname}}</div>
                 <div class="adcCell">{{bi.doctor.dname}}</div>
+                <div class="adcCell"><a href="">Print Info</a></div>
               </div>
               {% endfor %}
             </div>

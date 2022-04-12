@@ -27,6 +27,11 @@ def patientlist(request):
     return render(request,'doctors/patient_list.html',context)
 
 @login_required
+def viewReport(request, id):
+    report = MedicalHistory.objects.get(pk=id)
+    return render(request, 'doctors/viewreport.html',{'mh': report})
+
+@login_required
 def patientinfo(request,pk_t):
     p = Patient.objects.get(user_id=pk_t)
     mh = p.prescription_set.all()

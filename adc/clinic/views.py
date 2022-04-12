@@ -24,6 +24,10 @@ def landing(request):
 def register(request):
     return render(request, 'register.html')
 
+
+def error(request):
+    return render(request, 'error.html')
+
 class patient_register(CreateView):
     model = User
     form_class = PatientSignUpForm

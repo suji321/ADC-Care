@@ -1,0 +1,58 @@
+{% extends 'doctors/navbar.html' %} {% load static %} {% block head %}
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/viewreport.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/components.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/patient_list.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/patient_list.css' %}"
+/>
+<title>Patient Info</title>
+{% endblock %} {% block content %}
+<body>
+  <div class="reportInfoContainer">
+    <div class="reportInfo">
+      <img
+        src="{{ mh.report.url }}"
+        class="img-responsive"
+        style="width: 100%; float: left; margin-right: 10px"
+      />
+      <div class="reportInfoData">
+        <h1>{{mh.patient.pname}}</h1>
+        <div class="reportInfoItem">
+          <p><b>Doctor</b></p>
+          <p>{{mh.doctor.dname}}></p>
+        </div>
+        <div class="reportInfoItem">
+          <p><b>Remarks</b></p>
+          <p>{{mh.remarks}}</p>
+        </div>
+        <div class="reportInfoItem">
+          <p><b>Date Created</b></p>
+          <p>{{mh.date_created}}</p>
+        </div>
+        <div class="reportInfoItem">
+          <p><b>Direction</b></p>
+          <p>{{mh.direction}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="reportInfoBtns">
+      <button class="adcBtn adcBtn-plasma">Button 1</button>
+      <button class="adcBtn adcBtn-plasma">Button 2</button>
+    </div>
+  </div>
+</body>
+{% endblock %}

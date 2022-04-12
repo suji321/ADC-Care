@@ -17,31 +17,37 @@
 <title>Patient Landing Page</title>
 {% endblock %} {% block content %}
 <div class="patientLayout">
-  <h1>Appointment Status</h1>
-  <div class="appStatus">
-    <div>
-      <h1>Dr. Aleena</h1>
-      <time>13:00, 13 April 2022</time>
+  <h1 class="layoutTitle" style="font-size: 20px; font-weight: 500">
+    Appointment Status
+  </h1>
+  <div class="appStatuses">
+    <div class="appStatus">
+      <div>
+        <h1>Dr. Aleena</h1>
+        <time>13:00, 13 April 2022</time>
+      </div>
+      <span class="accepted">Accepted</span>
     </div>
-    <span class="accepted">Accepted</span>
-  </div>
-  <div class="appStatus">
-    <div>
-      <h1>Dr. Tanya</h1>
-      <time>13:00, 13 April 2022</time>
+    <div class="appStatus">
+      <div>
+        <h1>Dr. Tanya</h1>
+        <time>13:00, 13 April 2022</time>
+      </div>
+      <span class="pending">Pending</span>
     </div>
-    <span class="pending">Pending</span>
-  </div>
-  <div class="appStatus">
-    <div>
-      <h1>Dr. Aleena</h1>
-      <time>13:00, 13 April 2022</time>
+    <div class="appStatus">
+      <div>
+        <h1>Dr. Aleena</h1>
+        <time>13:00, 13 April 2022</time>
+      </div>
+      <span class="rejected">Rejected</span>
     </div>
-    <span class="rejected">Rejected</span>
   </div>
 
+  <br />
   <div class="adcTableContainer">
     <div class="adcTable">
+      <h1>Prescriptions</h1>
       <div class="adcRow adcHead">
         <!-- <div class="adcCell">NAME</div> -->
         <!-- <div class="adcCell">PATIENT</div> -->
@@ -64,13 +70,12 @@
       </div>
     </div>
   </div>
-  
 
+  <br />
   <div class="adcTableContainer">
-   
     <div class="adcTable">
+      <h1>Medical Reports</h1>
       <div class="adcRow adcHead">
-       
         <div class="adcCell">DOCTOR</div>
         <div class="adcCell">DATE CREATED</div>
         <div class="adcCell">REMARKS</div>
@@ -79,15 +84,16 @@
       <div class="adcRowBody">
         {% for rp in rep %}
         <div class="adcRow">
-         
           <div class="adcCell">{{rp.doctor.dname}}</div>
           <div class="adcCell">{{rp.date_created}}</div>
           <div class="adcCell">{{rp.remarks}}</div>
-          <div class="adcCell"> <img
-            src="{{ rp.report.url }}"
-            class="img-responsive"
-            style="width: 100%; float: left; margin-right: 10px"
-          /></div>
+          <div class="adcCell">
+            <img
+              src="{{ rp.report.url }}"
+              class="img-responsive"
+              style="width: 100%; float: left; margin-right: 10px"
+            />
+          </div>
         </div>
         {% endfor %}
       </div>

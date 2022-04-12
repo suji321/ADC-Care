@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Error</title>
+    <link rel="stylesheet" href="{% static 'css/error.css' %}" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="min-h-screen p-11 bg-[#7094F4] flex flex-col md:flex-row items-center justify-center"
+    >
+      <div class="flex-[0.6] flex items-center justify-center mb-8 md:mb-0">
+        <img class="w-[650px]" src="{% static 'img/Error.png' %}" alt="error" />
+      </div>
+      <div class="flex-[0.4] flex flex-col">
+        <div
+          class="w-[180px] h-[30px] md:w-[220px] md:h-[50px] text-[18px] md:text-[21px] font-[500] flex items-center justify-center rounded-full bg-[#D0F4F4]"
+        >
+          Page not found
+        </div>
+        <h1 class="text-black font-[600] text-[45px] md:text-[70px] my-8">
+          Oh No! Error 404
+        </h1>
+        <div
+          class="w-[100px] mx-auto h-[40px] rounded-[5px] bg-[#D0F4F436] text-white flex items-center justify-center hover:text-black hover:bg-indigo-200 hover:font-medium transition-all duration-500"
+        >
+          <a href="/"> Go Home </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
