@@ -30,4 +30,4 @@ urlpatterns = [
     path('patients/', include('patients.urls')), 
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 
-handler404 = "helpers.views.error"
+# handler404 = "helpers.views.error"

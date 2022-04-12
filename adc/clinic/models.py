@@ -44,8 +44,11 @@ class BillInfo(models.Model):
     patient =  models.ForeignKey('patients.Patient', null=True, on_delete= models.CASCADE)
     doctor = models.ForeignKey('doctors.Doctors', null=True, on_delete=models.CASCADE)
     bdate=models.DateField()
-    payment=models.CharField(max_length=200,null=True)
+    amount=models.PositiveIntegerField(max_length=200,null=True)
     status=models.CharField(null=True, max_length=10, choices=STATUS)
+    balance=models.PositiveIntegerField(max_length=200,null=True)
+    paid = models.PositiveIntegerField(max_length=200,null=True)
+
 
 
 class Prescription(models.Model):

@@ -59,6 +59,7 @@ def profileEdit(request):
         p.email = request.POST.get("email")
         p.phone = request.POST.get("phone")
         p.address = request.POST.get("address")
+        p.gender=request.POST.get("gender")
         p.save()
         return redirect('/patients/info/')
         

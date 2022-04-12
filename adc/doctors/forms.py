@@ -27,13 +27,14 @@ class PrescriptionForm(ModelForm):
 class BillInfoForm(ModelForm):
     class Meta:
         model = BillInfo
-        fields = ('bdate','payment','status','patient')
+        fields = ('patient','bdate','amount','paid','status')
 
         widgets = {
-        'bdate': forms.DateInput(),
         'doctor': forms.HiddenInput(),
         'patient': forms.Select(),
-        'payment': forms.NumberInput(),
+        'bdate': forms.DateInput(attrs={'type': 'date'}),
+        'amount': forms.NumberInput(),
+        'paid': forms.NumberInput(),
         'status': forms.Select(attrs={'class': 'form-control'})
      }
      

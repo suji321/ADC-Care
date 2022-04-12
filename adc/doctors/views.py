@@ -70,8 +70,12 @@ def createbillinfo(request):
     form = BillInfoForm()
     if request.method == 'POST':
         form=BillInfoForm(request.POST)
+
         if form.is_valid():
             form.instance.doctor=d
+            paid=form.instance.paid
+            amount= form.instance.amount
+            form.instance.balance = paid - amount
             form.save()
             messages.success(request, 'Successfully created bill')
             return redirect('/doctors/patlist/')
