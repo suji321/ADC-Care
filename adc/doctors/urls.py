@@ -17,6 +17,6 @@ urlpatterns = [
     path('profile/', views.profile,name="profile"),
     path('profileEdit/', views.profileEdit,name="profileEdit"),
     path('reports/<str:id>', views.viewReport,name="reports"),
-
+    path('pdf/<str:id>/', views.printBill, name='billpdf'),
     
 ]

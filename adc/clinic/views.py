@@ -6,6 +6,7 @@ from django.views.generic import CreateView
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import PatientSignUpForm, DoctorSignUpForm
 from .models import User
+from django.conf import settings
 from django.contrib.auth.forms import PasswordResetForm
 from django.core.mail import BadHeaderError, send_mail
 from django.http import HttpResponse
@@ -98,7 +99,7 @@ def password_reset_request(request):
                     }
                     email = render_to_string(email_template_name, c)
                     try:
-                        send_mail(subject, email, 'aleena.jms1099@gmail.com', [user.email], fail_silently=False)
+                        send_mail(subject, email, settings.EMAIL_HOST_USER, [user.email], fail_silently=False)
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
                     messages.success(request, 'A message with reset password instructions has been sent to your inbox.')

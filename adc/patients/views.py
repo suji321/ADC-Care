@@ -3,8 +3,14 @@ from django.shortcuts import redirect, render
 from patients.forms import *
 from clinic.models import *
 from .models import Patient
-
 from .models import *
+# importing the necessary libraries
+from django.http import HttpResponse, HttpResponseRedirect
+from django.views.generic import View
+#from app1 import models
+from doctors.process import html_to_pdf 
+from django.template.loader import render_to_string
+
 
 # Create your views here.
 def patland(request):
@@ -62,4 +68,13 @@ def profileEdit(request):
         p.gender=request.POST.get("gender")
         p.save()
         return redirect('/patients/info/')
-        
+
+#for pdf
+class GenerateBillPdf(View):
+   def get(self, request, *args, **kwargs):
+      data = Prescription.objects.all().last()
+        # Converting the HTML template into a PDF file
+      pdf = html_to_pdf('prescription_pdf.html', {'data': data})
+         
+         # rendering the template
+      return HttpResponse(pdf, content_type='application/pdf')        

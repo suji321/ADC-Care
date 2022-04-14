@@ -33,7 +33,7 @@
         <h1>{{mh.patient.pname}}</h1>
         <div class="reportInfoItem">
           <p><b>Doctor</b></p>
-          <p>{{mh.doctor.dname}}></p>
+          <p>{{mh.doctor.dname}}</p>
         </div>
         <div class="reportInfoItem">
           <p><b>Remarks</b></p>
@@ -44,21 +44,21 @@
           <p>{{mh.date_created}}</p>
         </div>
         <div class="reportInfoItem">
-          <p><b>Direction</b></p>
-          <p>{{mh.direction}}</p>
+          <!-- <p><b>Direction</b></p>
+          <p>{{mh.direction}}</p> -->
         </div>
       </div>
     </div>
-    <div class="reportInfoBtns">
+    <!-- <form class="reportInfoBtns" action="" method="POST">
+      {% csrf_token %}
       <div id="emailInput">
         <input type="text" placeholder="Enter your email" />
-        <button class="adcBtn adcBtn-plasma">Send Mail</button>
+        <button type ='submit' class="adcBtn adcBtn-plasma">Send mail</button>
       </div>
       <div>
         <button id="emailInputBtn" class="adcBtn adcBtn-plasma">Mail</button>
-        <button class="adcBtn adcBtn-plasma">Button 2</button>
       </div>
-    </div>
+    </form> -->
   </div>
   <script src="{% static 'js/report.js' %}"></script>
 </body>

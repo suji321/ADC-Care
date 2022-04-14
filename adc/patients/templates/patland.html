@@ -55,6 +55,7 @@
         <div class="adcCell">DATE CREATED</div>
         <div class="adcCell">DIRECTION</div>
         <div class="adcCell">REMARKS</div>
+        <div class="adcCell">ACTIONS</div>
       </div>
       <div class="adcRowBody">
         {% for press in press %}
@@ -65,6 +66,7 @@
           <div class="adcCell">{{press.date_created}}</div>
           <div class="adcCell">{{press.direction}}</div>
           <div class="adcCell">{{press.remarks}}</div>
+          <div class="adcCell"><a href="{% url 'prescrippdf' %}">Print</a></div>
         </div>
         {% endfor %}
       </div>

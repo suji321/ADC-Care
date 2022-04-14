@@ -1,0 +1,14 @@
+{% autoescape off %}
+Hello,
+
+The report of the patient {{patient}} is attached below.
+
+Report:
+
+
+Remarks:
+{{remark}}
+
+Sincerely,
+{{doctor}}
+{% endautoescape %}

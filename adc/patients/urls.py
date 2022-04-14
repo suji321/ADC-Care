@@ -1,5 +1,5 @@
 from django.urls import path
-
+from .views import GenerateBillPdf
 from patients import views
 
 urlpatterns = [
@@ -9,5 +9,6 @@ urlpatterns = [
     path('medicalhistory/<str:pid>', views.patmedhis, name='pat_medhis'),
     path('bill/', views.patbill, name='pat_bill'),
     path('prescription/<str:pid>', views.prescription, name='pat_prescrip'),
-    path('make-appt', views.createappt,name='pat_appointment')
+    path('make-appt', views.createappt,name='pat_appointment'),
+    path('prescrippdf/', GenerateBillPdf.as_view(), name='prescrippdf'),
 ]

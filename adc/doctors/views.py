@@ -1,3 +1,4 @@
+import os
 import datetime
 from pipes import Template
 from django.contrib import messages
@@ -14,6 +15,15 @@ from django.contrib.auth.decorators import login_required
 from django.core.mail import BadHeaderError, send_mail
 from django.conf import settings
 from django.template.loader import render_to_string
+from email.mime.image import MIMEImage
+from django.core.mail import EmailMultiAlternatives
+
+# importing the necessary libraries
+from django.http import HttpResponse, HttpResponseRedirect
+from django.views.generic import View
+#from app1 import models
+from .process import html_to_pdf 
+from django.template.loader import render_to_string
 
 # Create your views here.
 @login_required
@@ -28,8 +38,59 @@ def patientlist(request):
 
 @login_required
 def viewReport(request, id):
-    report = MedicalHistory.objects.get(pk=id)
-    return render(request, 'doctors/viewreport.html',{'mh': report})
+    history = MedicalHistory.objects.get(pk=id)
+    # if request.method == 'POST':
+    #     email = request.POST.get('email')
+    #     remark = history.remarks
+    #     report = history.report
+    #     patient = history.patient
+    #     d = Doctors.objects.get(user_id=request.user)
+    #     subject = 'Report of the patient'
+    #     email_template_name = 'doctors/report_email.txt' 
+    # '''
+    #    <html>
+    #     <body>
+    #      <table>
+    #        <tr>
+    #            <td style="font-family:Verdana, Geneva, sans-serif; font-weight:400; font-size:15px;">Report:</td>
+    #        </tr>
+    #        <tr>
+    #            <img src="cid:logo.png" />
+    #        </tr>
+    #        <tr>
+    #           <td style="font-family:Verdana, Geneva, sans-serif; font-weight:400; font-size:15px;">Remarks:</td>
+    #        </tr>
+    #        <tr>
+    #           <td style="font-family:Verdana, Geneva, sans-serif; font-weight:400; font-size:15px;">{{remarks}}</td>
+    #        </tr>
+    #      </table>
+    #    </body>
+    #   </html>
+    #    '''
+    #     msg = EmailMultiAlternatives(subject,email_template_name,from_email=settings.EMAIL_HOST_USER,to=[email])
+
+    #     msg.mixed_subtype = 'related'
+    #     msg.attach_alternative(email_template_name, "text/html")
+    #     img_dir = 'static'
+    #     image = report
+    #     file_path = open(os.path.join('C:/Users/newadc/ADC-Care/adc', image.url), 'rb')
+    #     img = MIMEImage(file_path.read())
+    #     file_path.close()
+    #     msg.attach(img)
+    #     msg.send()
+        # c = {
+        #     "remark" : remark,
+        #     "report": report.url,
+        #     "patient": patient,
+        #     "doctor": d.dname
+        # }
+        # email = render_to_string(email_template_name, c)
+        # try:
+        #  send_mail(subject, email, settings.EMAIL_HOST_USER, [email], fail_silently=False)
+        # except BadHeaderError:
+        #  return HttpResponse('Invalid header found.')
+        # return redirect('reports')
+    return render(request, 'doctors/viewreport.html',{'mh': history})
 
 @login_required
 def patientinfo(request,pk_t):
@@ -176,3 +237,11 @@ def profileEdit(request):
         doc.save()
         return redirect('/doctors/profile/')
 
+@login_required
+def printBill(request, id):
+    data = BillInfo.objects.get(pk=id)
+    # Converting the HTML template into a PDF file
+    pdf = html_to_pdf('doctors/billpdf.html', {'data': data})
+         
+    # rendering the template
+    return HttpResponse(pdf, content_type='application/pdf')
