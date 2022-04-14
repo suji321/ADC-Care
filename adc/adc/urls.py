@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
+from django.conf.urls import handler404
 from clinic.views import landing
 
 
@@ -30,4 +30,4 @@ urlpatterns = [
     path('patients/', include('patients.urls')), 
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
 
-# handler404 = "helpers.views.error"
+handler404 = 'clinic.views.error_404'

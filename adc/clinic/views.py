@@ -120,3 +120,7 @@ def activate(request, uidb64, token):
         return redirect('login')
     else:  
         return HttpResponse('Activation link is invalid!')  
+
+def error_404(request, exception):
+        data = {}
+        return render(request,'error.html', data)
