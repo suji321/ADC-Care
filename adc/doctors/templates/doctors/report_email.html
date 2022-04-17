@@ -1,0 +1,29 @@
+<!-- {% autoescape off %}
+Hello,
+
+The report of the patient {{patient}} is attached below.
+
+Report:
+
+
+Remarks:
+{{remark}}
+
+Sincerely,
+{{doctor}}
+{% endautoescape %} -->
+
+<html>
+<body>
+<table>
+ <tr><td>Hello,</td></tr>
+ <tr><td>The report of the patient {{patient}} is attached below.</td></tr>
+ <tr><td>Report:</td></tr>
+ <tr><td><image src="{% url report %}"></td></tr>
+ <tr><td>Remarks:</td></tr>
+ <tr><td>{{remark}}</td></tr>
+ <tr><td>Sincerely,</td></tr>
+  <tr><td>{{doctor}},</td></tr>
+</table>
+</body>
+</html>

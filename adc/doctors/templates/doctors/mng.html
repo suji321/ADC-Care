@@ -3,7 +3,6 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/components.css' %}" />
 <title>Add Bill</title>
 {% endblock %} {% block content %}
-
 <div class="manageMain">
   <div class="adcTableContainer">
     <h3>Pending Appointment</h3>
@@ -16,6 +15,9 @@
         <div class="adcCell">Schedule Time</div>
         <div class="adcCell">Action</div>
       </div>
+      {% for message in messages %}
+<span style="color:red">{{ message }}</span>
+{% endfor %}
       <div class="adcRowBody">
         {% for i in apt %}
             {% if i.accepted == False %}

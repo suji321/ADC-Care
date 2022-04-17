@@ -194,7 +194,6 @@ class Manageapt(LoginRequiredMixin,ListView):
             send_mail(subject, email, settings.EMAIL_HOST_USER , [e], fail_silently=False)
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
-        messages.success(request, 'A mail has been sent successfully.')
         # return redirect('password_reset_done')
         return HttpResponseRedirect(request.path)
 

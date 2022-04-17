@@ -23,7 +23,7 @@
     <form class="infoFilter" action="" method="post">
       {% csrf_token %} {% for field in form %}
       <div class="infoFilterInput">
-        {{ field.label_tag }} {{ field }} {{ field.errors }}
+        {{ field.label_tag }} {{ field }} <span style="color:red">{{ field.errors }}</span>
       </div>
       {% endfor %}
       <button type="submit">Request Appointment</button>

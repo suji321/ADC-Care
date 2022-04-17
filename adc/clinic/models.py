@@ -2,6 +2,8 @@ from django.db import models
 #from doctors.models import Doctors
 from django.contrib.auth.models import AbstractUser
 #from patients.models import Patient
+from django.core.validators import MinValueValidator, MaxValueValidator
+import datetime
 
 # Create your models here.
 class User(AbstractUser):
@@ -20,8 +22,8 @@ class MedicalHistory(models.Model):
 
 class Schedule(models.Model):
     STATUS = ( ('Confirmed','Confirmed'), ('Cancel','Cancel'), ('Reschedule','Reschedule'), ('Attended','Attended'), ('Pending','Pending'))
-    scheduleDate = models.DateField()
-    scheduleTime = models.TimeField(blank=True,null=True)
+    scheduleDate = models.DateField(validators =  [MinValueValidator(datetime.date.today), MaxValueValidator(datetime.date.today() + datetime.timedelta(days=14))])
+    scheduleTime = models.TimeField(blank=True, null=True, validators=[MinValueValidator(datetime.time(10,0,0)), MaxValueValidator(datetime.time(18,0,0))])
     accepted = models.BooleanField(default=False)
     accepted_date = models.DateField(auto_now_add=False, null=True, blank=True)
     request = models.TextField(blank=True)
