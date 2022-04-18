@@ -199,6 +199,7 @@ class Manageapt(LoginRequiredMixin,ListView):
     context_object_name= "apt"
 
     def post(self, request):
+        time = request.POST.get("time")
         sch_id = request.POST.get("sch-id")
         time = request.POST.get("time")
         apt = Schedule.objects.get(id=sch_id)

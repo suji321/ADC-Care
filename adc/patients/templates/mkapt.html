@@ -20,6 +20,7 @@
   <div class="adcCard">
     <h1 class="adcCardTitle">Request Appointment</h1>
     <div class="adcCardTitle-under"></div>
+    {% if l == 0 %}
     <form class="infoFilter" action="" method="post">
       {% csrf_token %} {% for field in form %}
       <div class="infoFilterInput">
@@ -28,6 +29,11 @@
       {% endfor %}
       <button type="submit">Request Appointment</button>
     </form>
+    {% else %}
+    <div class="adcCardTitle">You already have a pending appointment</div>
+      
+    {% endif %}
+    
   </div>
 </div>
 {% endblock %}

@@ -21,28 +21,58 @@
     Appointment Status
   </h1>
   <div class="appStatuses">
+   
+
+    
+      
+  
+   {% if k != 0 %}
+
+   <div class="appStatus">
+
+    <div>
+      <h1>Dr. {{apt.doctor.dname}}</h1>
+      <time>{{apt.scheduleTime}}, {{apt.scheduleDate}}</time>
+    </div>
+    <span class="accepted">{{apt.status}}</span>
+  </div>
+     
+   
+
+    {% elif l != 0 %}
+
     <div class="appStatus">
       <div>
-        <h1>Dr. Aleena</h1>
-        <time>13:00, 13 April 2022</time>
+        <h1>Dr. {{pendapt.doctor.dname}}</h1>
+        <time> {{pendapt.scheduleDate}}</time>
       </div>
-      <span class="accepted">Accepted</span>
+      <span class="pending">{{pendapt.status}}</span>
     </div>
+   
+
+    {% else %}
+
     <div class="appStatus">
+
       <div>
-        <h1>Dr. Tanya</h1>
-        <time>13:00, 13 April 2022</time>
-      </div>
-      <span class="pending">Pending</span>
+       
+      <span class="rejected">No Appointment Status Available</span>
     </div>
-    <div class="appStatus">
+
+
+
+    
+
+    {% endif %}
+    <!-- <div class="appStatus">
       <div>
         <h1>Dr. Aleena</h1>
         <time>13:00, 13 April 2022</time>
       </div>
       <span class="rejected">Rejected</span>
-    </div>
+    </div> -->
   </div>
+
 
   <br />
   <div class="adcTableContainer">
