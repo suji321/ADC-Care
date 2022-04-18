@@ -5,7 +5,6 @@ class Doctors(models.Model):
     ROLE = (
 			('Doctor', 'Doctor'),
 			('Staff', 'Staff'),
-			
 			)
     user = models.OneToOneField(User, on_delete= models.CASCADE, primary_key= True)
     dname = models.CharField(max_length=200, null=True)

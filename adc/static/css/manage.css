@@ -2,9 +2,36 @@
   margin: 100px auto 20px auto;
   width: 80%;
 }
-
+.tableForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .manageMain h3 {
   font-size: 21px;
   font-weight: 600;
   margin-bottom: 10px;
+}
+
+.manage button {
+  background-color: white;
+  font-family: Poppins;
+  color: dodgerblue;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+  border: none;
+  padding: 0 50px;
+  border-radius: 10px;
+  margin: 10px auto;
+  cursor: pointer;
+  transition: all 0.4s ease-in;
+  height: 45px;
+}
+
+.manage button:hover {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.manage button:hover a {
+  color: white;
 }

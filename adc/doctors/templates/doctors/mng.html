@@ -28,11 +28,11 @@
                 <div class="adcCell">{{i.request}}</div>
                 <div class="adcCell">{{i.scheduleTime}}</div> 
                 <div class="adcCell">
-                    <form action="" method="post">
+                    <form action="" method="post" class="tableForm">
                         {% csrf_token %}
-                        <input type="time" name="time" /></td>
+                        <input class="adcInputTime" type="time" name="time" /></td>
                         <input hidden="true" name="sch-id" value="{{i.id}}">
-                        <input type="submit" name="Accept">
+                        <input class="adcBtn adcBtn-solid" type="submit" name="Accept">
                     </form>
                 </div> 
             </div>
@@ -44,12 +44,11 @@
     <br />
     <br />
     <br />
-
     
-    <div class="headerLinks">
-      <a href="{% url 'atdapt'  %}">Manage Appointment</a>
-     
-    </div>
+<div class="manage">
+      <a href="{% url 'atdapt'  %}"><button type="submit">Manage Appointment</button></a>
+    </button>
+  </div>
   </div>
 </div>  
 
