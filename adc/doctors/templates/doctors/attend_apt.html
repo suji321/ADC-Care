@@ -1,11 +1,14 @@
 {% extends 'doctors/navbar.html' %} {% load static %} {% block head %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/manage.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/components.css' %}" />
-<title>Manage Appointment</title>
+<title>Add Bill</title>
 {% endblock %} {% block content %}
 <div class="manageMain">
   <div class="adcTableContainer">
-    <h3>Pending Appointment</h3>
+    
+
+    
+    <h3>Accepted Appointment</h3>
     <div class="adcTable">
       <div class="adcRow adcHead">
         <div class="adcCell">Schedule Date</div>
@@ -13,42 +16,32 @@
         <div class="adcCell">Doctor</div>
         <div class="adcCell">Request</div>
         <div class="adcCell">Schedule Time</div>
-        <div class="adcCell">Action</div>
+        <div class="adcCell">Accepted Time</div>
+        <div class="adcCell">Attended</div>
+
       </div>
-      {% for message in messages %}
-<span style="color:red">{{ message }}</span>
-{% endfor %}
       <div class="adcRowBody">
         {% for i in apt %}
-            {% if i.accepted == False %}
+            {% if i.accepted == True %}
             <div class="adcRow">
                 <div class="adcCell">{{i.scheduleDate}}</div>
                 <div class="adcCell">{{i.patient.pname}}</div>
                 <div class="adcCell">{{i.doctor.dname}}</div>
                 <div class="adcCell">{{i.request}}</div>
                 <div class="adcCell">{{i.scheduleTime}}</div> 
+                <div class="adcCell">{{i.accepted_date}}</div> 
                 <div class="adcCell">
-                    <form action="" method="post">
-                        {% csrf_token %}
-                        <input type="time" name="time" /></td>
-                        <input hidden="true" name="sch-id" value="{{i.id}}">
-                        <input type="submit" name="Accept">
-                    </form>
-                </div> 
+                  <form action="" method="post">
+                      {% csrf_token %}
+                      <input hidden="true" name="sch-id" value="{{i.id}}">
+                      <input type="submit" name="Accept" value="Attended" /></td>
+                  </form>
+              </div> 
+                
             </div>
             {% endif %}
         {% endfor %}
       </div>
-    </div>
-
-    <br />
-    <br />
-    <br />
-
-    
-    <div class="headerLinks">
-      <a href="{% url 'atdapt'  %}">Manage Appointment</a>
-     
     </div>
   </div>
 </div>  

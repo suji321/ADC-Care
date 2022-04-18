@@ -167,6 +167,31 @@ def home(request):
     d = Doctors.objects.get(pk=request.user)
     return render(request, 'doctors/home.html',{'s':s, 'doc': doc,'d':d})
 
+class Attendedapt(LoginRequiredMixin,ListView):
+    template_name = "doctors/attend_apt.html"
+    model = Schedule
+    context_object_name= "apt"
+
+    def post(self, request):
+        sch_id = request.POST.get("sch-id")
+        apt = Schedule.objects.get(id=sch_id)
+        apt.delete()
+        
+        return HttpResponseRedirect(request.path)
+
+    
+    def get_context_data(self,*args, **kwargs):
+       
+        context= super().get_context_data(**kwargs)
+        apt = Schedule.objects.all()
+        context.update({
+            
+            "title":"Manage Appointment"
+
+        })
+        return context
+
+
 
 class Manageapt(LoginRequiredMixin,ListView):
     template_name = "doctors/mng.html"
@@ -174,6 +199,10 @@ class Manageapt(LoginRequiredMixin,ListView):
     context_object_name= "apt"
 
     def post(self, request):
+        apt = Schedule.objects.get(id=sch_id)
+        # if request.POST.get('')=='Attended':
+        #     apt.delete()
+
         time = request.POST.get("time")
         sch_id = request.POST.get("sch-id")
         apt = Schedule.objects.get(id=sch_id)
@@ -181,6 +210,7 @@ class Manageapt(LoginRequiredMixin,ListView):
         e = apt.patient.email
         apt.scheduleTime=time
         apt.accepted = True
+        apt.status= 'Confirmed'
         apt.accepted_date = datetime.datetime.now()
         apt.save()
         subject = "Appointment Confirmed"

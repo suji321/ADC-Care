@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'clinic',
     'widget_tweaks',
     'crispy_forms',
-    'bootstrap_datepicker_plus',
     # 'adc',
 ]
 

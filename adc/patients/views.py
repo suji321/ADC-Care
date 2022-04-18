@@ -48,10 +48,14 @@ def createappt(request):
     p = Patient.objects.get(pk=request.user.pk)
     if form.is_valid():
       form.instance.patient=p
+      form.instance.status='Pending'
       form.save()
       return redirect('patland/')
   context={'form':form}
   return render(request, 'mkapt.html', context)
+
+
+  
 
 
 
