@@ -21,7 +21,7 @@ class MedicalHistory(models.Model):
 	    return self.remarks
 
 class Schedule(models.Model):
-    STATUS = ( ('Confirmed','Confirmed'), ('Cancel','Cancel'), ('Attended','Attended'), ('Pending','Pending'))
+    STATUS = ( ('Confirmed','Confirmed'), ('Pending','Pending'))
     scheduleDate = models.DateField(validators =  [MinValueValidator(datetime.date.today), MaxValueValidator(datetime.date.today() + datetime.timedelta(days=14))])
     scheduleTime = models.TimeField(blank=True, null=True, validators=[MinValueValidator(datetime.time(10,0,0)), MaxValueValidator(datetime.time(18,0,0))])
     accepted = models.BooleanField(default=False)

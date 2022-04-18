@@ -18,7 +18,12 @@ def patland(request):
   pat = Patient.objects.get(pk=request.user)
   press = pat.prescription_set.all()
   rep = pat.medicalhistory_set.all()
-  return render(request, 'patland.html', {'p':p, 'press': press, 'rep':rep})
+  apt=pat.schedule_set.filter(status='Confirmed').last()
+  pendapt=pat.schedule_set.filter(status='Pending').last()
+  l=pat.schedule_set.filter(status='Pending').count()
+  k=pat.schedule_set.filter(status='Confirmed').count()
+  print(l)
+  return render(request, 'patland.html', {'p':p, 'press': press, 'rep':rep, 'apt':apt,'pendapt':pendapt,'l':l,'k':k})
 
 def patinfo(request):
   p = Patient.objects.get(user_id=request.user)
@@ -42,16 +47,19 @@ def prescription(request, pid):
 
 def createappt(request):
   form=ScheduleForm()
+  p = Patient.objects.get(pk=request.user.pk)
+  l=p.schedule_set.filter(status='Pending').count()
 
   if request.method == 'POST':
     form=ScheduleForm(request.POST)
-    p = Patient.objects.get(pk=request.user.pk)
+   
+  
     if form.is_valid():
       form.instance.patient=p
       form.instance.status='Pending'
       form.save()
       return redirect('patland/')
-  context={'form':form}
+  context={'form':form,'l':l}
   return render(request, 'mkapt.html', context)
 
 
