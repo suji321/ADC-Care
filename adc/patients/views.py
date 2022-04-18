@@ -39,10 +39,10 @@ def patbill(request):
   bill = p.billinfo_set.all()
   return render(request, 'patbill.html', {'bill':bill})
 
-def prescription(request, pid):
-  p = Patient.objects.get(pk=pid)
-  press = p.prescription_set.all()
-  return render(request, 'patpres.html', {'press': press})
+# def prescription(request, pid):
+#   p = Patient.objects.get(pk=pid)
+#   press = p.prescription_set.all()
+#   return render(request, 'patpres.html', {'press': press})
 
 
 def createappt(request):
@@ -82,11 +82,10 @@ def profileEdit(request):
         return redirect('/patients/info/')
 
 #for pdf
-class GenerateBillPdf(View):
-   def get(self, request, *args, **kwargs):
-      data = Prescription.objects.all().last()
-        # Converting the HTML template into a PDF file
-      pdf = html_to_pdf('prescription_pdf.html', {'data': data})
-         
-         # rendering the template
-      return HttpResponse(pdf, content_type='application/pdf')        
+def printPres(request,id):
+  p = Patient.objects.get(user_id=request.user)
+  data = p.prescription_set.get(pk=id)
+
+  pdf = html_to_pdf('prescription_pdf.html', {'data': data})
+
+  return HttpResponse(pdf, content_type='application/pdf')   

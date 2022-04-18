@@ -96,7 +96,7 @@
           <div class="adcCell">{{press.date_created}}</div>
           <div class="adcCell">{{press.direction}}</div>
           <div class="adcCell">{{press.remarks}}</div>
-          <div class="adcCell"><a href="{% url 'prescrippdf' %}">Print</a></div>
+          <div class="adcCell"><a href="{% url 'prescrippdf' press.id %}">Print</a></div>
         </div>
         {% endfor %}
       </div>

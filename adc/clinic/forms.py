@@ -4,7 +4,6 @@ from patients.models import Patient
 from .models import User, BillInfo
 from doctors.models import Doctors
 from django import forms
-#from django.core.validators import validate_email
 from .token import account_activation_token
 from django.conf import settings
 from django.http import HttpResponse
@@ -36,11 +35,11 @@ class PatientSignUpForm(UserCreationForm):
             raise forms.ValidationError('Phone number must have 10 digits')
         return phone
 
-    # def clean_email(self):
-    #     email = self.cleaned_data.get('email')
-    #     if not validate_email(email):
-    #         raise forms.ValidationError('Invalid email')
-    #     return email
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if len(username) < 5:
+            raise forms.ValidationError('Username should have atlest 5 characters')
+        return username
 
     @transaction.atomic
     def save(self):
@@ -97,11 +96,13 @@ class DoctorSignUpForm(UserCreationForm):
             raise forms.ValidationError('Phone number must have 10 digits')
         return phone
 
-    # def clean_email(self):
-    #     email = self.cleaned_data.get('email')
-    #     if not validate_email(email):
-    #         raise forms.ValidationError('Invalid email')
-    #     return email
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if len(username) < 5:
+            raise forms.ValidationError('Username should have atlest 5 characters')
+        return username
+
+
 
     @transaction.atomic
     def save(self):
@@ -120,16 +121,3 @@ class DoctorSignUpForm(UserCreationForm):
         doctor.address = self.cleaned_data.get('address')
         doctor.save()
         return user
-
-# class BillForm(forms.ModelForm):
-#     class Meta:
-#      model = BillInfo
-#      fields = ('bdate','payment','status','patient','doctor')
-
-#      widgets = {
-#         'bdate': forms.DateInput(),
-#         'doctor': forms.Select(),
-#         'patient': forms.Select(),
-#         'payment': forms.TextInput(),
-#         'status': forms.Select(attrs={'class': 'form-control'})
-#      }

@@ -102,13 +102,13 @@ def password_reset_request(request):
                         send_mail(subject, email, settings.EMAIL_HOST_USER, [user.email], fail_silently=False)
                     except BadHeaderError:
                         return HttpResponse('Invalid header found.')
-                    messages.success(request, 'A message with reset password instructions has been sent to your inbox.')
+                   
                     return redirect('password_reset_done')
     password_reset_form = PasswordResetForm()
     return render(request, 'password/password_reset.html', {'password_reset_form':password_reset_form})
 
 def activate(request, uidb64, token):  
-   # User = get_user_model()  
+ 
     try:  
         uid = force_str(urlsafe_base64_decode(uidb64))  
         user = User.objects.get(pk=uid)  
