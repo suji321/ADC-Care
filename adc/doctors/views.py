@@ -113,8 +113,11 @@ def createreport(request):
 def home(request):
     s=Schedule.objects.all()
     doc = Doctors.objects.all()
+    p =Patient.objects.all()
+    p_cnt = p.count()
+    d_cnt = doc.count()
     d = Doctors.objects.get(pk=request.user)
-    return render(request, 'doctors/home.html',{'s':s, 'doc': doc,'d':d})
+    return render(request, 'doctors/home.html',{'s':s, 'doc': doc,'d':d,'p_cnt':p_cnt,'d_cnt':d_cnt})
 
 class Attendedapt(LoginRequiredMixin,ListView):
     template_name = "doctors/attend_apt.html"
